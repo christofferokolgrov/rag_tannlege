@@ -1,4 +1,3 @@
-import openai
 import streamlit as st
 
 from tannhelse.config import DB_PATH
@@ -44,6 +43,10 @@ if query:
                 kontekst_chunks=chunks,
                 query=query,
             )
+
+        # Lazy: only pay the ~12s `import openai` cost when the user actually
+        # submits a query, not on page load.
+        import openai
 
         try:
             answer = st.write_stream(stream_chat(messages))

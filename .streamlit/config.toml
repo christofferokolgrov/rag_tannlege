@@ -1,0 +1,6 @@
+[server]
+# Default "auto" file watcher walks the whole workspace (.venv, docs/, store.db)
+# on every WebSocket session and blocked first-page-load by 30-45s in a Codespace
+# shell. We don't ship hot-reload for this app, so disable the watcher entirely.
+fileWatcherType = "none"
+headless = true

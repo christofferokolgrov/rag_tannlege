@@ -1,11 +1,13 @@
 from typing import Iterable
 
-from openai import OpenAI
-
 from tannhelse.config import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, LLM_MODEL
 
 
-def _client() -> OpenAI:
+def _client():
+    # Lazy import keeps `import openai` (~12s cold start) off the import path
+    # of any caller — it only runs when the user actually sends a query.
+    from openai import OpenAI
+
     if not DEEPSEEK_API_KEY:
         raise RuntimeError("DEEPSEEK_API_KEY is not set. Add it to .env.")
     return OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
