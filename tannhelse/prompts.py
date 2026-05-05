@@ -18,15 +18,6 @@ Regler du må følge strengt:
 """
 
 
-def format_kontekst(chunks) -> str:
-    blocks = []
-    for i, chunk in enumerate(chunks, start=1):
-        blocks.append(
-            f"[{i}] {chunk.document} — {chunk.section_label}\n{chunk.text}"
-        )
-    return "KONTEKST:\n\n" + "\n\n".join(blocks)
-
-
 def _format_kontekst_block(chunks) -> str:
     if not chunks:
         return "KONTEKST: (ingen relevante utdrag)"
