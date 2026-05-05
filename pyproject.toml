@@ -10,6 +10,7 @@ dependencies = [
     "pyyaml>=6.0",
     "sqlite-vec>=0.1.6",
     "streamlit>=1.36",
+    "tiktoken>=0.7",
 ]
 
 [dependency-groups]
