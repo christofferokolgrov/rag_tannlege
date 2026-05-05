@@ -4,3 +4,4 @@ __pycache__/
 .env
 store.db
 .streamlit/
+.claude/scheduled_tasks.lock
