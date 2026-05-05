@@ -1,25 +1,58 @@
 import hashlib
+import json
+import re
 import sys
 from pathlib import Path
 
+import fitz
+
 from tannhelse.chunking import chunk_spans
-from tannhelse.config import DB_PATH, DOCS_DIR
+from tannhelse.config import DB_PATH, DOCS_DIR, DOCS_YAML
+from tannhelse.docs_yaml import load_overrides
 from tannhelse.embedding import embed_texts
 from tannhelse.parsing import parse_pdf
 from tannhelse.store import Store
 
-
-def _document_title(path: Path) -> str:
-    return path.stem
-
-
-def _content_hash(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+_FILENAME_CLEAN_RE = re.compile(r"[_\-]+")
+_WHITESPACE_RE = re.compile(r"\s+")
 
 
-def _ingest_one(path: Path, store: Store) -> int:
-    document = _document_title(path)
-    chash = _content_hash(path)
+def _clean_filename_stem(stem: str) -> str:
+    cleaned = _FILENAME_CLEAN_RE.sub(" ", stem)
+    return _WHITESPACE_RE.sub(" ", cleaned).strip()
+
+
+def _pdf_metadata_title(path: Path) -> str:
+    try:
+        with fitz.open(path) as doc:
+            return (doc.metadata.get("title") or "").strip()
+    except Exception:
+        return ""
+
+
+def _document_title(path: Path, override: dict[str, str]) -> str:
+    """Resolve the `short_title` (stored in chunks.document).
+
+    Order: docs.yaml short_title → PDF metadata title → cleaned filename stem.
+    """
+    short = (override.get("short_title") or "").strip()
+    if short:
+        return short
+    meta = _pdf_metadata_title(path)
+    if meta:
+        return meta
+    return _clean_filename_stem(path.stem)
+
+
+def _content_hash(path: Path, override: dict[str, str]) -> str:
+    file_bytes = path.read_bytes()
+    entry_blob = json.dumps(override, sort_keys=True).encode("utf-8")
+    return hashlib.sha256(file_bytes + b"\n" + entry_blob).hexdigest()
+
+
+def _ingest_one(path: Path, store: Store, override: dict[str, str]) -> int:
+    document = _document_title(path, override)
+    chash = _content_hash(path, override)
     spans = list(parse_pdf(path))
     chunks = list(
         chunk_spans(
@@ -44,6 +77,10 @@ def main() -> int:
         print(f"docs dir not found: {DOCS_DIR}", file=sys.stderr)
         return 1
 
+    # Load overrides up front so a malformed docs.yaml fails before we touch
+    # any PDFs (per spec: clear error, not silent skip).
+    overrides = load_overrides(DOCS_YAML)
+
     pdfs = sorted(DOCS_DIR.rglob("*.pdf"))
     if not pdfs:
         print(f"no PDFs in {DOCS_DIR}")
@@ -53,7 +90,8 @@ def main() -> int:
     try:
         for pdf in pdfs:
             try:
-                n = _ingest_one(pdf, store)
+                entry = overrides.get(pdf.name, {})
+                n = _ingest_one(pdf, store, entry)
                 print(f"  {pdf.name}: {n} chunks")
             except Exception as e:
                 print(f"  {pdf.name}: FAILED ({e})", file=sys.stderr)
