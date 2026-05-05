@@ -1,4 +1,9 @@
-from tannhelse.parsing import is_heading, numeric_heading_path, section_for_heading
+from tannhelse.parsing import (
+    is_heading,
+    is_toc_page,
+    numeric_heading_path,
+    section_for_heading,
+)
 
 
 def test_single_digit_numeric_heading_returns_single_element_path():
@@ -96,3 +101,49 @@ def test_non_numeric_heading_uses_text_as_both_path_and_label():
     path, label = section_for_heading("Bakgrunn")
     assert path == "Bakgrunn"
     assert label == "Bakgrunn"
+
+
+def test_hyphen_terminated_line_is_not_heading_even_in_oversized_font():
+    # Mid-word line continuations end in a hyphen. They get a large font on
+    # TOC pages but they are not section labels.
+    assert not is_heading(
+        "finansering av tannhelse-",
+        font_size=14.0,
+        bold=False,
+        page_median=10.0,
+    )
+
+
+def test_toc_page_with_majority_heading_candidates_is_detected():
+    # 10 lines, all heading-shaped (large font, alpha, no dot leaders).
+    lines = [(f"Utvalgets {i} mandat", 14.0, False) for i in range(10)]
+    assert is_toc_page(lines, page_median=10.0) is True
+
+
+def test_normal_body_page_is_not_toc_page():
+    # 1 heading + 14 body lines.
+    lines = [("Bakgrunn", 14.0, False)] + [
+        ("Dette er vanlig brødtekst som er ganske lang.", 10.0, False)
+        for _ in range(14)
+    ]
+    assert is_toc_page(lines, page_median=10.0) is False
+
+
+def test_short_page_is_not_toc_page_even_if_all_headings():
+    # < TOC_PAGE_MIN_LINES (8) so we don't trip on title pages or chapter
+    # opener pages with only a few large-font lines.
+    lines = [("Kapittel 1", 14.0, False), ("Innledning", 14.0, False)]
+    assert is_toc_page(lines, page_median=10.0) is False
+
+
+def test_toc_page_threshold_at_60_percent():
+    # 10 lines, 6 headings → exactly 60%, should be TOC.
+    lines = [("Stort kapittel", 14.0, False)] * 6 + [
+        ("Kort brødtekst.", 10.0, False)
+    ] * 4
+    assert is_toc_page(lines, page_median=10.0) is True
+    # 10 lines, 5 headings → 50%, should NOT be TOC.
+    lines2 = [("Stort kapittel", 14.0, False)] * 5 + [
+        ("Kort brødtekst.", 10.0, False)
+    ] * 5
+    assert is_toc_page(lines2, page_median=10.0) is False

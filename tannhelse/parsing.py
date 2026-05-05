@@ -12,6 +12,8 @@ _BOLD_SHORT_MAX_WORDS = 8
 _FONT_HEADING_RATIO = 1.15
 _FITZ_BOLD_FLAG = 16
 _SENTENCE_TERMINATORS = (".", "!", "?")
+_TOC_PAGE_HEADING_FRACTION = 0.6
+_TOC_PAGE_MIN_LINES = 8
 
 _NO_HEADING_LABEL = "(uten kapitteltittel)"
 
@@ -31,6 +33,9 @@ def is_heading(text, font_size, bold, page_median):
     if _TOC_DOT_LEADER_RE.search(text):
         return False
     if not _HAS_ALPHA_RE.search(text):
+        return False
+    # Hyphen-terminated lines are mid-word continuations, not section labels.
+    if text.rstrip().endswith("-"):
         return False
     if numeric_heading_path(text) is not None:
         # Footnote bodies (smaller font) start with a digit too; only treat
@@ -53,6 +58,21 @@ def section_for_heading(text):
     if path is not None:
         return "/".join(path), f"Kap. {text}"
     return text, text
+
+
+def is_toc_page(lines: list[tuple[str, float, bool]], page_median: float) -> bool:
+    """A TOC page has many heading-shaped lines and few body-text lines.
+
+    Used to suppress heading detection on TOC pages, where wrapped entries
+    like "Utvalgets mandat," and "finansering av tannhelse-" otherwise
+    trigger the font heuristic and produce hundreds of spurious sections.
+    """
+    if len(lines) < _TOC_PAGE_MIN_LINES:
+        return False
+    candidates = sum(
+        1 for text, size, bold in lines if is_heading(text, size, bold, page_median)
+    )
+    return candidates / len(lines) >= _TOC_PAGE_HEADING_FRACTION
 
 
 @dataclass(frozen=True)
@@ -104,13 +124,19 @@ def parse_pdf(path: Path) -> Iterable[ParsedSpan]:
                         section_label=section_label,
                     )
 
-            for text, size, bold in lines:
-                if is_heading(text, size, bold, page_median):
-                    yield from flush()
-                    buffer.clear()
-                    section_path, section_label = section_for_heading(text)
-                else:
+            if is_toc_page(lines, page_median):
+                # TOC pages: keep text as body under the current section,
+                # don't promote any line to a heading.
+                for text, _size, _bold in lines:
                     buffer.append(text)
+            else:
+                for text, size, bold in lines:
+                    if is_heading(text, size, bold, page_median):
+                        yield from flush()
+                        buffer.clear()
+                        section_path, section_label = section_for_heading(text)
+                    else:
+                        buffer.append(text)
 
             yield from flush()
 
