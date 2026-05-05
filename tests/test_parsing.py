@@ -23,8 +23,24 @@ def test_bare_number_without_following_text_returns_none():
     assert numeric_heading_path("8 ") is None
 
 
-def test_numeric_pattern_is_heading_regardless_of_font():
+def test_numeric_heading_at_or_above_page_median_is_heading():
     assert is_heading("8.3 Finansieringsmodell", font_size=10.0, bold=False, page_median=10.0)
+
+
+def test_numeric_prefix_with_smaller_font_is_footnote_not_heading():
+    # Footnote bodies start with a digit but are typeset smaller than body.
+    assert not is_heading(
+        "2 www.helsedirektoratet.no/veiledere/god-klinisk-praksis-i-...",
+        font_size=8.0,
+        bold=False,
+        page_median=10.0,
+    )
+    assert not is_heading(
+        "5 Tilrettelagt tannhelsetilbud til tortur- og overgrepsutsatte",
+        font_size=8.5,
+        bold=False,
+        page_median=10.0,
+    )
 
 
 def test_oversized_font_is_heading_even_without_numeric_or_bold():

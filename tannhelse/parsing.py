@@ -33,7 +33,10 @@ def is_heading(text, font_size, bold, page_median):
     if not _HAS_ALPHA_RE.search(text):
         return False
     if numeric_heading_path(text) is not None:
-        return True
+        # Footnote bodies (smaller font) start with a digit too; only treat
+        # numeric-prefixed lines as headings when they're at least as large
+        # as the page's median text size.
+        return font_size >= page_median
     if font_size > page_median * _FONT_HEADING_RATIO:
         return True
     if (
