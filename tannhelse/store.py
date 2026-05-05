@@ -101,36 +101,77 @@ class Store:
                     (chunk.chunk_id, chunk.text),
                 )
 
-    def dense_search(self, query_vec: list[float], k: int) -> list[Chunk]:
-        rows = self._conn.execute(
+    def dense_search(
+        self,
+        query_vec: list[float],
+        k: int,
+        documents: list[str] | None = None,
+    ) -> list[Chunk]:
+        if documents:
+            # vec0 MATCH applies kNN before our SQL-level document filter, so
+            # asking for only `k` candidates would leave most filtered out.
+            # Overfetch the full vector pool so the IN filter sees every
+            # candidate ranked by distance.
+            pool = self._conn.execute(
+                "SELECT COUNT(*) FROM vec_chunks"
+            ).fetchone()[0]
+            placeholders = ",".join("?" * len(documents))
+            sql = f"""
+                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
+                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
+                FROM vec_chunks v
+                JOIN chunks c ON c.chunk_id = v.chunk_id
+                WHERE v.embedding MATCH ? AND k = ? AND c.document IN ({placeholders})
+                ORDER BY v.distance
+                LIMIT ?
             """
-            SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                   c.section_path, c.section_label, c.page_start, c.page_end, c.text
-            FROM vec_chunks v
-            JOIN chunks c ON c.chunk_id = v.chunk_id
-            WHERE v.embedding MATCH ? AND k = ?
-            ORDER BY v.distance
-            """,
-            (_serialize_vector(query_vec), k),
-        ).fetchall()
+            params = (_serialize_vector(query_vec), pool, *documents, k)
+        else:
+            sql = """
+                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
+                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
+                FROM vec_chunks v
+                JOIN chunks c ON c.chunk_id = v.chunk_id
+                WHERE v.embedding MATCH ? AND k = ?
+                ORDER BY v.distance
+            """
+            params = (_serialize_vector(query_vec), k)
+        rows = self._conn.execute(sql, params).fetchall()
         return [Chunk(*row) for row in rows]
 
-    def bm25_search(self, query: str, k: int) -> list[Chunk]:
+    def bm25_search(
+        self,
+        query: str,
+        k: int,
+        documents: list[str] | None = None,
+    ) -> list[Chunk]:
         fts_query = _build_fts_query(query)
         if not fts_query:
             return []
-        rows = self._conn.execute(
+        if documents:
+            placeholders = ",".join("?" * len(documents))
+            sql = f"""
+                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
+                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
+                FROM chunks_fts f
+                JOIN chunks c ON c.chunk_id = f.chunk_id
+                WHERE f.text MATCH ? AND c.document IN ({placeholders})
+                ORDER BY bm25(chunks_fts)
+                LIMIT ?
             """
-            SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                   c.section_path, c.section_label, c.page_start, c.page_end, c.text
-            FROM chunks_fts f
-            JOIN chunks c ON c.chunk_id = f.chunk_id
-            WHERE f.text MATCH ?
-            ORDER BY bm25(chunks_fts)
-            LIMIT ?
-            """,
-            (fts_query, k),
-        ).fetchall()
+            params = (fts_query, *documents, k)
+        else:
+            sql = """
+                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
+                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
+                FROM chunks_fts f
+                JOIN chunks c ON c.chunk_id = f.chunk_id
+                WHERE f.text MATCH ?
+                ORDER BY bm25(chunks_fts)
+                LIMIT ?
+            """
+            params = (fts_query, k)
+        rows = self._conn.execute(sql, params).fetchall()
         return [Chunk(*row) for row in rows]
 
     def fts_count(self) -> int:
