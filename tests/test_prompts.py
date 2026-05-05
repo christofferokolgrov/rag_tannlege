@@ -1,10 +1,10 @@
 from types import SimpleNamespace
 
-from tannhelse.prompts import parse_citations
+from tannhelse.prompts import SYSTEM_PROMPT, build_messages, parse_citations
 
 
-def _chunk(document: str, section_label: str) -> SimpleNamespace:
-    return SimpleNamespace(document=document, section_label=section_label)
+def _chunk(document: str, section_label: str, text: str = "") -> SimpleNamespace:
+    return SimpleNamespace(document=document, section_label=section_label, text=text)
 
 
 def test_single_marker_renders_one_source_in_kilder_block():
@@ -44,3 +44,75 @@ def test_no_markers_returns_empty_string():
     answer = "Dette finner jeg ikke i de tilgjengelige dokumentene."
 
     assert parse_citations(answer, chunks) == ""
+
+
+def test_build_messages_system_prompt_is_always_first():
+    chunks = [_chunk(document="A", section_label="s. 1", text="alpha")]
+
+    msgs = build_messages(history=[], kontekst_chunks=chunks, query="Hva?")
+
+    assert msgs[0] == {"role": "system", "content": SYSTEM_PROMPT}
+
+
+def test_build_messages_empty_history_yields_system_plus_user():
+    chunks = [_chunk(document="A", section_label="s. 1", text="alpha")]
+
+    msgs = build_messages(history=[], kontekst_chunks=chunks, query="Hva er X?")
+
+    assert len(msgs) == 2
+    assert msgs[0]["role"] == "system"
+    assert msgs[1]["role"] == "user"
+    assert "SPØRSMÅL: Hva er X?" in msgs[1]["content"]
+
+
+def test_build_messages_kontekst_block_uses_numbered_markers():
+    chunks = [
+        _chunk(document="A", section_label="s. 1", text="første"),
+        _chunk(document="B", section_label="s. 2", text="andre"),
+        _chunk(document="C", section_label="s. 3", text="tredje"),
+    ]
+
+    msgs = build_messages(history=[], kontekst_chunks=chunks, query="Q")
+    user_content = msgs[-1]["content"]
+
+    assert "[1] første" in user_content
+    assert "[2] andre" in user_content
+    assert "[3] tredje" in user_content
+    assert user_content.startswith("KONTEKST:")
+    assert "SPØRSMÅL: Q" in user_content
+
+
+def test_build_messages_truncates_history_to_last_six():
+    history = [
+        {"role": "user", "content": "u1"},
+        {"role": "assistant", "content": "a1"},
+        {"role": "user", "content": "u2"},
+        {"role": "assistant", "content": "a2"},
+        {"role": "user", "content": "u3"},
+        {"role": "assistant", "content": "a3"},
+        {"role": "user", "content": "u4"},
+        {"role": "assistant", "content": "a4"},
+    ]
+
+    msgs = build_messages(history=history, kontekst_chunks=[], query="now")
+
+    # system + last 6 history + new user
+    assert len(msgs) == 1 + 6 + 1
+    assert msgs[0]["role"] == "system"
+    middle = msgs[1:-1]
+    assert [m["content"] for m in middle] == ["u2", "a2", "u3", "a3", "u4", "a4"]
+    assert msgs[-1]["role"] == "user"
+    assert "SPØRSMÅL: now" in msgs[-1]["content"]
+
+
+def test_build_messages_short_history_passes_through():
+    history = [
+        {"role": "user", "content": "u1"},
+        {"role": "assistant", "content": "a1"},
+    ]
+
+    msgs = build_messages(history=history, kontekst_chunks=[], query="next")
+
+    assert len(msgs) == 1 + 2 + 1
+    assert msgs[1]["content"] == "u1"
+    assert msgs[2]["content"] == "a1"

@@ -27,7 +27,17 @@ def format_kontekst(chunks) -> str:
     return "KONTEKST:\n\n" + "\n\n".join(blocks)
 
 
-def build_messages(history: list[dict], kontekst: str, query: str) -> list[dict]:
+def _format_kontekst_block(chunks) -> str:
+    if not chunks:
+        return "KONTEKST: (ingen relevante utdrag)"
+    body = "\n".join(f"[{i}] {chunk.text}" for i, chunk in enumerate(chunks, start=1))
+    return f"KONTEKST: {body}"
+
+
+def build_messages(
+    history: list[dict], kontekst_chunks: list, query: str
+) -> list[dict]:
+    kontekst = _format_kontekst_block(kontekst_chunks)
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
         *history[-6:],

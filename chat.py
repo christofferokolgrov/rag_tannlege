@@ -1,8 +1,9 @@
+import openai
 import streamlit as st
 
 from tannhelse.config import DB_PATH
-from tannhelse.llm import chat as llm_chat
-from tannhelse.prompts import build_messages, format_kontekst, parse_citations
+from tannhelse.llm import stream_chat
+from tannhelse.prompts import build_messages, parse_citations
 from tannhelse.retrieval import retrieve
 from tannhelse.store import Store
 
@@ -36,17 +37,26 @@ if query:
         st.markdown(query)
 
     with st.chat_message("assistant"):
-        with st.spinner("Henter kontekst og svarer…"):
+        with st.spinner("Henter kontekst…"):
             chunks = retrieve(query, store)
-            kontekst = format_kontekst(chunks)
             messages = build_messages(
                 history=st.session_state.messages[:-1],
-                kontekst=kontekst,
+                kontekst_chunks=chunks,
                 query=query,
             )
-            answer = llm_chat(messages)
-            kilder = parse_citations(answer, chunks)
-            full = answer if not kilder else f"{answer}\n\n{kilder}"
-        st.markdown(full)
+
+        try:
+            answer = st.write_stream(stream_chat(messages))
+        except openai.APIError as exc:
+            st.error(f"Feil under svar fra modellen: {exc}")
+            # Drop the user turn we appended so chat input stays usable
+            # without polluting history with a half-finished exchange.
+            st.session_state.messages.pop()
+            st.stop()
+
+        kilder = parse_citations(answer, chunks)
+        full = answer if not kilder else f"{answer}\n\n{kilder}"
+        if kilder:
+            st.markdown(kilder)
 
     st.session_state.messages.append({"role": "assistant", "content": full})

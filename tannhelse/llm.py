@@ -1,3 +1,5 @@
+from typing import Iterable
+
 from openai import OpenAI
 
 from tannhelse.config import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, LLM_MODEL
@@ -17,3 +19,20 @@ def chat(messages: list[dict]) -> str:
         max_tokens=1200,
     )
     return resp.choices[0].message.content or ""
+
+
+def stream_chat(messages: list[dict]) -> Iterable[str]:
+    stream = _client().chat.completions.create(
+        model=LLM_MODEL,
+        messages=messages,
+        temperature=0.1,
+        max_tokens=1200,
+        stream=True,
+    )
+    for event in stream:
+        if not event.choices:
+            continue
+        delta = event.choices[0].delta
+        token = getattr(delta, "content", None)
+        if token:
+            yield token
