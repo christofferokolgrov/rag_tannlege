@@ -28,6 +28,15 @@ def test_bare_number_without_following_text_returns_none():
     assert numeric_heading_path("8 ") is None
 
 
+def test_numeric_prefix_followed_by_lowercase_is_not_heading():
+    # Body text like "10 prosent av barna..." or "31. mars" otherwise gets
+    # tagged as Kap. 10 / Kap. 31. Real chapter titles always start with
+    # a capital letter after the number.
+    assert numeric_heading_path("10 prosent av barna") is None
+    assert numeric_heading_path("31. mars 2020") is None
+    assert numeric_heading_path("8 finansiering") is None  # lowercase body line
+
+
 def test_numeric_heading_at_or_above_page_median_is_heading():
     assert is_heading("8.3 Finansieringsmodell", font_size=10.0, bold=False, page_median=10.0)
 
@@ -147,3 +156,24 @@ def test_toc_page_threshold_at_60_percent():
         ("Kort brødtekst.", 10.0, False)
     ] * 5
     assert is_toc_page(lines2, page_median=10.0) is False
+
+
+def test_toc_page_detected_via_dot_leader_density():
+    # Real-world signature: NOU TOC pages have lots of dot-leader lines
+    # ("Sammendrag .........") even though the title-only entries don't
+    # all classify as headings. >=25% dot-leader lines triggers TOC.
+    lines = (
+        [("Sammendrag .................................", 10.0, False)] * 3
+        + [("Utvalgets mandat,", 10.0, True)] * 3
+        + [("Vanlig brødtekst i en setning.", 10.0, False)] * 6
+    )
+    # 3/12 = 25% dot leaders → TOC.
+    assert is_toc_page(lines, page_median=10.0) is True
+
+
+def test_body_page_with_no_dot_leaders_and_few_headings_is_not_toc():
+    # Realistic body page: 1 heading + many body lines, 0 dot leaders.
+    lines = [("Innledning", 14.0, True)] + [
+        ("Dette er en setning av vanlig lengde.", 10.0, False)
+    ] * 30
+    assert is_toc_page(lines, page_median=10.0) is False

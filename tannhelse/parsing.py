@@ -6,13 +6,14 @@ from typing import Iterable
 
 import fitz
 
-_NUMERIC_HEADING_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+\S")
+_NUMERIC_HEADING_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+[A-ZÆØÅ]")
 _TOC_DOT_LEADER_RE = re.compile(r"\.{3,}")
 _BOLD_SHORT_MAX_WORDS = 8
 _FONT_HEADING_RATIO = 1.15
 _FITZ_BOLD_FLAG = 16
 _SENTENCE_TERMINATORS = (".", "!", "?")
 _TOC_PAGE_HEADING_FRACTION = 0.6
+_TOC_PAGE_DOT_LEADER_FRACTION = 0.25
 _TOC_PAGE_MIN_LINES = 8
 
 _NO_HEADING_LABEL = "(uten kapitteltittel)"
@@ -61,14 +62,19 @@ def section_for_heading(text):
 
 
 def is_toc_page(lines: list[tuple[str, float, bool]], page_median: float) -> bool:
-    """A TOC page has many heading-shaped lines and few body-text lines.
+    """A TOC page has either lots of dot-leader lines (the visual TOC
+    signature) or a high fraction of heading-shaped lines.
 
     Used to suppress heading detection on TOC pages, where wrapped entries
     like "Utvalgets mandat," and "finansering av tannhelse-" otherwise
-    trigger the font heuristic and produce hundreds of spurious sections.
+    trigger the bold/font heuristics and produce hundreds of spurious
+    sections.
     """
     if len(lines) < _TOC_PAGE_MIN_LINES:
         return False
+    dot_leaders = sum(1 for text, _, _ in lines if _TOC_DOT_LEADER_RE.search(text))
+    if dot_leaders / len(lines) >= _TOC_PAGE_DOT_LEADER_FRACTION:
+        return True
     candidates = sum(
         1 for text, size, bold in lines if is_heading(text, size, bold, page_median)
     )
