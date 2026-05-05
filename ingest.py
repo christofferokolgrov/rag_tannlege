@@ -50,9 +50,10 @@ def _content_hash(path: Path, override: dict[str, str]) -> str:
     return hashlib.sha256(file_bytes + b"\n" + entry_blob).hexdigest()
 
 
-def _ingest_one(path: Path, store: Store, override: dict[str, str]) -> int:
+def _ingest_one(
+    path: Path, store: Store, override: dict[str, str], chash: str
+) -> int:
     document = _document_title(path, override)
-    chash = _content_hash(path, override)
     spans = list(parse_pdf(path))
     chunks = list(
         chunk_spans(
@@ -63,13 +64,21 @@ def _ingest_one(path: Path, store: Store, override: dict[str, str]) -> int:
         )
     )
     if not chunks:
+        store.replace_for_source_path(str(path), [], [])
         return 0
     texts = [
         f"{c.document} — {c.section_label}\n\n{c.text}" for c in chunks
     ]
     embeddings = embed_texts(texts)
-    store.upsert_chunks(chunks, embeddings)
+    store.replace_for_source_path(str(path), chunks, embeddings)
     return len(chunks)
+
+
+def _prune_orphans(store: Store, on_disk: set[str]) -> None:
+    for _document, source_path in store.list_documents():
+        if source_path not in on_disk:
+            store.delete_by_source_path(source_path)
+            print(f"  removed (orphaned): {Path(source_path).name}")
 
 
 def main() -> int:
@@ -82,16 +91,24 @@ def main() -> int:
     overrides = load_overrides(DOCS_YAML)
 
     pdfs = sorted(DOCS_DIR.rglob("*.pdf"))
-    if not pdfs:
-        print(f"no PDFs in {DOCS_DIR}")
-        return 0
+    on_disk = {str(p) for p in pdfs}
 
     store = Store(DB_PATH)
     try:
+        _prune_orphans(store, on_disk)
+
+        if not pdfs:
+            print(f"no PDFs in {DOCS_DIR}")
+            return 0
+
         for pdf in pdfs:
             try:
                 entry = overrides.get(pdf.name, {})
-                n = _ingest_one(pdf, store, entry)
+                chash = _content_hash(pdf, entry)
+                if store.existing_content_hash(str(pdf)) == chash:
+                    print(f"  skipped (unchanged): {pdf.name}")
+                    continue
+                n = _ingest_one(pdf, store, entry, chash)
                 print(f"  {pdf.name}: {n} chunks")
             except Exception as e:
                 print(f"  {pdf.name}: FAILED ({e})", file=sys.stderr)

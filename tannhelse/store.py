@@ -177,6 +177,82 @@ class Store:
     def fts_count(self) -> int:
         return self._conn.execute("SELECT COUNT(*) FROM chunks_fts").fetchone()[0]
 
+    def existing_content_hash(self, source_path: str) -> str | None:
+        row = self._conn.execute(
+            "SELECT content_hash FROM chunks WHERE source_path = ? LIMIT 1",
+            (source_path,),
+        ).fetchone()
+        return row[0] if row else None
+
+    def delete_by_source_path(self, source_path: str) -> int:
+        with self._conn:
+            return self._delete_by_source_path(source_path)
+
+    def _delete_by_source_path(self, source_path: str) -> int:
+        chunk_ids = [
+            row[0]
+            for row in self._conn.execute(
+                "SELECT chunk_id FROM chunks WHERE source_path = ?",
+                (source_path,),
+            ).fetchall()
+        ]
+        if not chunk_ids:
+            return 0
+        placeholders = ",".join("?" * len(chunk_ids))
+        self._conn.execute(
+            f"DELETE FROM chunks_fts WHERE chunk_id IN ({placeholders})",
+            chunk_ids,
+        )
+        self._conn.execute(
+            f"DELETE FROM vec_chunks WHERE chunk_id IN ({placeholders})",
+            chunk_ids,
+        )
+        self._conn.execute(
+            "DELETE FROM chunks WHERE source_path = ?",
+            (source_path,),
+        )
+        return len(chunk_ids)
+
+    def replace_for_source_path(
+        self,
+        source_path: str,
+        chunks: Iterable[Chunk],
+        embeddings: list[list[float]],
+    ) -> None:
+        chunk_list = list(chunks)
+        assert len(chunk_list) == len(embeddings)
+        with self._conn:
+            self._delete_by_source_path(source_path)
+            for chunk, vec in zip(chunk_list, embeddings):
+                self._conn.execute(
+                    """
+                    INSERT INTO chunks
+                    (chunk_id, document, source_path, content_hash, chunk_index,
+                     section_path, section_label, page_start, page_end, text)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        chunk.chunk_id,
+                        chunk.document,
+                        chunk.source_path,
+                        chunk.content_hash,
+                        chunk.chunk_index,
+                        chunk.section_path,
+                        chunk.section_label,
+                        chunk.page_start,
+                        chunk.page_end,
+                        chunk.text,
+                    ),
+                )
+                self._conn.execute(
+                    "INSERT INTO vec_chunks (chunk_id, embedding) VALUES (?, ?)",
+                    (chunk.chunk_id, _serialize_vector(vec)),
+                )
+                self._conn.execute(
+                    "INSERT INTO chunks_fts (chunk_id, text) VALUES (?, ?)",
+                    (chunk.chunk_id, chunk.text),
+                )
+
     def list_documents(self) -> list[tuple[str, str]]:
         rows = self._conn.execute(
             "SELECT DISTINCT document, source_path FROM chunks ORDER BY document"
