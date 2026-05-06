@@ -1,0 +1,44 @@
+{
+  "klinikk_id": "single__majorstua_tannlegene",
+  "extracted_count": 6,
+  "dropped_count": 0,
+  "dropped_reasons": [],
+  "rows": [
+    {
+      "behandling_navn_raw": "Behandling av  marginal periodontitt",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk fjerning av retinert tann eller dyptliggende rot",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Liten fylling",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Middels stor fylling",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Stor fylling",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Ukomplisert ekstraksjon av tann eller rot",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    }
+  ]
+}

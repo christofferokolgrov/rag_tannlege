@@ -1,0 +1,232 @@
+{
+  "klinikk_id": "single__smil_tannlegesenter",
+  "extracted_count": 37,
+  "dropped_count": 1,
+  "dropped_reasons": [
+    "name not in HTML verbatim: 'Søvnapnéskinne (snorkeskinne)'"
+  ],
+  "rows": [
+    {
+      "behandling_navn_raw": "Røntgenbilde",
+      "pris_min": 189,
+      "pris_max": 189,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Panoramarøntgen/ OPG",
+      "pris_min": 790,
+      "pris_max": 790,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg per behandling",
+      "pris_min": 260,
+      "pris_max": 260,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg i forbindelse med kirurgi / ekstraksjon",
+      "pris_min": 650,
+      "pris_max": 650,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "AirFlow i forbindelse med undersøkelse",
+      "pris_min": 250,
+      "pris_max": 250,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "AirFlow som egenbehandling",
+      "pris_min": 500,
+      "pris_max": 500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bedøvelse",
+      "pris_min": 260,
+      "pris_max": 260,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse med fire røntgenbilder og tannrenss",
+      "pris_min": 1290,
+      "pris_max": 1290,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Grundig rens av tenner",
+      "pris_min": 890,
+      "pris_max": 890,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Grundig rens av tenner (pyrea/tannkjøttsykdom)",
+      "pris_min": 1142,
+      "pris_max": 1142,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannsmykke (inkl. smykken)",
+      "pris_min": 980,
+      "pris_max": 980,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Akuttundersøkelse",
+      "pris_min": 790,
+      "pris_max": 790,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 1 flate",
+      "pris_min": 1749,
+      "pris_max": 1749,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 2 flaterr",
+      "pris_min": 2095,
+      "pris_max": 2095,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 3 flaterr",
+      "pris_min": 2290,
+      "pris_max": 2290,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 4 flater eller merr",
+      "pris_min": 2400,
+      "pris_max": 2400,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Midlertidig fylling",
+      "pris_min": 550,
+      "pris_max": 550,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Krone, metall/ keramikk",
+      "pris_min": 7890,
+      "pris_max": 7890,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Innlegg",
+      "pris_min": 7890,
+      "pris_max": 7890,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Skallfasetter/ laminat, innlegg",
+      "pris_min": 7890,
+      "pris_max": 7890,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Broledd, pilar/ festetann",
+      "pris_min": 7890,
+      "pris_max": 7890,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannimplantat",
+      "pris_min": 18000,
+      "pris_max": 18000,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Implantatkrone",
+      "pris_min": 13900,
+      "pris_max": 13900,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Helprotese, en kjeve (gebiss)",
+      "pris_min": 9900,
+      "pris_max": 9900,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannprotese over- og underkjeve (komplett)",
+      "pris_min": 15900,
+      "pris_max": 15900,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Delprotese, en kjeve",
+      "pris_min": 8990,
+      "pris_max": 8990,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, fortann/hjørnetann",
+      "pris_min": 4500,
+      "pris_max": 4500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, premolar",
+      "pris_min": 5500,
+      "pris_max": 5500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, molar",
+      "pris_min": 7500,
+      "pris_max": 7500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tanntrekking (ekstraksjon), enkel",
+      "pris_min": 2490,
+      "pris_max": 2490,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fjerning av visdomstann eller dyptliggende rot",
+      "pris_min": 2876,
+      "pris_max": 2876,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fjerning av visdomstann - spesialist/oralkirurg",
+      "pris_min": 4086,
+      "pris_max": 4086,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bittskinne",
+      "pris_min": 2956,
+      "pris_max": 2956,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Botox mot tanngnissing/bruxisme",
+      "pris_min": 3500,
+      "pris_max": 3500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Invisalign",
+      "pris_min": 40000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannbleking, begge kjever (kampanje)",
+      "pris_min": 2990,
+      "pris_max": 2990,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tidsdebitering, 30 minutter",
+      "pris_min": 550,
+      "pris_max": 550,
+      "prisformat": "fast"
+    }
+  ]
+}

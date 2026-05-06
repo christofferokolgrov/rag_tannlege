@@ -1,0 +1,46 @@
+{
+  "klinikk_id": "single__nydalen_tannlegesenter",
+  "extracted_count": 6,
+  "dropped_count": 1,
+  "dropped_reasons": [
+    "pris_min 1049 digits not in HTML: 'Akutt undersøkelse'"
+  ],
+  "rows": [
+    {
+      "behandling_navn_raw": "Komplett undersøkelse",
+      "pris_min": 1349,
+      "pris_max": 1349,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Panoramarøntgen",
+      "pris_min": 985,
+      "pris_max": 985,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Røntgenbilde",
+      "pris_min": 170,
+      "pris_max": 170,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg",
+      "pris_min": 215,
+      "pris_max": 215,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg ved endo",
+      "pris_min": 440,
+      "pris_max": 440,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg ved kirurgi",
+      "pris_min": 660,
+      "pris_max": 660,
+      "prisformat": "fast"
+    }
+  ]
+}

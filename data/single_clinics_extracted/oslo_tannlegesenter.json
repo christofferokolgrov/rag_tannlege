@@ -1,0 +1,230 @@
+{
+  "klinikk_id": "single__oslo_tannlegesenter",
+  "extracted_count": 37,
+  "dropped_count": 0,
+  "dropped_reasons": [],
+  "rows": [
+    {
+      "behandling_navn_raw": "Komplett undersøkelse",
+      "pris_min": 1490,
+      "pris_max": 1490,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Akutt undersøkelse",
+      "pris_min": 1190,
+      "pris_max": 1190,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse inkl. tannbleking – kampanjepris (før kr 5500)",
+      "pris_min": 3900,
+      "pris_max": 3900,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannimplantatundersøkelse",
+      "pris_min": 899,
+      "pris_max": 899,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "3D-skanning",
+      "pris_min": 599,
+      "pris_max": 599,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Enkel undersøkelse",
+      "pris_min": 750,
+      "pris_max": 750,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Røntgenbilde",
+      "pris_min": 166,
+      "pris_max": 166,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg",
+      "pris_min": 215,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Fylling (1 flate)",
+      "pris_min": 1470,
+      "pris_max": 1470,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling (2 flater)",
+      "pris_min": 1800,
+      "pris_max": 1800,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling (3 flater)",
+      "pris_min": 2360,
+      "pris_max": 2360,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling (1 rotkanal)",
+      "pris_min": 3652,
+      "pris_max": 3652,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling (2 kanaler)",
+      "pris_min": 4490,
+      "pris_max": 4490,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling (stor jeksel)",
+      "pris_min": 8230,
+      "pris_max": 8230,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Delprotese",
+      "pris_min": 13750,
+      "pris_max": 13750,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Helprotese (gebiss)",
+      "pris_min": 19500,
+      "pris_max": 19500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannbro",
+      "pris_min": 7300,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannkrone metall-keramisk",
+      "pris_min": 7550,
+      "pris_max": 7550,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannkrone full-keramisk",
+      "pris_min": 8300,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannimplantat",
+      "pris_min": 30000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannbleking – kampanjepris (før kr 5500)",
+      "pris_min": 3900,
+      "pris_max": 3900,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Skallfasett",
+      "pris_min": 7860,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Invisalign (usynlige tannreguleringsskinner)",
+      "pris_min": 590,
+      "pris_max": 590,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bedøvelse",
+      "pris_min": 210,
+      "pris_max": 210,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Narkose",
+      "pris_min": 4500,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tanntrekking (ukomplisert)",
+      "pris_min": 1390,
+      "pris_max": 1390,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tanntrekking (komplisert)",
+      "pris_min": 4850,
+      "pris_max": 4850,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Airflow Frisk (20 min)",
+      "pris_min": 640,
+      "pris_max": 640,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Airflow og tannrens – kampanjepris (før kr 1325)",
+      "pris_min": 940,
+      "pris_max": 940,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannrens (30 min)",
+      "pris_min": 805,
+      "pris_max": 805,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannrens (60 min)",
+      "pris_min": 1606,
+      "pris_max": 1606,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Dyp tannrens/perio-behandling",
+      "pris_min": 1365,
+      "pris_max": 1365,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bittskinne",
+      "pris_min": 4690,
+      "pris_max": 4690,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Snorkeskinne",
+      "pris_min": 11505,
+      "pris_max": 11505,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannbeskytter",
+      "pris_min": 4690,
+      "pris_max": 4690,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Gratis konsultasjon: Tannlegeskrekk",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Invisalign-konsultasjon",
+      "pris_min": 590,
+      "pris_max": 590,
+      "prisformat": "fast"
+    }
+  ]
+}

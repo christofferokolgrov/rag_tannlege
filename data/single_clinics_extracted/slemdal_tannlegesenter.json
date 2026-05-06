@@ -1,0 +1,182 @@
+{
+  "klinikk_id": "single__slemdal_tannlegesenter",
+  "extracted_count": 29,
+  "dropped_count": 0,
+  "dropped_reasons": [],
+  "rows": [
+    {
+      "behandling_navn_raw": "Undersøkelse",
+      "pris_min": 1520,
+      "pris_max": 1520,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Røntgenundersøkelse per bilde",
+      "pris_min": 170,
+      "pris_max": 170,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "OPG (panorama røntgen)",
+      "pris_min": 850,
+      "pris_max": 850,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Cephalostat",
+      "pris_min": 850,
+      "pris_max": 850,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Pasientfoto, per bilde",
+      "pris_min": 80,
+      "pris_max": 80,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 1 flate",
+      "pris_min": 930,
+      "pris_max": 930,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 2 flater",
+      "pris_min": 1350,
+      "pris_max": 1350,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 3 flater",
+      "pris_min": 1680,
+      "pris_max": 1680,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling, 4 flater",
+      "pris_min": 2230,
+      "pris_max": 2230,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fullkrone i metall og porselen uten stift",
+      "pris_min": 5780,
+      "pris_max": 5780,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Porselenskroner",
+      "pris_min": 5780,
+      "pris_max": 5780,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Porselenfasetter",
+      "pris_min": 5780,
+      "pris_max": 5780,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bro i metall og porselen per ledd",
+      "pris_min": 5780,
+      "pris_max": 5780,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Helprotese",
+      "pris_min": 2400,
+      "pris_max": 2400,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling av vital fortann",
+      "pris_min": 4390,
+      "pris_max": 4390,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling av nekrotisk fortann",
+      "pris_min": 5120,
+      "pris_max": 5120,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling av nekrotisk jeksel",
+      "pris_min": 7320,
+      "pris_max": 7320,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Oppdekningshonorar ved rotbehandling og kirurgi",
+      "pris_min": 740,
+      "pris_max": 740,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fjerning av visdomstann: enkel trekking",
+      "pris_min": 1460,
+      "pris_max": 1460,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fjerning av visdomstann: kirurgisk fjerning",
+      "pris_min": 2266,
+      "pris_max": 2266,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Oppdekningshonorar ved rotbehandling og kirurgi",
+      "pris_min": 740,
+      "pris_max": 740,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hjemmebleking med skinne per kjeve",
+      "pris_min": 1800,
+      "pris_max": 1800,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Ekstra bleketube",
+      "pris_min": 210,
+      "pris_max": 210,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Mykplast bittskinne",
+      "pris_min": 1600,
+      "pris_max": 1600,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hardplast bittskinne",
+      "pris_min": 6000,
+      "pris_max": 6000,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Anestesi",
+      "pris_min": 200,
+      "pris_max": 200,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetiltak",
+      "pris_min": 250,
+      "pris_max": 250,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Timehonorar i allmennpraksis",
+      "pris_min": 3040,
+      "pris_max": 3040,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Timehonorar hos spes. i periodonti",
+      "pris_min": 4250,
+      "pris_max": 4250,
+      "prisformat": "fast"
+    }
+  ]
+}

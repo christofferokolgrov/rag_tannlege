@@ -5,7 +5,9 @@ data/clinic_discovery.yaml for sentral propagation. Emit:
   data/transform_coverage_report.md   — markdown coverage matrix + audit list
 
 Filter rules at transform time:
-  - Drop rows with pris_kilde=helsesmart
+  - Include rows with pris_kilde=helsesmart (per PRD #31; reverses the
+    earlier slice #28 exclusion so independent Oslo-area clinics scraped
+    via HelseSmart appear in the comparison)
   - Drop rows whose behandling_navn_raw is in ikke_kanonisk_men_scrapes
   - Drop rows whose klinikk_id ends in __central (after sentral propagation)
 
@@ -49,7 +51,7 @@ OUTPUT_COLUMNS = [
     "ekskluderer_raw",
 ]
 
-KJEDER = ["odontia", "colosseum", "oc", "oris"]
+KJEDER = ["odontia", "colosseum", "oc", "oris", "single"]
 
 
 def _kjede_of(klinikk_id: str) -> str:
@@ -58,9 +60,19 @@ def _kjede_of(klinikk_id: str) -> str:
 
 def _build_canonical_index(
     canonical_doc: dict,
-) -> tuple[dict, dict, dict, set[str]]:
-    """Return (name_to_canonical_id, canonical_id_to_navn, canonical_id_to_lag, whitelist)."""
+) -> tuple[dict, dict, dict, dict, set[str]]:
+    """Return (name_to_canonical_id, name_to_id_global,
+    canonical_id_to_navn, canonical_id_to_lag, whitelist).
+
+    name_to_id is the kjede-specific index used by chains with their own
+    synonym lists. name_to_id_global is the union across kjeder (first-wins
+    on duplicates) used as a fallback for kjede=single, where independent
+    clinics scraped via HelseSmart use whatever name HelseSmart publishes
+    (often identical to one chain or another's synonym, e.g. 'Tannrens')
+    without us needing a maintained `single:` synonym list in the YAML.
+    """
     name_to_id: dict[tuple[str, str], str] = {}
+    name_to_id_global: dict[str, str] = {}
     id_to_navn: dict[str, str] = {}
     id_to_lag: dict[str, int] = {}
     for entry in canonical_doc.get("canonical") or []:
@@ -70,9 +82,10 @@ def _build_canonical_index(
         for kjede, synonyms in (entry.get("kjede_terminologi") or {}).items():
             for synonym in synonyms or []:
                 name_to_id[(kjede, synonym)] = cid
+                name_to_id_global.setdefault(synonym, cid)
 
     whitelist = set((canonical_doc.get("meta") or {}).get("ikke_kanonisk_men_scrapes") or [])
-    return name_to_id, id_to_navn, id_to_lag, whitelist
+    return name_to_id, name_to_id_global, id_to_navn, id_to_lag, whitelist
 
 
 def _peker_pa_sentral_clinics(manifest_doc: dict) -> dict[str, list[str]]:
@@ -110,20 +123,27 @@ def _load_raw() -> list[dict]:
 
 
 def _emit_canonical_long(
-    raw_rows: list[dict], name_to_id: dict, id_to_navn: dict, id_to_lag: dict,
+    raw_rows: list[dict], name_to_id: dict, name_to_id_global: dict,
+    id_to_navn: dict, id_to_lag: dict,
     whitelist: set[str], peker_clinics: dict[str, list[str]],
 ) -> list[dict]:
-    # Step 1: filter helsesmart + whitelisted from raw, attach canonical_id.
+    # Step 1: filter whitelisted from raw, attach canonical_id.
+    # Helsesmart-sourced rows ARE included (per PRD #31; was excluded in
+    # slice #28 but reversed for kjede=single).
     mapped: list[dict] = []
     for row in raw_rows:
-        if row.get("pris_kilde") == "helsesmart":
-            continue
         if row["behandling_navn_raw"] in whitelist:
             continue
         kjede = _kjede_of(row["klinikk_id"])
         canonical_id = name_to_id.get((kjede, row["behandling_navn_raw"]))
         if canonical_id is None:
-            # Should not happen post-#24 (100% mapped). Skip silently.
+            # Fallback: try the global index (any-kjede match). Used for
+            # kjede=single, where we don't maintain a separate synonym list
+            # in the YAML.
+            canonical_id = name_to_id_global.get(row["behandling_navn_raw"])
+        if canonical_id is None:
+            # Genuinely unmapped — likely a HelseSmart-only treatment name
+            # we haven't seen before. Skip silently.
             continue
         mapped.append({**row, "canonical_id": canonical_id})
 
@@ -273,12 +293,15 @@ def main() -> int:
     canonical_doc = yaml.safe_load(CANONICAL_PATH.read_text(encoding="utf-8")) or {}
     manifest_doc = yaml.safe_load(MANIFEST_PATH.read_text(encoding="utf-8")) or {}
 
-    name_to_id, id_to_navn, id_to_lag, whitelist = _build_canonical_index(canonical_doc)
+    name_to_id, name_to_id_global, id_to_navn, id_to_lag, whitelist = (
+        _build_canonical_index(canonical_doc)
+    )
     peker_clinics = _peker_pa_sentral_clinics(manifest_doc)
 
     raw_rows = _load_raw()
     canonical_long = _emit_canonical_long(
-        raw_rows, name_to_id, id_to_navn, id_to_lag, whitelist, peker_clinics
+        raw_rows, name_to_id, name_to_id_global, id_to_navn, id_to_lag,
+        whitelist, peker_clinics,
     )
 
     _write_canonical_long(canonical_long)

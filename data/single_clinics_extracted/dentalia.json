@@ -1,0 +1,218 @@
+{
+  "klinikk_id": "single__dentalia",
+  "extracted_count": 35,
+  "dropped_count": 0,
+  "dropped_reasons": [],
+  "rows": [
+    {
+      "behandling_navn_raw": "Hygienetillegg (Klargjøring, oppdekking, engangsutstyr og smittevern) tilkommer ved hvert besøk.",
+      "pris_min": 330,
+      "pris_max": 330,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse, inkl. profesjonell tannrens med scaler og Air-flow, 4 røntgenbilder. Hygienetillegg tilkommer",
+      "pris_min": 1360,
+      "pris_max": 1360,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Førstegangsundersøkelse inkluderer grundig undersøkelse av tenner, tannkjøtt og slimhinner, profesjonell tannrens med scaler og AirFlow. Det settes av god tid til å kartlegge dine behov. Evt. OPG-røntgen kommer i tillegg. Hygienetillegg tilkommer.",
+      "pris_min": 1160,
+      "pris_max": 1160,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Akutt konsultasjon/undersøkelse",
+      "pris_min": 998,
+      "pris_max": 998,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Røntgen per bilde",
+      "pris_min": 210,
+      "pris_max": 210,
+      "prisformat": "per_stk"
+    },
+    {
+      "behandling_navn_raw": "OPG Panoramarøntgen",
+      "pris_min": 861,
+      "pris_max": 861,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Anestesi per karpyle (sprøyte)",
+      "pris_min": 210,
+      "pris_max": 210,
+      "prisformat": "per_stk"
+    },
+    {
+      "behandling_navn_raw": "Profesjonell tannrens med scaler og Air-flow som forebyggende behandling, 30 min.",
+      "pris_min": 1265,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Periodontal behandling (behandling av tannkjøttsykdom), per 30 min. Egenandel (etter HELFO-refusjon).",
+      "pris_min": 1487,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget liten fylling 1 flate",
+      "pris_min": 1590,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget middels fylling 2 flater",
+      "pris_min": 2590,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget stor fylling 3 flater",
+      "pris_min": 3150,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Kroneoppbygging i kompositt",
+      "pris_min": 4200,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling fortann/hjørnetann",
+      "pris_min": 5000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling liten jeksel",
+      "pris_min": 6500,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling stor jeksel",
+      "pris_min": 8000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Trekke tann - ukomplisert",
+      "pris_min": 1995,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk fjerning - komplisert. Egenandel (etter HELFO-refusjon). Pris kan variere fra kompleksitet og tidsbruk, samt om behandling utføres av allmenntannlege eller spesialist.",
+      "pris_min": 3236,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Kostnadsfri Invisalign konsultasjon med iTero scan",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Behandlingsplan",
+      "pris_min": 7500,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Invisalign behandling",
+      "pris_min": 40000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Retensjons-retainer overkjeve og underkjeve",
+      "pris_min": 4200,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Vivera retensjonsskinner",
+      "pris_min": 7800,
+      "pris_max": 7800,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fullkrone Cerec - krone som lages på klinikken og kan sementeres samme dag",
+      "pris_min": 8800,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Fullkrone fra tannteknikker - krone sendes til teknikker for fremstilling",
+      "pris_min": 8800,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Implantat - for implantatskrue og toppkonstruksjon",
+      "pris_min": 45000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Bittskinne",
+      "pris_min": 7800,
+      "pris_max": 7800,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Snorkeskinner",
+      "pris_min": 12285,
+      "pris_max": 12285,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Anti-apnèskinne",
+      "pris_min": 13650,
+      "pris_max": 13650,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Sportskinne",
+      "pris_min": 7800,
+      "pris_max": 7800,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Blekeskinner - underkjeve og overkjeve",
+      "pris_min": 4500,
+      "pris_max": 4500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Blekemiddel - 2 stk",
+      "pris_min": 600,
+      "pris_max": 600,
+      "prisformat": "per_stk"
+    },
+    {
+      "behandling_navn_raw": "Konsultasjon laserbehandling",
+      "pris_min": 1200,
+      "pris_max": 1200,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fjerning av overfladiske hudlesjoner (eks. mucocele, gummy smile, fibrom, papillom, herpes/forskjølelsessår, tungebånd og leppebånd).",
+      "pris_min": 3300,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Biopsi",
+      "pris_min": 1200,
+      "pris_max": 1200,
+      "prisformat": "fast"
+    }
+  ]
+}

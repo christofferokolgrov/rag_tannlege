@@ -43,3 +43,8 @@ data/html_cache/**
 !data/html_cache/oc/festningen_prisliste.html
 !data/html_cache/helsesmart/colosseum_majorstuen.html
 
+# Single-clinic HTML caches: keep all 14 (small, ~2 MB total) — they are
+# the source-of-truth for DeepSeek extraction artefacts. Re-extracts re-read
+# these files; keeping committed makes the extract-step deterministic.
+!data/html_cache/single/*.html
+

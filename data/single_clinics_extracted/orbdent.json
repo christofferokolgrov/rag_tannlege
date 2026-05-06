@@ -1,0 +1,228 @@
+{
+  "klinikk_id": "single__orbdent",
+  "extracted_count": 36,
+  "dropped_count": 3,
+  "dropped_reasons": [
+    "pris_min 25000 digits not in HTML: 'Tannimplantat'",
+    "pris_min 15376 digits not in HTML: 'Tannprotese'",
+    "pris_min 5984 digits not in HTML: 'Bittskinne'"
+  ],
+  "rows": [
+    {
+      "behandling_navn_raw": "Komplett undersøkelse",
+      "pris_min": 1144,
+      "pris_max": 1642,
+      "prisformat": "spread"
+    },
+    {
+      "behandling_navn_raw": "Akutt undersøkelse",
+      "pris_min": 872,
+      "pris_max": 872,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg",
+      "pris_min": 205,
+      "pris_max": 205,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg ved endodontisk behandling",
+      "pris_min": 450,
+      "pris_max": 450,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg ved kirurgisk behandling",
+      "pris_min": 650,
+      "pris_max": 650,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Digital Smile Design",
+      "pris_min": 350,
+      "pris_max": 990,
+      "prisformat": "spread"
+    },
+    {
+      "behandling_navn_raw": "Invisalign-konsultasjon",
+      "pris_min": 651,
+      "pris_max": 651,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannimplantat-konsultasjon",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Kjeveleddslidelser-konsultasjon",
+      "pris_min": 550,
+      "pris_max": 550,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannlegeskrekk – konsultasjon",
+      "pris_min": 838,
+      "pris_max": 838,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannspa – Forebygging & egenomsorg",
+      "pris_min": 1150,
+      "pris_max": 1150,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse hos tannpleier inkl. tannrens og AirFlow",
+      "pris_min": 1268,
+      "pris_max": 1268,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "AirFlow Rens",
+      "pris_min": 760,
+      "pris_max": 760,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Dyp tannrens (del av perio-behandling) (egenandel ved refusjon)",
+      "pris_min": 800,
+      "pris_max": 800,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling 1 flate (kompositt)",
+      "pris_min": 1754,
+      "pris_max": 1754,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling 2 flater (kompositt)",
+      "pris_min": 2304,
+      "pris_max": 2304,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling 3 flater (kompositt)",
+      "pris_min": 3076,
+      "pris_max": 3076,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling 4 flater (kompositt)",
+      "pris_min": 3406,
+      "pris_max": 3406,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling (Undersøkelse og diagnostikk)",
+      "pris_min": 1754,
+      "pris_max": 1754,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling (fortann/hjørnetann)",
+      "pris_min": 7808,
+      "pris_max": 7808,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling (liten jeksel)",
+      "pris_min": 9320,
+      "pris_max": 9320,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling (jeksel)",
+      "pris_min": 11533,
+      "pris_max": 11533,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tanntrekking ukomplisert",
+      "pris_min": 1654,
+      "pris_max": 1654,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tanntrekking komplisert",
+      "pris_min": 3087,
+      "pris_max": 3087,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk tanntrekking",
+      "pris_min": 6411,
+      "pris_max": 6411,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Invisalign (usynlig tannregulering) inkl. tannbleking og Vivera-retainer",
+      "pris_min": 3666,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Skallfasett",
+      "pris_min": 9596,
+      "pris_max": 9596,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Porselensinnlegg 4 flater",
+      "pris_min": 7660,
+      "pris_max": 7660,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Krone",
+      "pris_min": 9084,
+      "pris_max": 9084,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bro",
+      "pris_min": 8205,
+      "pris_max": 8205,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Kjeveleddslidelser",
+      "pris_min": 5759,
+      "pris_max": 5759,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Smertebehandling kroniske muskulære smerter ved tanngnissing og slitne tyggemuskler",
+      "pris_min": 6449,
+      "pris_max": 6449,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Snorkeskinne",
+      "pris_min": 13665,
+      "pris_max": 13665,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannbleking – Hjemmebleking (1 kjeve)",
+      "pris_min": 3553,
+      "pris_max": 3553,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannbleking – Hjemmebleking (2 kjever)",
+      "pris_min": 4347,
+      "pris_max": 4347,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannbleking inkl. undersøkelse 90min",
+      "pris_min": 5220,
+      "pris_max": 5220,
+      "prisformat": "fast"
+    }
+  ]
+}

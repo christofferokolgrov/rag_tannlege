@@ -1381,3 +1381,101 @@ clinics:
   klinikk_url: https://orisdental.no/klinikker/voyenenga
   prisliste_url: https://orisdental.no/prisliste
   prisliste_struktur: peker_på_sentral
+- klinikk_id: single__oslo_tannlegesenter
+  kjede: single
+  klinikk_navn: Oslo Tannlegesenter
+  klinikk_url: https://oslotannlegesenter.no
+  prisliste_url: https://oslotannlegesenter.no/tannlege-priser/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://oslotannlegesenter.no (confidence=high)
+- klinikk_id: single__smil_tannlegesenter
+  kjede: single
+  klinikk_navn: Smil Tannlegesenter
+  klinikk_url: https://www.smiltannlegesenter.no
+  prisliste_url: https://www.smiltannlegesenter.no/prisliste
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.smiltannlegesenter.no (confidence=high)
+- klinikk_id: single__clear_tannlegesenter
+  kjede: single
+  klinikk_navn: Clear Tannlegesenter
+  klinikk_url: https://www.cleartannlegesenter.no
+  prisliste_url: https://www.cleartannlegesenter.no/tannlegepriser
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.cleartannlegesenter.no (confidence=high)
+- klinikk_id: single__blid
+  kjede: single
+  klinikk_navn: Blid Tannhelse
+  klinikk_url: https://www.blid.no
+  prisliste_url: https://www.blid.no/behandlinger-og-prisliste
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.blid.no (confidence=high)
+- klinikk_id: single__tanntunet
+  kjede: single
+  klinikk_navn: Tanntunet Tannhelsesenter
+  klinikk_url: https://tanntunet.no
+  prisliste_url: https://tanntunet.no/priser/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://tanntunet.no (confidence=high)
+- klinikk_id: single__majorstua_tannlegene
+  kjede: single
+  klinikk_navn: Majorstua Tannlegene
+  klinikk_url: https://majorstuatannlegene.no
+  prisliste_url: https://majorstuatannlegene.no/tannlege-priser/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://majorstuatannlegene.no (confidence=high)
+- klinikk_id: single__nydalen_tannlegesenter
+  kjede: single
+  klinikk_navn: Nydalen Tannlegesenter
+  klinikk_url: https://nydalentannlegesenter.no
+  prisliste_url: https://nydalentannlegesenter.no/priser
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://nydalentannlegesenter.no (confidence=high)
+- klinikk_id: single__dentalia
+  kjede: single
+  klinikk_navn: Dentalia
+  klinikk_url: https://dentalia.no
+  prisliste_url: https://dentalia.no/prisliste/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://dentalia.no (confidence=high)
+- klinikk_id: single__oralcare
+  kjede: single
+  klinikk_navn: OralCare Linderud
+  klinikk_url: https://oralcare.no
+  prisliste_url: https://oralcare.no/pris/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://oralcare.no (confidence=high)
+- klinikk_id: single__toyen_tannlegevakt
+  kjede: single
+  klinikk_navn: Tøyen Tannlegevakt
+  klinikk_url: https://www.toyentannlegevakt.no
+  prisliste_url: https://www.toyentannlegevakt.no/priser/prisliste
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.toyentannlegevakt.no (confidence=high)
+- klinikk_id: single__nordstrand_tannlegesenter
+  kjede: single
+  klinikk_navn: Nordstrand Tannlegesenter
+  klinikk_url: https://nordstrandtannlegesenter.no
+  prisliste_url: https://nordstrandtannlegesenter.no/tannlege-priser/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://nordstrandtannlegesenter.no (confidence=high)
+- klinikk_id: single__slemdal_tannlegesenter
+  kjede: single
+  klinikk_navn: Slemdal Tannlegesenter
+  klinikk_url: https://slemdaltannlegesenter.no
+  prisliste_url: https://slemdaltannlegesenter.no/priser
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://slemdaltannlegesenter.no (confidence=high)
+- klinikk_id: single__orbdent
+  kjede: single
+  klinikk_navn: Orbdent Oslo
+  klinikk_url: https://orbdent.no
+  prisliste_url: https://orbdent.no/priser/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://orbdent.no (confidence=high)
+- klinikk_id: single__tann_og_kjeve
+  kjede: single
+  klinikk_navn: Tann- og kjeveklinikken (Rommen)
+  klinikk_url: https://tannlegerommen.no
+  prisliste_url: https://tannlegerommen.no/priser
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://tannlegerommen.no (confidence=medium)

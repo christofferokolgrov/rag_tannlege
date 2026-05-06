@@ -1,4 +1,4 @@
-"""Headless smoke for pages/01_Priser.py via streamlit.testing.
+"""Headless smoke for pages/01_Priser_-_Peers.py via streamlit.testing.
 
 Exercises the page through the same code path Streamlit uses at runtime
 (no browser needed). Verifies tabs render, the canonical dropdown is
@@ -15,7 +15,7 @@ import pytest
 from streamlit.testing.v1 import AppTest
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-PAGE_PATH = REPO_ROOT / "pages" / "01_Priser.py"
+PAGE_PATH = REPO_ROOT / "pages" / "01_Priser_-_Peers.py"
 CANONICAL_LONG_PATH = REPO_ROOT / "data" / "prices_canonical_long.csv"
 
 # CSV load + Oversikt aggregation across 22 canonicals × 5 kjeder takes a
@@ -103,12 +103,27 @@ def test_oversikt_renders_summary_dataframe(app):
     overview = app.dataframe[1].value
     # One row per canonical
     assert len(overview) >= 19
-    # Column headers use the chains' real brand-cased names, not the
-    # lowercase klinikk_id slugs.
-    expected_cols = {"Behandling", "Odontia", "Colosseum", "OC", "Oris"}
+    # Column headers use brand-cased names; "Uavhengige" appears as the 5th
+    # comparison group even when the underlying single__-clinics have 0
+    # rows in the current scrape (cells then read "—") — that's correct
+    # behaviour: the category exists, data sparsity shows transparently.
+    expected_cols = {"Behandling", "Odontia", "Colosseum", "OC", "Oris", "Uavhengige"}
     assert expected_cols.issubset(set(overview.columns))
     # canonical_id is intentionally not surfaced
     assert "canonical_id" not in overview.columns
+
+
+def test_uavhengige_column_present_even_when_empty(app):
+    """Per PRD #31, 'Uavhengige' is added as a 5th comparison group even
+    if no single-clinic price data was extracted in the current scrape.
+    Cells should show '—' for empty, not crash or be absent."""
+    overview = app.dataframe[1].value
+    assert "Uavhengige" in overview.columns
+    # When no single rows exist, every cell is "—" (or a partial number if
+    # any single clinic ever produced data). Verify the column exists and
+    # doesn't crash rendering.
+    uavhengige_cells = overview["Uavhengige"].tolist()
+    assert all(isinstance(c, str) for c in uavhengige_cells)
 
 
 def test_selecting_krone_shows_rows_for_all_chains():
@@ -121,7 +136,7 @@ def test_selecting_krone_shows_rows_for_all_chains():
     # (Sammenligning, Oversikt, Per behandling)
     detail = at.dataframe[2].value
     assert len(detail) > 0
-    assert set(detail["kjede"].unique()) == {"odontia", "colosseum", "oc", "oris"}
+    assert {"odontia", "colosseum", "oc", "oris"}.issubset(set(detail["kjede"].unique()))
 
 
 def _has_altair_chart(at: AppTest) -> bool:
@@ -237,7 +252,10 @@ def test_lag_filter_alle_exposes_all_canonicals():
     at.run()
     at.radio[0].set_value("Alle (inkl. lag 3)").run()
     options = at.selectbox[0].options
-    assert len(options) == 22
+    # Lag 1+2 = 13, plus all lag-3 canonicals. Floor reflects the partition
+    # in treatments_canonical.yaml; the exact total grows as new canonicals
+    # are added (e.g. single-clinic-only ones like bridge/whitening).
+    assert len(options) >= 22
 
 
 def test_lag_filter_lag_one_plus_two_excludes_lag_three():

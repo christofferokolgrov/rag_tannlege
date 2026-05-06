@@ -1,0 +1,196 @@
+{
+  "klinikk_id": "single__oralcare",
+  "extracted_count": 31,
+  "dropped_count": 1,
+  "dropped_reasons": [
+    "name not in HTML verbatim: 'Tannkrone MK (vanlig krone): 8 000 kr'"
+  ],
+  "rows": [
+    {
+      "behandling_navn_raw": "Første undersøkelse inkl. nødvendig 2D-røntgen",
+      "pris_min": 990,
+      "pris_max": 990,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse hos spesialist, priser fra",
+      "pris_min": 1400,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Bedøvelse, pr. injeksjon",
+      "pris_min": 245,
+      "pris_max": 245,
+      "prisformat": "per_stk"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg allmennbehandling",
+      "pris_min": 170,
+      "pris_max": 170,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Komposittfylling, 1 flate",
+      "pris_min": 1365,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Komposittfylling, 2 flater",
+      "pris_min": 1855,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Komposittfylling, 3 flater",
+      "pris_min": 2060,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Implantat",
+      "pris_min": 9000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Implantatkrone inkl. distanse",
+      "pris_min": 13233,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Implantat m/distanse og krone",
+      "pris_min": 23073,
+      "pris_max": 23073,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "2 implantat og implantatkroner",
+      "pris_min": 44973,
+      "pris_max": 44973,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "3-leddsbro på to implantat",
+      "pris_min": 53593,
+      "pris_max": 53593,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannkrone metallfri (zirkonia, monoblock)",
+      "pris_min": 7300,
+      "pris_max": 7300,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannkrone metallfri (e.max)",
+      "pris_min": 8000,
+      "pris_max": 8000,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Mellomledd MK ved broarbeid (som ikke er på implantat)",
+      "pris_min": 7000,
+      "pris_max": 7000,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Mellomledd metallfri ved broarbeid (som ikke er på implantat)",
+      "pris_min": 6700,
+      "pris_max": 6700,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Skallfasett metallfri (e.max)",
+      "pris_min": 7900,
+      "pris_max": 7900,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Treledds bro metallfri (erstatte en tann) inkl 1 bedøvelse",
+      "pris_min": 21300,
+      "pris_max": 21300,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Treledds bro MK (erstatte en tann)",
+      "pris_min": 23000,
+      "pris_max": 23000,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Trekking av tann, ukomplisert",
+      "pris_min": 1430,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Trekking av tann, komplisert",
+      "pris_min": 2500,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk fjerning av tann eller rot",
+      "pris_min": 6200,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Helprotese",
+      "pris_min": 15800,
+      "pris_max": 15800,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Delprotese",
+      "pris_min": 16100,
+      "pris_max": 16100,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Midlertidig delprotese 1-2 tenner",
+      "pris_min": 5100,
+      "pris_max": 5100,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Midlertidig delprotese 3-5 tenner",
+      "pris_min": 7500,
+      "pris_max": 7500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Midlertidig delprotese 6-14 tenner",
+      "pris_min": 12500,
+      "pris_max": 12500,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tillegg for eventuell stål i protese (ved behov)",
+      "pris_min": 3900,
+      "pris_max": 3900,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, fortann",
+      "pris_min": 4850,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, hjørnetann (premolar)",
+      "pris_min": 5500,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, jeksel (molar)",
+      "pris_min": 7150,
+      "pris_max": null,
+      "prisformat": "fra"
+    }
+  ]
+}

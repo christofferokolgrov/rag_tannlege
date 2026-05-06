@@ -1,0 +1,203 @@
+# Curated URL mapping for the 20 independent Oslo dental clinics
+# scraped via DeepSeek extraction (per PRD #31 / PR #35).
+#
+# Discovery method: WebSearch per AS-name + manual review of top results.
+# Confidence ratings:
+#   high   — exact name match in domain or page title; clearly the right clinic
+#   medium — plausible match; minor name divergence (e.g. AS-name ≠ trading name)
+#   low    — ambiguous; might be wrong clinic or non-clinic site
+#   none   — no clear match found; clinic excluded from scrape
+#
+# Each entry has prisliste_url where the clinic publishes prices, separate
+# from the main URL when available.
+
+clinics:
+  - as_name: OSLO TANNLEGESENTER AS
+    klinikk_id: single__oslo_tannlegesenter
+    klinikk_navn: Oslo Tannlegesenter
+    url: https://oslotannlegesenter.no
+    prisliste_url: https://oslotannlegesenter.no/tannlege-priser/
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: SMIL TANNLEGESENTER AS
+    klinikk_id: single__smil_tannlegesenter
+    klinikk_navn: Smil Tannlegesenter
+    url: https://www.smiltannlegesenter.no
+    prisliste_url: https://www.smiltannlegesenter.no/prisliste
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: CLEAR TANNLEGESENTER AS
+    klinikk_id: single__clear_tannlegesenter
+    klinikk_navn: Clear Tannlegesenter
+    url: https://www.cleartannlegesenter.no
+    prisliste_url: https://www.cleartannlegesenter.no/tannlegepriser
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: BLID AS
+    klinikk_id: single__blid
+    klinikk_navn: Blid Tannhelse
+    url: https://www.blid.no
+    prisliste_url: https://www.blid.no/behandlinger-og-prisliste
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: TANNTUNET AS
+    klinikk_id: single__tanntunet
+    klinikk_navn: Tanntunet Tannhelsesenter
+    url: https://tanntunet.no
+    prisliste_url: https://tanntunet.no/priser/
+    confidence: high
+    source: websearch_first_result
+    notes: prisliste_url is best-guess; first fetch may need correction
+
+  - as_name: MAJORSTUA TANNLEGENE AS
+    klinikk_id: single__majorstua_tannlegene
+    klinikk_navn: Majorstua Tannlegene
+    url: https://majorstuatannlegene.no
+    prisliste_url: https://majorstuatannlegene.no/tannlege-priser/
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: NYDALEN TANNLEGESENTER AS
+    klinikk_id: single__nydalen_tannlegesenter
+    klinikk_navn: Nydalen Tannlegesenter
+    url: https://nydalentannlegesenter.no
+    prisliste_url: https://nydalentannlegesenter.no/priser
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: NM DENTAL AS
+    klinikk_id: single__nm_dental
+    klinikk_navn: NM Dental
+    url: null
+    prisliste_url: null
+    confidence: none
+    source: no_dedicated_website_found
+    notes: |
+      Only proff.no / 1881.no business-directory listings found; no public
+      website with prislist. Established 2024-01; may not have website yet.
+      Excluded from scrape.
+
+  - as_name: ORALKIRURGI AS
+    klinikk_id: single__oralkirurgi
+    klinikk_navn: Oralkirurgi
+    url: null
+    prisliste_url: null
+    confidence: none
+    source: ambiguous_specialty_term
+    notes: |
+      "Oralkirurgi" is a generic specialty (oral surgery), not a clinic-name
+      hint. WebSearch returned mostly other clinics' oral-surgery pages.
+      Without more context, can't identify which AS this refers to.
+      Excluded.
+
+  - as_name: FJÆRVIK KLINIKKEN AS
+    klinikk_id: single__fjaervik_klinikken
+    klinikk_navn: Fjærvik Klinikken
+    url: https://www.fjaervikklinikken.no
+    prisliste_url: https://www.fjaervikklinikken.no/priser
+    confidence: high
+    source: websearch_first_result
+    notes: prisliste_url is best-guess; their site uses sub-paths heavily
+
+  - as_name: ESTETISK TANNREGULERING AS
+    klinikk_id: single__estetisk_tannregulering
+    klinikk_navn: Estetisk Tannregulering
+    url: null
+    prisliste_url: null
+    confidence: none
+    source: ambiguous_treatment_term
+    notes: |
+      "Estetisk tannregulering" is a treatment category; WebSearch returned
+      pages from many different orthodontists offering this service rather
+      than a specific clinic with that name. Excluded.
+
+  - as_name: DENTALIA AS
+    klinikk_id: single__dentalia
+    klinikk_navn: Dentalia
+    url: https://dentalia.no
+    prisliste_url: https://dentalia.no/prisliste/
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: SENTRUM TANNLEGESENTER AS
+    klinikk_id: single__sentrum_tannlegesenter
+    klinikk_navn: Sentrum Tannlegesenter
+    url: http://sentrumtannlegeklinikk.no
+    prisliste_url: http://sentrumtannlegeklinikk.no/priser
+    confidence: low
+    source: websearch_partial_match
+    notes: |
+      Search returned "Sentrum Tannlegevakt" and "Sentrum Tannklinikk" as
+      candidates, neither an exact AS-name match. Best guess; may be wrong
+      clinic.
+
+  - as_name: ORALCARE AS
+    klinikk_id: single__oralcare
+    klinikk_navn: OralCare Linderud
+    url: https://oralcare.no
+    prisliste_url: https://oralcare.no/pris/
+    confidence: high
+    source: websearch_first_result
+    notes: |
+      Re-included after slice #21/#PR-30 removal. Per user's revised list,
+      OralCare belongs to the independent group rather than its own kjede.
+
+  - as_name: AAAA TØYEN TANNLEGEVAKT AS
+    klinikk_id: single__toyen_tannlegevakt
+    klinikk_navn: Tøyen Tannlegevakt
+    url: https://www.toyentannlegevakt.no
+    prisliste_url: https://www.toyentannlegevakt.no/priser/prisliste
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: NORDSTRAND TANNLEGESENTER AS
+    klinikk_id: single__nordstrand_tannlegesenter
+    klinikk_navn: Nordstrand Tannlegesenter
+    url: https://nordstrandtannlegesenter.no
+    prisliste_url: https://nordstrandtannlegesenter.no/tannlege-priser/
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: SLEMDAL TANNLEGESENTER AS
+    klinikk_id: single__slemdal_tannlegesenter
+    klinikk_navn: Slemdal Tannlegesenter
+    url: https://slemdaltannlegesenter.no
+    prisliste_url: https://slemdaltannlegesenter.no/priser
+    confidence: high
+    source: websearch_first_result
+    notes: prisliste_url is best-guess
+
+  - as_name: OSLO TANNREGULERING AS
+    klinikk_id: single__oslo_tannregulering
+    klinikk_navn: Oslo Tannregulering
+    url: https://www.oslo-tannreguleringsenter.no
+    prisliste_url: https://www.oslo-tannreguleringsenter.no/priser
+    confidence: medium
+    source: websearch_partial_match
+    notes: |
+      Domain name has "-senter" suffix not in AS-name; likely the right
+      clinic but could be a related entity.
+
+  - as_name: ORBDENT OSLO AS
+    klinikk_id: single__orbdent
+    klinikk_navn: Orbdent Oslo
+    url: https://orbdent.no
+    prisliste_url: https://orbdent.no/priser/
+    confidence: high
+    source: websearch_first_result
+
+  - as_name: TANN OG KJEVE AS
+    klinikk_id: single__tann_og_kjeve
+    klinikk_navn: Tann- og kjeveklinikken (Rommen)
+    url: https://tannlegerommen.no
+    prisliste_url: https://tannlegerommen.no/priser
+    confidence: medium
+    source: websearch_partial_match
+    notes: |
+      AS-name is "TANN OG KJEVE AS" but the operating site uses
+      "Tannlegerommen" (Rommen-based clinic). Same business per
+      proff.no listing.
