@@ -42,28 +42,35 @@ def test_page_has_oversikt_and_per_behandling_tabs(app):
     assert [t.label for t in app.tabs] == ["Oversikt", "Per behandling"]
 
 
-def test_canonical_dropdown_lists_all_canonical_ids(app):
+def test_canonical_dropdown_lists_norwegian_treatment_names_only(app):
     assert len(app.selectbox) == 1
     options = app.selectbox[0].options
     # 22 canonical IDs in v2 YAML (8 original + 14 from the #24 round)
     assert len(options) >= 19
-    # Each option follows "<id> — <navn>" format
-    assert all(" — " in o for o in options)
+    # Dropdown shows the Norwegian behandling name (e.g. "Krone"), NOT the
+    # technical canonical_id (e.g. "crown") — confirmed user feedback.
+    assert "Krone" in options
+    assert "Bedøvelse, per dose" in options
+    assert not any(o.startswith("crown") for o in options)
+    assert not any(" — " in o for o in options)
 
 
 def test_oversikt_renders_summary_dataframe(app):
     overview = app.dataframe[0].value
-    # One row per canonical, columns: canonical_id, navn, 5 chains
+    # One row per canonical
     assert len(overview) >= 19
-    expected_cols = {"canonical_id", "navn", "odontia", "colosseum", "oc", "oris", "oralcare"}
+    # Column headers use the chains' real brand-cased names, not the
+    # lowercase klinikk_id slugs.
+    expected_cols = {"Behandling", "Odontia", "Colosseum", "OC", "Oris", "OralCare"}
     assert expected_cols.issubset(set(overview.columns))
+    # canonical_id is intentionally not surfaced
+    assert "canonical_id" not in overview.columns
 
 
-def test_selecting_crown_shows_rows_for_all_five_chains():
+def test_selecting_krone_shows_rows_for_all_five_chains():
     at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
     at.run()
-    crown_label = next(o for o in at.selectbox[0].options if o.startswith("crown"))
-    at.selectbox[0].set_value(crown_label).run()
+    at.selectbox[0].set_value("Krone").run()
     assert not at.exception
     detail = at.dataframe[1].value
     assert len(detail) > 0
@@ -89,10 +96,9 @@ def test_per_behandling_renders_an_altair_chart_for_default_canonical(app):
 def test_chart_persists_after_changing_canonical():
     at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
     at.run()
-    crown_label = next(o for o in at.selectbox[0].options if o.startswith("crown"))
-    at.selectbox[0].set_value(crown_label).run()
+    at.selectbox[0].set_value("Krone").run()
     assert not at.exception
-    assert _has_altair_chart(at), "chart missing after switching to crown"
+    assert _has_altair_chart(at), "chart missing after switching to Krone"
 
 
 def test_missing_canonical_long_renders_graceful_error(tmp_path):

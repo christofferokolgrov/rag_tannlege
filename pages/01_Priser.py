@@ -16,6 +16,15 @@ import streamlit as st
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CANONICAL_LONG_PATH = REPO_ROOT / "data" / "prices_canonical_long.csv"
 
+KJEDE_DISPLAY = {
+    "odontia": "Odontia",
+    "colosseum": "Colosseum",
+    "oc": "OC",
+    "oris": "Oris",
+    "oralcare": "OralCare",
+}
+KJEDE_ORDER = ["odontia", "colosseum", "oc", "oris", "oralcare"]
+
 st.set_page_config(page_title="Tannhelse — Priser", page_icon=None)
 st.title("Pris-sammenligning på tvers av kjeder")
 
@@ -68,36 +77,25 @@ def _render_oversikt(df: pd.DataFrame) -> None:
         "antall klinikker bak spennet."
     )
 
-    # Group on (canonical_id, canonical_navn, kjede); aggregate via the helper.
+    # Group on (canonical_navn, kjede); aggregate via the helper. canonical_id
+    # is intentionally not surfaced — only the Norwegian behandling name.
     canonical_order = df["canonical_id"].drop_duplicates().tolist()
     rows: list[dict] = []
     for cid in canonical_order:
         navn = df.loc[df["canonical_id"] == cid, "canonical_navn"].iloc[0]
-        row: dict[str, str] = {"canonical_id": cid, "navn": navn}
-        for kjede in ("odontia", "colosseum", "oc", "oris", "oralcare"):
+        row: dict[str, str] = {"Behandling": navn}
+        for kjede in KJEDE_ORDER:
+            display = KJEDE_DISPLAY[kjede]
             cell = df[(df["canonical_id"] == cid) & (df["kjede"] == kjede)]
             if cell.empty:
-                row[kjede] = "—"
+                row[display] = "—"
             else:
                 n_clinics = cell["klinikk_id"].nunique()
-                row[kjede] = f"{_format_price_range(cell)} ({n_clinics})"
+                row[display] = f"{_format_price_range(cell)} ({n_clinics})"
         rows.append(row)
 
     overview = pd.DataFrame(rows)
-    st.dataframe(
-        overview,
-        width="stretch",
-        hide_index=True,
-        column_config={
-            "canonical_id": st.column_config.TextColumn("ID", width="medium"),
-            "navn": st.column_config.TextColumn("Behandling", width="large"),
-            "odontia": st.column_config.TextColumn("Odontia"),
-            "colosseum": st.column_config.TextColumn("Colosseum"),
-            "oc": st.column_config.TextColumn("OC"),
-            "oris": st.column_config.TextColumn("Oris"),
-            "oralcare": st.column_config.TextColumn("OralCare"),
-        },
-    )
+    st.dataframe(overview, width="stretch", hide_index=True)
 
 
 def _render_per_behandling(df: pd.DataFrame) -> None:
@@ -105,20 +103,20 @@ def _render_per_behandling(df: pd.DataFrame) -> None:
     canonicals = (
         df[["canonical_id", "canonical_navn"]]
         .drop_duplicates()
-        .sort_values("canonical_id")
+        .sort_values("canonical_navn")
     )
     if canonicals.empty:
         st.info("Ingen kanoniske behandlinger funnet i datasettet.")
         return
 
-    options = canonicals.apply(
-        lambda r: f"{r['canonical_id']} — {r['canonical_navn']}", axis=1
-    ).tolist()
-    selected_label = st.selectbox("Velg kanonisk behandling:", options=options)
-    if not selected_label:
+    # Dropdown shows the Norwegian behandling name only; we look the
+    # canonical_id back up via a navn → id index.
+    navn_to_id = dict(zip(canonicals["canonical_navn"], canonicals["canonical_id"]))
+    selected_navn = st.selectbox("Velg behandling:", options=list(navn_to_id))
+    if not selected_navn:
         return
 
-    selected_id = selected_label.split(" — ", 1)[0]
+    selected_id = navn_to_id[selected_navn]
     detail = df[df["canonical_id"] == selected_id].copy()
     detail = detail[
         [
@@ -170,8 +168,9 @@ def _render_per_behandling_chart(detail: pd.DataFrame) -> None:
     )
     fra_extension = (agg["pris_min"].astype("Int64") * 3 // 2).astype("Int64")
     agg["pris_max_filled"] = agg["pris_max"].fillna(fra_extension)
+    agg["kjede_display"] = agg["kjede"].map(KJEDE_DISPLAY).fillna(agg["kjede"])
     agg["label"] = (
-        agg["kjede"] + " · " + agg["behandling_navn_raw"].apply(_wrap_label)
+        agg["kjede_display"] + " · " + agg["behandling_navn_raw"].apply(_wrap_label)
     )
     agg["range_text"] = agg.apply(_format_bar_text, axis=1)
 
@@ -180,7 +179,11 @@ def _render_per_behandling_chart(detail: pd.DataFrame) -> None:
         agg.sort_values(["kjede", "pris_min"])["label"].tolist()
     )
 
-    color = alt.Color("kjede:N", legend=alt.Legend(title="Kjede"))
+    color = alt.Color(
+        "kjede_display:N",
+        legend=alt.Legend(title="Kjede"),
+        sort=[KJEDE_DISPLAY[k] for k in KJEDE_ORDER if k in agg["kjede"].values],
+    )
     # labelLimit=400 + multi-line labels (\n inside the string) keeps long
     # treatment names readable instead of truncating to "Tannkrone met…".
     common_y = alt.Y(
@@ -190,7 +193,7 @@ def _render_per_behandling_chart(detail: pd.DataFrame) -> None:
         axis=alt.Axis(labelLimit=400, labelFontSize=11, labelLineHeight=12),
     )
     tooltip = [
-        alt.Tooltip("kjede:N", title="Kjede"),
+        alt.Tooltip("kjede_display:N", title="Kjede"),
         alt.Tooltip("behandling_navn_raw:N", title="Navn på prisliste"),
         alt.Tooltip("pris_min:Q", title="Pris min"),
         alt.Tooltip("pris_max:Q", title="Pris max"),
