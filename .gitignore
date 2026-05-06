@@ -2,6 +2,5 @@
 __pycache__/
 *.pyc
 .env
-store.db
 .streamlit/secrets.toml
 .claude/scheduled_tasks.lock

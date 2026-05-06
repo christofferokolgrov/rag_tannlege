@@ -1,4 +1,15 @@
+import os
+
 import streamlit as st
+
+# Streamlit Cloud puts secrets in st.secrets, but tannhelse.config reads
+# os.environ at import time. Bridge before the tannhelse imports below.
+for _key in ("OPENAI_API_KEY", "DEEPSEEK_API_KEY"):
+    if not os.environ.get(_key):
+        try:
+            os.environ[_key] = st.secrets[_key]
+        except (KeyError, FileNotFoundError):
+            pass
 
 from tannhelse.config import DB_PATH
 from tannhelse.llm import stream_chat
