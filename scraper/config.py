@@ -5,6 +5,7 @@ DATA_DIR = REPO_ROOT / "data"
 HTML_CACHE_DIR = DATA_DIR / "html_cache"
 
 CLINIC_MANIFEST_PATH = DATA_DIR / "clinic_discovery.yaml"
+HELSESMART_TARGETS_PATH = DATA_DIR / "helsesmart_targets.yaml"
 CLINICS_CSV = DATA_DIR / "clinics.csv"
 PRICES_RAW_CSV = DATA_DIR / "prices_raw.csv"
 SCRAPE_LOG_CSV = DATA_DIR / "scrape_log.csv"
