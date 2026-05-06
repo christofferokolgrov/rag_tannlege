@@ -61,20 +61,20 @@ def test_oversikt_renders_summary_dataframe(app):
     assert len(overview) >= 19
     # Column headers use the chains' real brand-cased names, not the
     # lowercase klinikk_id slugs.
-    expected_cols = {"Behandling", "Odontia", "Colosseum", "OC", "Oris", "OralCare"}
+    expected_cols = {"Behandling", "Odontia", "Colosseum", "OC", "Oris"}
     assert expected_cols.issubset(set(overview.columns))
     # canonical_id is intentionally not surfaced
     assert "canonical_id" not in overview.columns
 
 
-def test_selecting_krone_shows_rows_for_all_five_chains():
+def test_selecting_krone_shows_rows_for_all_chains():
     at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
     at.run()
     at.selectbox[0].set_value("Krone").run()
     assert not at.exception
     detail = at.dataframe[1].value
     assert len(detail) > 0
-    assert set(detail["kjede"].unique()) == {"odontia", "colosseum", "oc", "oris", "oralcare"}
+    assert set(detail["kjede"].unique()) == {"odontia", "colosseum", "oc", "oris"}
 
 
 def _has_altair_chart(at: AppTest) -> bool:

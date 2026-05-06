@@ -2,10 +2,10 @@ import re
 import unicodedata
 from collections import defaultdict
 
-KJEDE_TOKENS = frozenset({"odontia", "oris", "colosseum", "oc", "oralcare", "single"})
+KJEDE_TOKENS = frozenset({"odontia", "oris", "colosseum", "oc", "single"})
 
 KLINIKK_ID_PATTERN = re.compile(
-    r"^(odontia|oris|colosseum|oc|oralcare|single)__([a-z0-9_]+)$"
+    r"^(odontia|oris|colosseum|oc|single)__([a-z0-9_]+)$"
 )
 
 _NORWEGIAN_TRANSLIT = {

@@ -84,7 +84,6 @@ canonical:
       colosseum: ["Undersøkelse"]
       oc: ["Tannundersøkelse hos tannlege", "Tannundersøkelse", "Tannundersøkelse hos tannpleier"]
       oris: ["Tannundersøkelse"]
-      oralcare: ["Første undersøkelse inkl. nødvendig 2D-røntgen"]
 
   - id: tooth_cleaning
     navn: "Tannrens"
@@ -94,7 +93,6 @@ canonical:
       colosseum: ["Tannrens"]
       oc: ["Tannrens"]
       oris: []
-      oralcare: []
 
   - id: composite_filling_one_surface
     navn: "Tannfarget fylling, én tannflate"
@@ -104,7 +102,6 @@ canonical:
       colosseum: ["Fyllinger, én tannflate (kompositt)"]
       oc: ["Fylling 1 flate"]
       oris: ["Fyllinger, én tannflate (kompositt)"]
-      oralcare: ["Komposittfylling, 1 flate, pris fra"]
 
   - id: composite_filling_two_surfaces
     navn: "Tannfarget fylling, to tannflater"
@@ -114,7 +111,6 @@ canonical:
       colosseum: ["Fyllinger, to tannflater (kompositt)"]
       oc: ["Fylling 2 flater"]
       oris: ["Fyllinger, to tannflater (kompositt)"]
-      oralcare: ["Komposittfylling, 2 flater, pris fra"]
 
   - id: composite_filling_three_surfaces
     navn: "Tannfarget fylling, tre tannflater"
@@ -124,7 +120,6 @@ canonical:
       colosseum: ["Fyllinger, tre tannflater (kompositt)"]
       oc: ["Fylling 3 flater"]
       oris: ["Fyllinger, tre tannflater (kompositt)"]
-      oralcare: ["Komposittfylling, 3 flater, pris fra"]
 
   - id: composite_filling_four_plus_surfaces
     navn: "Tannfarget fylling, fire eller flere tannflater"
@@ -134,7 +129,6 @@ canonical:
       colosseum: []
       oc: ["Fylling 4 flater eller mer"]
       oris: []
-      oralcare: []
 
   - id: crown
     navn: "Krone"
@@ -144,7 +138,6 @@ canonical:
       colosseum: ["Krone"]
       oc: ["Tannkrone", "Helkrone inkl. tannteknikk", "Helkrone inkl. tannteknikk (zirkonium)", "Tannkrone Implantatbasert"]
       oris: ["Krone"]
-      oralcare: ["Tannkrone metallfri (e.max)", "Tannkrone metallfri (zirkonia, monoblock)"]
 
   - id: root_canal_anterior
     navn: "Rotfylling, fortann"
@@ -154,7 +147,6 @@ canonical:
       colosseum: ["Rotfyllingav fortann/hjørnetann"]
       oc: ["Rotbehandling (rotfylling) fortann og hjørnetann"]
       oris: ["Rotfylling, én rotkanal (fortann)"]
-      oralcare: ["Rotfylling, fortann, pris fra"]
 
   - id: implant_with_crown
     navn: "Implantat inkl. krone"
@@ -164,7 +156,6 @@ canonical:
       colosseum: ["IMPLANTAT"]  # via HelseSmart only — see helsesmart_targets.yaml
       oc: []  # implant auto-fallback to HelseSmart deferred (#22 follow-up)
       oris: ["Implantat behandling - én tann inkl. krone"]
-      oralcare: ["Implantat m/distanse og krone", "Implantat, pris fra", "Implantatkrone inkl. distanse, pris fra"]
 
   - id: tooth_extraction_simple
     navn: "Trekking, ukomplisert"
@@ -174,7 +165,6 @@ canonical:
       colosseum: ["Ukompliserttrekkingav tann"]
       oc: ["Ukomplisert trekking av tann", "Uttrekning"]
       oris: ["Ukomplisert trekking av tann"]
-      oralcare: ["Trekking av tann, ukomplisert, pris fra"]
 
   - id: tooth_extraction_complex
     navn: "Trekking, komplisert (kirurgisk uten visdomstann)"
@@ -184,7 +174,6 @@ canonical:
       colosseum: []
       oc: []
       oris: []
-      oralcare: ["Trekking av tann, komplisert, pris fra"]
 
   - id: root_canal_premolar
     navn: "Rotfylling, premolar (liten jeksel)"
@@ -194,7 +183,6 @@ canonical:
       colosseum: ["Rotfyllingav liten jeksel"]
       oc: ["Rotbehandling (rotfylling) premolar"]
       oris: ["Rotfylling, to rotkanaler (hjørne/sidetann)"]
-      oralcare: ["Rotfylling, hjørnetann (premolar), pris fra"]
 
   - id: root_canal_molar
     navn: "Rotfylling, molar (stor jeksel)"
@@ -204,7 +192,6 @@ canonical:
       colosseum: ["Rotfyllingav stor jeksel"]
       oc: ["Rotbehandling (rotfylling) molar, inkl. røntgen og anestesi"]
       oris: ["Rotfylling, tre rotkanaler (jeksel)", "Rotfylling, fire rotkanaler"]
-      oralcare: ["Rotfylling, jeksel (molar), pris fra"]
 
   - id: xray_intraoral
     navn: "Intraoralt røntgenbilde"
@@ -214,7 +201,6 @@ canonical:
       colosseum: ["Røntgenbilde"]
       oc: ["Røntgenbilde"]
       oris: ["Røntgenbilde"]
-      oralcare: []
 
   # ---- Bucket B: new canonicals from #24 synonym round ----
 
@@ -226,7 +212,6 @@ canonical:
       colosseum: []
       oc: ["Bittskinne inkl. tannteknikk"]
       oris: ["Bittskinne"]
-      oralcare: []
 
   - id: denture_full
     navn: "Helprotese"
@@ -236,7 +221,6 @@ canonical:
       colosseum: []
       oc: ["Helprotese (en kjeve) inkl. tannteknikk"]
       oris: ["Helprotese, per kjeve"]
-      oralcare: ["Helprotese"]
 
   - id: denture_partial
     navn: "Delprotese / partiell protese"
@@ -246,7 +230,6 @@ canonical:
       colosseum: []
       oc: ["Partiell protese (delprotese) inkl. tannteknikk"]
       oris: []
-      oralcare: ["Delprotese"]
 
   - id: veneer
     navn: "Skallfasett / fasett"
@@ -256,7 +239,6 @@ canonical:
       colosseum: ["Fasett"]
       oc: []
       oris: ["Fasett (porselensfasade)"]
-      oralcare: ["Skallfasett metallfri (e.max)"]
 
   - id: panoramic_xray
     navn: "Panoramarøntgen (OPG)"
@@ -266,7 +248,6 @@ canonical:
       colosseum: ["OPG (panoramarøntgen)"]
       oc: ["OPG"]
       oris: ["OPG (panoramarøntgen)"]
-      oralcare: []
 
   - id: cbct_xray
     navn: "CBCT 3D-røntgen"
@@ -276,7 +257,6 @@ canonical:
       colosseum: ["EgenandelCBCT"]
       oc: []
       oris: ["CBCT"]
-      oralcare: []
 
   - id: anesthesia_per_dose
     navn: "Bedøvelse, per dose"
@@ -286,7 +266,6 @@ canonical:
       colosseum: ["Bedøvelse"]
       oc: ["Bedøvelse"]
       oris: ["Bedøvelse (enkel injeksjon)"]
-      oralcare: ["Bedøvelse, pr. injeksjon"]
 
   - id: wisdom_tooth_surgery
     navn: "Visdomstann-operasjon / kirurgisk fjerning"
@@ -296,4 +275,3 @@ canonical:
       colosseum: ["Kirurgiskfjerning avvisdomstann/tann/rot"]
       oc: ["Kirurgisk fjerning av tann", "Kirurgisk fjernelse av tann"]
       oris: ["Visdomstannoperasjon"]
-      oralcare: ["Kirurgisk fjerning av tann eller rot, pris fra"]

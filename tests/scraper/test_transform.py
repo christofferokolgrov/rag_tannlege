@@ -67,8 +67,8 @@ def test_canonical_long_excludes_pseudo_klinikk_rows(rows):
     assert all(not r["klinikk_id"].endswith("__central") for r in rows)
 
 
-def test_canonical_long_includes_all_five_chains(rows):
-    assert {r["kjede"] for r in rows} == {"odontia", "colosseum", "oc", "oris", "oralcare"}
+def test_canonical_long_includes_all_four_chains(rows):
+    assert {r["kjede"] for r in rows} == {"odontia", "colosseum", "oc", "oris"}
 
 
 def test_canonical_long_sentral_propagation_uniform_for_colosseum(rows):
@@ -89,7 +89,7 @@ def test_canonical_long_sentral_propagation_uniform_for_colosseum(rows):
 
 def test_canonical_long_annual_checkup_covers_all_chains(rows):
     chains = {r["kjede"] for r in rows if r["canonical_id"] == "annual_checkup"}
-    assert chains == {"odontia", "colosseum", "oc", "oris", "oralcare"}
+    assert chains == {"odontia", "colosseum", "oc", "oris"}
 
 
 def test_canonical_long_is_sorted_deterministically(rows):
@@ -113,6 +113,6 @@ def test_coverage_report_contains_expected_sections():
     content = COVERAGE_REPORT.read_text(encoding="utf-8")
     # Headers / sections that should always appear
     assert "Coverage matrix" in content or "coverage matrix" in content.lower()
-    # The 5 kjeder should be named columns or rows somewhere
-    for kjede in ("odontia", "colosseum", "oc", "oris", "oralcare"):
+    # The 4 kjeder should be named columns or rows somewhere
+    for kjede in ("odontia", "colosseum", "oc", "oris"):
         assert kjede in content, f"coverage report missing reference to {kjede}"

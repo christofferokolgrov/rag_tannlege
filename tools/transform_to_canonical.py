@@ -48,7 +48,7 @@ OUTPUT_COLUMNS = [
     "ekskluderer_raw",
 ]
 
-KJEDER = ["odontia", "colosseum", "oc", "oris", "oralcare"]
+KJEDER = ["odontia", "colosseum", "oc", "oris"]
 
 
 def _kjede_of(klinikk_id: str) -> str:

@@ -21,7 +21,7 @@ from scraper.fetch import RobotsBlockedError, fetch_with_cache
 from scraper.log import ScrapeLog
 from scraper.manifest import ManifestError, load_clinic_manifest, validate_manifest
 from scraper.output import write_clinics, write_prices_raw
-from scraper.parsers import colosseum, helsesmart, oc, odontia, oralcare, oris
+from scraper.parsers import colosseum, helsesmart, oc, odontia, oris
 from scraper.slug import parse_klinikk_id
 
 PARSERS = {
@@ -29,7 +29,6 @@ PARSERS = {
     "colosseum": colosseum,
     "oc": oc,
     "oris": oris,
-    "oralcare": oralcare,
 }
 
 
