@@ -138,6 +138,24 @@ def _scrape_entry(entry: dict, refetch: bool, log: ScrapeLog, hentet_dato: str) 
         info = parser.parse_clinic(klinikk_html) if klinikk_html else {}
         return _clinic_row(entry, info, "peker_på_sentral"), []
 
+    # kjede=single uses HelseSmart as the only data source; klinikk_url and
+    # prisliste_url point at the same HelseSmart page, so we fetch once and
+    # use the result for both parse_clinic (returns {}) and parse_prisliste.
+    if kjede == "single":
+        prisliste_html = _fetch(
+            entry["prisliste_url"],
+            _cache_path(klinikk_id, "prisliste"),
+            refetch,
+            log,
+            klinikk_id,
+        )
+        rows = (
+            parser.parse_prisliste(prisliste_html, klinikk_id=klinikk_id, hentet_dato=hentet_dato)
+            if prisliste_html
+            else []
+        )
+        return _clinic_row(entry, {}, "per_klinikk"), rows
+
     klinikk_html = _fetch(
         entry["klinikk_url"], _cache_path(klinikk_id, "klinikk"), refetch, log, klinikk_id
     )

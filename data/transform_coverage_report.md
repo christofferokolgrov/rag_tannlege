@@ -2,7 +2,7 @@
 
 - Total canonical_long rows: 3983
 - Canonical IDs in YAML: 22
-- Real clinics in manifest: 231
+- Real clinics in manifest: 267
 
 ## Coverage matrix (canonical × kjede)
 
