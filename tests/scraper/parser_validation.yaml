@@ -9,142 +9,139 @@
 # - OralCare: behandling_navn_raw is the verbatim page form (longer than spec)
 
 fixtures:
-  - klinikk_id: odontia__oslo_sentrum
-    behandling_navn_raw: "Årlig kontroll hos tannlege"
-    forventet:
-      pris_min: 1595
-      pris_max: 1595
-      prisformat: fast
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: odontia__oslo_sentrum
-    behandling_navn_raw: "Tannfarget fylling, liten"
-    forventet:
-      pris_min: 950
-      pris_max: 1545
-      prisformat: spread
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: odontia__molde
-    behandling_navn_raw: "Årlig kontroll hos tannlege"
-    forventet:
-      pris_min: 1550
-      pris_max: 1550
-      prisformat: fast
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: odontia__hoenefoss
-    behandling_navn_raw: "Årlig kontroll hos tannlege"
-    forventet:
-      pris_min: 1505
-      pris_max: 1505
-      prisformat: fast
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: colosseum__central
-    behandling_navn_raw: "Undersøkelse"
-    forventet:
-      pris_min: 1332
-      pris_max: null
-      prisformat: fra
-      pris_kilde: sentral
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: colosseum__central
-    behandling_navn_raw: "Krone"
-    forventet:
-      pris_min: 8076
-      pris_max: null
-      prisformat: fra
-      pris_kilde: sentral
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: oc__tannlegesenteret_taasen
-    behandling_navn_raw: "Tannundersøkelse hos tannlege"
-    forventet:
-      pris_min: 2125
-      pris_max: 2125
-      prisformat: fast
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: oc__bergen_nord
-    behandling_navn_raw: "Tannundersøkelse hos tannlege"
-    forventet:
-      pris_min: 1730
-      pris_max: 1730
-      prisformat: fast
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: oc__festningen
-    behandling_navn_raw: "Tannundersøkelse"
-    forventet:
-      pris_min: 1630
-      pris_max: 1630
-      prisformat: fast
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: oris__central
-    behandling_navn_raw: "Tannundersøkelse"
-    forventet:
-      pris_min: 1423
-      pris_max: null
-      prisformat: fra
-      pris_kilde: sentral
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: oris__central
-    behandling_navn_raw: "Fyllinger, én tannflate (kompositt)"
-    forventet:
-      pris_min: 1312
-      pris_max: null
-      prisformat: fra
-      pris_kilde: sentral
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: oris__central
-    behandling_navn_raw: "Implantat behandling - én tann inkl. krone"
-    forventet:
-      pris_min: 33075
-      pris_max: null
-      prisformat: fra
-      pris_kilde: sentral
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: oralcare__linderud
-    behandling_navn_raw: "Første undersøkelse inkl. nødvendig 2D-røntgen"
-    forventet:
-      pris_min: 990
-      pris_max: 990
-      prisformat: fast
-      pris_kilde: klinikk_egen
-    observert_dato: 2026-05-06
-    verifisert_av: ck
-
-  - klinikk_id: colosseum__majorstuen
-    behandling_navn_raw: "IMPLANTAT"
-    forventet:
-      pris_min: 11900
-      pris_max: 32000
-      prisformat: spread
-      pris_kilde: helsesmart
-    observert_dato: 2026-05-06
-    verifisert_av: ck
+- klinikk_id: odontia__oslo_sentrum
+  behandling_navn_raw: Årlig kontroll hos tannlege
+  forventet:
+    pris_min: 1595
+    pris_max: 1595
+    prisformat: fast
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 23
+- klinikk_id: odontia__oslo_sentrum
+  behandling_navn_raw: Tannfarget fylling, liten
+  forventet:
+    pris_min: 950
+    pris_max: 1545
+    prisformat: spread
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+- klinikk_id: odontia__molde
+  behandling_navn_raw: Årlig kontroll hos tannlege
+  forventet:
+    pris_min: 1550
+    pris_max: 1550
+    prisformat: fast
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 21
+- klinikk_id: odontia__hoenefoss
+  behandling_navn_raw: Årlig kontroll hos tannlege
+  forventet:
+    pris_min: 1505
+    pris_max: 1505
+    prisformat: fast
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 23
+- klinikk_id: colosseum__central
+  behandling_navn_raw: Undersøkelse
+  forventet:
+    pris_min: 1332
+    pris_max: null
+    prisformat: fra
+    pris_kilde: sentral
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 18
+- klinikk_id: colosseum__central
+  behandling_navn_raw: Krone
+  forventet:
+    pris_min: 8076
+    pris_max: null
+    prisformat: fra
+    pris_kilde: sentral
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+- klinikk_id: oc__tannlegesenteret_taasen
+  behandling_navn_raw: Tannundersøkelse hos tannlege
+  forventet:
+    pris_min: 2125
+    pris_max: 2125
+    prisformat: fast
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 12
+- klinikk_id: oc__bergen_nord
+  behandling_navn_raw: Tannundersøkelse hos tannlege
+  forventet:
+    pris_min: 1730
+    pris_max: 1730
+    prisformat: fast
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 12
+- klinikk_id: oc__festningen
+  behandling_navn_raw: Tannundersøkelse
+  forventet:
+    pris_min: 1630
+    pris_max: 1630
+    prisformat: fast
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 9
+- klinikk_id: oris__central
+  behandling_navn_raw: Tannundersøkelse
+  forventet:
+    pris_min: 1423
+    pris_max: null
+    prisformat: fra
+    pris_kilde: sentral
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 23
+- klinikk_id: oris__central
+  behandling_navn_raw: Fyllinger, én tannflate (kompositt)
+  forventet:
+    pris_min: 1312
+    pris_max: null
+    prisformat: fra
+    pris_kilde: sentral
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+- klinikk_id: oris__central
+  behandling_navn_raw: Implantat behandling - én tann inkl. krone
+  forventet:
+    pris_min: 33075
+    pris_max: null
+    prisformat: fra
+    pris_kilde: sentral
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+- klinikk_id: oralcare__linderud
+  behandling_navn_raw: Første undersøkelse inkl. nødvendig 2D-røntgen
+  forventet:
+    pris_min: 990
+    pris_max: 990
+    prisformat: fast
+    pris_kilde: klinikk_egen
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 27
+- klinikk_id: colosseum__majorstuen
+  behandling_navn_raw: IMPLANTAT
+  forventet:
+    pris_min: 11900
+    pris_max: 32000
+    prisformat: spread
+    pris_kilde: helsesmart
+  observert_dato: 2026-05-06
+  verifisert_av: ck
+  forventet_min_rader: 0
