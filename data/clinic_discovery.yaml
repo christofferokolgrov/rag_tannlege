@@ -6,6 +6,20 @@ clinics:
     prisliste_url: https://odontia.no/prisliste/tannlege-oslo-sentrum/
     prisliste_struktur: per_klinikk
 
+  - klinikk_id: odontia__molde
+    kjede: odontia
+    klinikk_navn: Odontia Molde
+    klinikk_url: https://odontia.no/tannlege/molde
+    prisliste_url: https://odontia.no/prisliste/tannlege-molde/
+    prisliste_struktur: per_klinikk
+
+  - klinikk_id: odontia__hoenefoss
+    kjede: odontia
+    klinikk_navn: Odontia Hønefoss
+    klinikk_url: https://odontia.no/tannlege/honefoss
+    prisliste_url: https://odontia.no/prisliste/honefoss/
+    prisliste_struktur: per_klinikk
+
   - klinikk_id: colosseum__central
     kjede: colosseum
     klinikk_navn: Colosseum (sentral prisliste)

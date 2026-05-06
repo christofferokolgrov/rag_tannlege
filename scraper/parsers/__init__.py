@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from scraper.prisformat import Prisformat
 
@@ -13,3 +13,5 @@ class PriceRow:
     pris_kilde: str
     kommentar: str
     hentet_dato: str
+    inkluderer_raw: str = ""
+    ekskluderer_raw: str = ""

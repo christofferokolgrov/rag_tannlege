@@ -139,6 +139,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 "pris_kilde": r.pris_kilde,
                 "kommentar": r.kommentar,
                 "hentet_dato": r.hentet_dato,
+                "inkluderer_raw": r.inkluderer_raw,
+                "ekskluderer_raw": r.ekskluderer_raw,
             }
             for r in price_rows
         ],

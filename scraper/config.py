@@ -39,6 +39,8 @@ PRICES_RAW_COLUMNS = [
     "pris_kilde",
     "kommentar",
     "hentet_dato",
+    "inkluderer_raw",
+    "ekskluderer_raw",
 ]
 
 SCRAPE_LOG_COLUMNS = [

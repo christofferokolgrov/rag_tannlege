@@ -38,3 +38,24 @@ def test_parse_clinic_extracts_address_postnummer_by():
     assert info["adresse"] == "Skippergata 33"
     assert info["postnummer"] == "0154"
     assert info["by"] == "Oslo"
+
+
+def test_parse_prisliste_extracts_footnote_into_ekskluderer_raw():
+    rows = parse_prisliste(_read("oslo_sentrum_prisliste.html"))
+    aarlig = next(r for r in rows if r.behandling_navn_raw == "Årlig kontroll hos tannlege")
+    # Page has <div class="small-text">Ved behov for utvidet røntgen eller
+    # videre behandling vil dette tilkomme prisen.</div> in cell 0.
+    assert "tilkomme prisen" in aarlig.ekskluderer_raw
+    assert aarlig.inkluderer_raw == ""
+
+
+def test_parse_prisliste_for_molde_emits_aarlig_kontroll_fixture():
+    rows = parse_prisliste(_read("molde_prisliste.html"))
+    matches = [r for r in rows if r.behandling_navn_raw == "Årlig kontroll hos tannlege"]
+    assert len(matches) == 1
+
+
+def test_parse_prisliste_for_honefoss_emits_aarlig_kontroll_fixture():
+    rows = parse_prisliste(_read("hoenefoss_prisliste.html"))
+    matches = [r for r in rows if r.behandling_navn_raw == "Årlig kontroll hos tannlege"]
+    assert len(matches) == 1

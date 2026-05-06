@@ -13,10 +13,16 @@ _ADDRESS_RE = re.compile(
 )
 
 
-def _treatment_name(cell) -> str:
+def _split_name_and_footnote(cell) -> tuple[str, str]:
+    """Treatment cells contain the name as a direct text node followed by an
+    optional `.small-text` div with the footnote. Returns (name, footnote)."""
+    footnote_parts: list[str] = []
     for footnote in cell.css(_FOOTNOTE_SELECTOR):
+        text = footnote.text(strip=True)
+        if text:
+            footnote_parts.append(text)
         footnote.decompose()
-    return cell.text(strip=True)
+    return cell.text(strip=True), " ".join(footnote_parts)
 
 
 def parse_prisliste(
@@ -29,7 +35,7 @@ def parse_prisliste(
             cells = tr.css("td")
             if len(cells) != 2:
                 continue
-            name = _treatment_name(cells[0])
+            name, footnote = _split_name_and_footnote(cells[0])
             if not name:
                 continue
             raw_price = cells[1].text(strip=True)
@@ -47,6 +53,11 @@ def parse_prisliste(
                     pris_kilde=PRIS_KILDE,
                     kommentar="",
                     hentet_dato=hentet_dato,
+                    # Odontia footnotes describe what comes IN ADDITION to the
+                    # listed price ("Ved behov for utvidet røntgen … vil dette
+                    # tilkomme prisen"). That semantic is exclusion: the listed
+                    # price does NOT include those extras. Hence ekskluderer_raw.
+                    ekskluderer_raw=footnote,
                 )
             )
     return rows
