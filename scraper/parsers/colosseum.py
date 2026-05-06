@@ -8,6 +8,11 @@ from scraper.prisformat import PrisformatError, parse_price
 PRIS_KILDE = "sentral"
 
 _LEADING_SEP_RE = re.compile(r"^[-–—]\s*")
+# Some Colosseum rows put a clarifier in parens between the treatment name
+# and the price, e.g. "Bedøvelse (enkel injeksjon) - fra kr. 205". The
+# parens content is metadata, not part of the price; strip it before
+# parse_price.
+_LEADING_PARENS_RE = re.compile(r"^\s*\([^)]*\)\s*")
 _ADDRESS_RE = re.compile(
     r"([^,\n]+?),\s*(\d{4})[\s\xa0]+([A-Za-zÆØÅæøå]+)"
 )
@@ -25,17 +30,33 @@ def parse_prisliste(
         name = strong.text(strip=True)
         if not name:
             continue
-        # The treatment name is in <strong>; the price is the text node that
-        # follows it before the <br> separator. text(separator='|') gives us
-        # the visible text segments split by element boundaries.
+        # The treatment name is in <strong>; the price is a text node that
+        # follows it. text(separator='|') splits at every element boundary —
+        # for rows like "<strong><a>Fyllinger</a>, én tannflate</strong> -
+        # fra kr. 990", parts[1] is the strong's continuation (", én
+        # tannflate") rather than the price. Try each part in turn and accept
+        # the first that parses; strip leading parens/separators each time.
         full_text = p.text(separator="|", strip=True)
-        parts = full_text.split("|")
+        parts = [p_.strip() for p_ in full_text.split("|") if p_.strip()]
         if len(parts) < 2:
             continue
-        price_text = _LEADING_SEP_RE.sub("", parts[1].strip())
-        try:
-            parsed = parse_price(price_text)
-        except PrisformatError:
+        # parse_price returns etter_konsultasjon (no exception) for any
+        # digit-less input — including the strong's continuation text in
+        # multi-strong rows. Restrict to parts that actually contain digits;
+        # take the first such part that parses to something other than
+        # etter_konsultasjon.
+        parsed = None
+        for part in parts[1:]:
+            if not any(ch.isdigit() for ch in part):
+                continue
+            candidate = _LEADING_PARENS_RE.sub("", part)
+            candidate = _LEADING_SEP_RE.sub("", candidate)
+            try:
+                parsed = parse_price(candidate)
+                break
+            except PrisformatError:
+                continue
+        if parsed is None:
             continue
         rows.append(
             PriceRow(

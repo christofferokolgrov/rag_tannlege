@@ -125,16 +125,6 @@ fixtures:
     pris_kilde: sentral
   observert_dato: 2026-05-06
   verifisert_av: ck
-- klinikk_id: oralcare__linderud
-  behandling_navn_raw: Første undersøkelse inkl. nødvendig 2D-røntgen
-  forventet:
-    pris_min: 990
-    pris_max: 990
-    prisformat: fast
-    pris_kilde: klinikk_egen
-  observert_dato: 2026-05-06
-  verifisert_av: ck
-  forventet_min_rader: 27
 - klinikk_id: colosseum__majorstuen
   behandling_navn_raw: IMPLANTAT
   forventet:

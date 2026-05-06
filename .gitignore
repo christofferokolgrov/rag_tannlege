@@ -10,6 +10,9 @@ data/clinics.csv
 data/prices_raw.csv
 data/scrape_log.csv
 
+# Transform output (regenerated each `python tools/transform_to_canonical.py`)
+data/prices_canonical_long.csv
+
 # HTML cache: by default ignored (full coverage runs ~50-80 MB).
 # Exceptions: fixture-clinic caches needed by smoke tests + sentral
 # prislister + the HelseSmart fixture page. Keeping these committed
@@ -38,7 +41,5 @@ data/html_cache/**
 !data/html_cache/oc/bergen_nord_prisliste.html
 !data/html_cache/oc/festningen_klinikk.html
 !data/html_cache/oc/festningen_prisliste.html
-!data/html_cache/oralcare/linderud_klinikk.html
-!data/html_cache/oralcare/linderud_prisliste.html
 !data/html_cache/helsesmart/colosseum_majorstuen.html
 

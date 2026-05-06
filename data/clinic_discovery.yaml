@@ -151,13 +151,6 @@ clinics:
   klinikk_navn: OC Iristannlegene
   klinikk_url: https://www.octannklinikker.no/klinikker/iristannlegene/
   prisliste_url: https://www.octannklinikker.no/klinikker/iristannlegene/
-- klinikk_id: oralcare__linderud
-  kjede: oralcare
-  klinikk_navn: OralCare Linderud
-  klinikk_url: https://oralcare.no/linderud-oslo/
-  prisliste_url: https://oralcare.no/pris/
-  notes: Eneste verifiserte OralCare-klinikk; Trondheim er flagget partnerklinikk
-    uten egen prisliste, Tromsø har ingen egen klinikk-side
 - klinikk_id: odontia__aas
   kjede: odontia
   klinikk_navn: Odontia Aas
