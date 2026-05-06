@@ -12,7 +12,7 @@ DOCS_YAML = ROOT / "docs" / "docs.yaml"
 
 EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIM = 1536
-LLM_MODEL = "deepseek-chat"
+LLM_MODEL = "deepseek-reasoner"
 
 CHUNK_SIZE_TOKENS = 600
 CHUNK_MAX_TOKENS = 900
