@@ -68,7 +68,7 @@ def parse_clinic(html: str) -> dict[str, str]:
     text = h.text(separator="\n", strip=True)
     m = _ADDRESS_RE.search(text)
     if not m:
-        raise ValueError("could not extract address from clinic page")
+        return {}
     return {
         "adresse": m.group(1).strip(),
         "postnummer": m.group(2),

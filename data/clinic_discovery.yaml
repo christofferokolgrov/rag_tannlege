@@ -1,195 +1,1390 @@
 clinics:
-  - klinikk_id: odontia__oslo_sentrum
-    kjede: odontia
-    klinikk_navn: Odontia Oslo Sentrum
-    klinikk_url: https://odontia.no/tannlege/oslo-sentrum
-    prisliste_url: https://odontia.no/prisliste/tannlege-oslo-sentrum/
-    prisliste_struktur: per_klinikk
-
-  - klinikk_id: odontia__molde
-    kjede: odontia
-    klinikk_navn: Odontia Molde
-    klinikk_url: https://odontia.no/tannlege/molde
-    prisliste_url: https://odontia.no/prisliste/tannlege-molde/
-    prisliste_struktur: per_klinikk
-
-  - klinikk_id: odontia__hoenefoss
-    kjede: odontia
-    klinikk_navn: Odontia Hønefoss
-    klinikk_url: https://odontia.no/tannlege/honefoss
-    prisliste_url: https://odontia.no/prisliste/honefoss/
-    prisliste_struktur: per_klinikk
-
-  - klinikk_id: colosseum__central
-    kjede: colosseum
-    klinikk_navn: Colosseum (sentral prisliste)
-    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
-    prisliste_struktur: sentral
-
-  - klinikk_id: colosseum__majorstuen
-    kjede: colosseum
-    klinikk_navn: Colosseum Majorstuen tannlege
-    klinikk_url: https://colosseumtannlege.no/klinikker/oslo/majorstuen/majorstuen-tannlege/
-    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: colosseum__stortingsgata
-    kjede: colosseum
-    klinikk_navn: Colosseum Stortingsgata
-    klinikk_url: https://colosseumtannlege.no/klinikker/oslo/nationaltheatret/stortingsgata/
-    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: colosseum__bergen_wallendahl
-    kjede: colosseum
-    klinikk_navn: Colosseum Wallendahl (Bergen)
-    klinikk_url: https://colosseumtannlege.no/klinikker/vestland/bergen/wallendahl/
-    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: colosseum__trondheim_innherredsveien
-    kjede: colosseum
-    klinikk_navn: Colosseum Innherredsveien (Trondheim)
-    klinikk_url: https://colosseumtannlege.no/klinikker/trondelag/trondheim/innherredsveien/
-    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: colosseum__stavanger_sentrum
-    kjede: colosseum
-    klinikk_navn: Colosseum Stavanger Sentrum
-    klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/stavanger/sentrum/
-    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: oris__central
-    kjede: oris
-    klinikk_navn: Oris Dental (sentral prisliste)
-    prisliste_url: https://orisdental.no/prisliste
-    prisliste_struktur: sentral
-
-  - klinikk_id: oris__aker_brygge
-    kjede: oris
-    klinikk_navn: Oris Aker Brygge
-    klinikk_url: https://orisdental.no/klinikker/aker-brygge
-    prisliste_url: https://orisdental.no/prisliste
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: oris__bodo
-    kjede: oris
-    klinikk_navn: Oris Bodø
-    klinikk_url: https://orisdental.no/klinikker/bodo
-    prisliste_url: https://orisdental.no/prisliste
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: oris__arendal
-    kjede: oris
-    klinikk_navn: Oris Arendal
-    klinikk_url: https://orisdental.no/klinikker/arendal
-    prisliste_url: https://orisdental.no/prisliste
-    prisliste_struktur: peker_på_sentral
-
-  - klinikk_id: oris__arken_asane
-    kjede: oris
-    klinikk_navn: Oris Arken Åsane (Bergen)
-    klinikk_url: https://orisdental.no/klinikker/arken-asane
-    prisliste_url: https://orisdental.no/prisliste
-    prisliste_struktur: peker_på_sentral
-
-  # OC Tannklinikker — per-klinikk priser, prisene ligger inline på samme side
-  # som klinikk-info (section.pricing). Begge URL-felt peker på samme side;
-  # cli.py skriver ulike cache-filer (<slug>_klinikk.html, <slug>_prisliste.html)
-  # men nettverkskall gjøres bare én gang når cache fylles via discovery.
-  - klinikk_id: oc__tannlegesenteret_taasen
-    kjede: oc
-    klinikk_navn: OC Tannlegesenteret – Oslo (Tåsen)
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegesenteret/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegesenteret/
-
-  - klinikk_id: oc__bergen_nord
-    kjede: oc
-    klinikk_navn: OC Bergen Nord Tannhelsesenter
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-bergen-nord-tannhelsesenter/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-bergen-nord-tannhelsesenter/
-
-  - klinikk_id: oc__festningen
-    kjede: oc
-    klinikk_navn: OC Festningen Tannklinikk
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-festningen-tannklinikk/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-festningen-tannklinikk/
-
-  - klinikk_id: oc__torget_drammen
-    kjede: oc
-    klinikk_navn: OC Torget Tannlegesenter
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-torget-tannlegesenter/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-torget-tannlegesenter/
-
-  - klinikk_id: oc__malmbryggen_arendal
-    kjede: oc
-    klinikk_navn: OC Malmbryggen Tannklinikk
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-malmbryggen-tannklinikk/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-malmbryggen-tannklinikk/
-
-  - klinikk_id: oc__klette_og_race_moss
-    kjede: oc
-    klinikk_navn: OC Tannlegene Klette og Race
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-klette-og-race/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-klette-og-race/
-
-  - klinikk_id: oc__gimle_kristiansand
-    kjede: oc
-    klinikk_navn: OC Gimle Tannhelsesenter
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-gimle-tannhelsesenter/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-gimle-tannhelsesenter/
-
-  - klinikk_id: oc__dronningens_kristiansand
-    kjede: oc
-    klinikk_navn: OC Dronningens Tannlegesenter
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-dronningens-tannlegesenter/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-dronningens-tannlegesenter/
-
-  - klinikk_id: oc__markens_kristiansand
-    kjede: oc
-    klinikk_navn: OC Markens Tannlegesenter
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-markens-tannlegesenter/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-markens-tannlegesenter/
-
-  - klinikk_id: oc__gyldenloevesgate_kristiansand
-    kjede: oc
-    klinikk_navn: OC Tannlegene i Gyldenløvesgate
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-i-gyldenlovesgate/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-i-gyldenlovesgate/
-
-  - klinikk_id: oc__kolbotn
-    kjede: oc
-    klinikk_navn: OC Kolbotn Tannhelse
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-kolbotn-tannhelse/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-kolbotn-tannhelse/
-
-  - klinikk_id: oc__bergen_storsenter
-    kjede: oc
-    klinikk_navn: OC Bergen Storsenter Tannlegepraksis
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-bergen-storsenter-tannlegepraksis/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-bergen-storsenter-tannlegepraksis/
-
-  - klinikk_id: oc__skien
-    kjede: oc
-    klinikk_navn: OC Skien Tannhelse
-    klinikk_url: https://www.octannklinikker.no/klinikker/oc-skien-tannhelse/
-    prisliste_url: https://www.octannklinikker.no/klinikker/oc-skien-tannhelse/
-
-  - klinikk_id: oc__iristannlegene
-    kjede: oc
-    klinikk_navn: OC Iristannlegene
-    klinikk_url: https://www.octannklinikker.no/klinikker/iristannlegene/
-    prisliste_url: https://www.octannklinikker.no/klinikker/iristannlegene/
-
-  - klinikk_id: oralcare__linderud
-    kjede: oralcare
-    klinikk_navn: OralCare Linderud
-    # OralCare publishes one prisliste at /pris/, explicitly scoped to
-    # Linderud ("Dette er et utdrag fra vår prisliste for tannbehandling
-    # på Linderud i Oslo."). Hence Linderud is the only verified clinic
-    # this slice scrapes; see commit message and design §4.
-    klinikk_url: https://oralcare.no/linderud-oslo/
-    prisliste_url: https://oralcare.no/pris/
-    notes: "Eneste verifiserte OralCare-klinikk; Trondheim er flagget partnerklinikk uten egen prisliste, Tromsø har ingen egen klinikk-side"
+- klinikk_id: odontia__oslo_sentrum
+  kjede: odontia
+  klinikk_navn: Odontia Oslo Sentrum
+  klinikk_url: https://odontia.no/tannlege/oslo-sentrum
+  prisliste_url: https://odontia.no/prisliste/tannlege-oslo-sentrum/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__molde
+  kjede: odontia
+  klinikk_navn: Odontia Molde
+  klinikk_url: https://odontia.no/tannlege/molde
+  prisliste_url: https://odontia.no/prisliste/tannlege-molde/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__hoenefoss
+  kjede: odontia
+  klinikk_navn: Odontia Hønefoss
+  klinikk_url: https://odontia.no/tannlege/honefoss
+  prisliste_url: https://odontia.no/prisliste/honefoss/
+  prisliste_struktur: per_klinikk
+- klinikk_id: colosseum__central
+  kjede: colosseum
+  klinikk_navn: Colosseum (sentral prisliste)
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: sentral
+- klinikk_id: colosseum__majorstuen
+  kjede: colosseum
+  klinikk_navn: Colosseum Majorstuen tannlege
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/majorstuen/majorstuen-tannlege/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__stortingsgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Stortingsgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/nationaltheatret/stortingsgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__bergen_wallendahl
+  kjede: colosseum
+  klinikk_navn: Colosseum Wallendahl (Bergen)
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/bergen/wallendahl/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__trondheim_innherredsveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Innherredsveien (Trondheim)
+  klinikk_url: https://colosseumtannlege.no/klinikker/trondelag/trondheim/innherredsveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__stavanger_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Stavanger Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/stavanger/sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__central
+  kjede: oris
+  klinikk_navn: Oris Dental (sentral prisliste)
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: sentral
+- klinikk_id: oris__aker_brygge
+  kjede: oris
+  klinikk_navn: Oris Aker Brygge
+  klinikk_url: https://orisdental.no/klinikker/aker-brygge
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__bodo
+  kjede: oris
+  klinikk_navn: Oris Bodø
+  klinikk_url: https://orisdental.no/klinikker/bodo
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__arendal
+  kjede: oris
+  klinikk_navn: Oris Arendal
+  klinikk_url: https://orisdental.no/klinikker/arendal
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__arken_asane
+  kjede: oris
+  klinikk_navn: Oris Arken Åsane (Bergen)
+  klinikk_url: https://orisdental.no/klinikker/arken-asane
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oc__tannlegesenteret_taasen
+  kjede: oc
+  klinikk_navn: OC Tannlegesenteret – Oslo (Tåsen)
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegesenteret/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegesenteret/
+- klinikk_id: oc__bergen_nord
+  kjede: oc
+  klinikk_navn: OC Bergen Nord Tannhelsesenter
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-bergen-nord-tannhelsesenter/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-bergen-nord-tannhelsesenter/
+- klinikk_id: oc__festningen
+  kjede: oc
+  klinikk_navn: OC Festningen Tannklinikk
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-festningen-tannklinikk/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-festningen-tannklinikk/
+- klinikk_id: oc__torget_drammen
+  kjede: oc
+  klinikk_navn: OC Torget Tannlegesenter
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-torget-tannlegesenter/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-torget-tannlegesenter/
+- klinikk_id: oc__malmbryggen_arendal
+  kjede: oc
+  klinikk_navn: OC Malmbryggen Tannklinikk
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-malmbryggen-tannklinikk/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-malmbryggen-tannklinikk/
+- klinikk_id: oc__klette_og_race_moss
+  kjede: oc
+  klinikk_navn: OC Tannlegene Klette og Race
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-klette-og-race/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-klette-og-race/
+- klinikk_id: oc__gimle_kristiansand
+  kjede: oc
+  klinikk_navn: OC Gimle Tannhelsesenter
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-gimle-tannhelsesenter/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-gimle-tannhelsesenter/
+- klinikk_id: oc__dronningens_kristiansand
+  kjede: oc
+  klinikk_navn: OC Dronningens Tannlegesenter
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-dronningens-tannlegesenter/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-dronningens-tannlegesenter/
+- klinikk_id: oc__markens_kristiansand
+  kjede: oc
+  klinikk_navn: OC Markens Tannlegesenter
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-markens-tannlegesenter/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-markens-tannlegesenter/
+- klinikk_id: oc__gyldenloevesgate_kristiansand
+  kjede: oc
+  klinikk_navn: OC Tannlegene i Gyldenløvesgate
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-i-gyldenlovesgate/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-i-gyldenlovesgate/
+- klinikk_id: oc__kolbotn
+  kjede: oc
+  klinikk_navn: OC Kolbotn Tannhelse
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-kolbotn-tannhelse/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-kolbotn-tannhelse/
+- klinikk_id: oc__bergen_storsenter
+  kjede: oc
+  klinikk_navn: OC Bergen Storsenter Tannlegepraksis
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-bergen-storsenter-tannlegepraksis/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-bergen-storsenter-tannlegepraksis/
+- klinikk_id: oc__skien
+  kjede: oc
+  klinikk_navn: OC Skien Tannhelse
+  klinikk_url: https://www.octannklinikker.no/klinikker/oc-skien-tannhelse/
+  prisliste_url: https://www.octannklinikker.no/klinikker/oc-skien-tannhelse/
+- klinikk_id: oc__iristannlegene
+  kjede: oc
+  klinikk_navn: OC Iristannlegene
+  klinikk_url: https://www.octannklinikker.no/klinikker/iristannlegene/
+  prisliste_url: https://www.octannklinikker.no/klinikker/iristannlegene/
+- klinikk_id: oralcare__linderud
+  kjede: oralcare
+  klinikk_navn: OralCare Linderud
+  klinikk_url: https://oralcare.no/linderud-oslo/
+  prisliste_url: https://oralcare.no/pris/
+  notes: Eneste verifiserte OralCare-klinikk; Trondheim er flagget partnerklinikk
+    uten egen prisliste, Tromsø har ingen egen klinikk-side
+- klinikk_id: odontia__aas
+  kjede: odontia
+  klinikk_navn: Odontia Aas
+  klinikk_url: https://odontia.no/tannlege/aas
+  prisliste_url: https://odontia.no/prisliste/tannlege-as
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__asker
+  kjede: odontia
+  klinikk_navn: Odontia Asker
+  klinikk_url: https://odontia.no/tannlege/asker
+  prisliste_url: https://odontia.no/prisliste/tannlege-asker/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__askim
+  kjede: odontia
+  klinikk_navn: Odontia Askim
+  klinikk_url: https://odontia.no/tannlege/askim
+  prisliste_url: https://odontia.no/prisliste/prisliste-tannlege-askim/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__brumunddal
+  kjede: odontia
+  klinikk_navn: Odontia Brumunddal
+  klinikk_url: https://odontia.no/tannlege/brumunddal
+  prisliste_url: https://odontia.no/prisliste/tannlege-brumunddal/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__drammen
+  kjede: odontia
+  klinikk_navn: Odontia Drammen
+  klinikk_url: https://odontia.no/tannlege/drammen
+  prisliste_url: https://odontia.no/prisliste/tannlege-drammen/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__hamar
+  kjede: odontia
+  klinikk_navn: Odontia Hamar
+  klinikk_url: https://odontia.no/tannlege/hamar
+  prisliste_url: https://odontia.no/prisliste/tannlege-hamar/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__honefoss
+  kjede: odontia
+  klinikk_navn: Odontia Honefoss
+  klinikk_url: https://odontia.no/tannlege/honefoss
+  prisliste_url: https://odontia.no/prisliste/honefoss/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__hov
+  kjede: odontia
+  klinikk_navn: Odontia Hov
+  klinikk_url: https://odontia.no/tannlege/hov
+  prisliste_url: https://odontia.no/prisliste/tannlege-hov/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__kristiansund
+  kjede: odontia
+  klinikk_navn: Odontia Kristiansund
+  klinikk_url: https://odontia.no/tannlege/kristiansund
+  prisliste_url: https://odontia.no/prisliste/tannlege-kristiansund/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__kvernberget_kristiansund
+  kjede: odontia
+  klinikk_navn: Odontia Kvernberget Kristiansund
+  klinikk_url: https://odontia.no/tannlege/kvernberget-kristiansund
+  prisliste_url: https://odontia.no/prisliste/tannlege-kvernberget/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__larvik
+  kjede: odontia
+  klinikk_navn: Odontia Larvik
+  klinikk_url: https://odontia.no/tannlege/larvik
+  prisliste_url: https://odontia.no/prisliste/tannlege-larvik/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__lillehammer_lilletorget
+  kjede: odontia
+  klinikk_navn: Odontia Lillehammer Lilletorget
+  klinikk_url: https://odontia.no/tannlege/lillehammer-lilletorget
+  prisliste_url: https://odontia.no/prisliste/tannlege-lillehammer-lilletorget/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__lillehammer_tannhelse
+  kjede: odontia
+  klinikk_navn: Odontia Lillehammer Tannhelse
+  klinikk_url: https://odontia.no/tannlege/lillehammer-tannhelse
+  prisliste_url: https://odontia.no/prisliste/tannlege-lillehammer-tannhelse/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__lyngdal
+  kjede: odontia
+  klinikk_navn: Odontia Lyngdal
+  klinikk_url: https://odontia.no/tannlege/lyngdal
+  prisliste_url: https://odontia.no/prisliste/tannlege-lyngdal/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__moss_walle
+  kjede: odontia
+  klinikk_navn: Odontia Moss Walle
+  klinikk_url: https://odontia.no/tannlege/moss-walle
+  prisliste_url: https://odontia.no/prisliste/tannlege-moss-sentrum/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__oslo_stovner
+  kjede: odontia
+  klinikk_navn: Odontia Oslo Stovner
+  klinikk_url: https://odontia.no/tannlege/oslo-stovner
+  prisliste_url: https://odontia.no/prisliste/tannlege-stovner/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__oslo_ulleval
+  kjede: odontia
+  klinikk_navn: Odontia Oslo Ulleval
+  klinikk_url: https://odontia.no/tannlege/oslo-ulleval
+  prisliste_url: https://odontia.no/prisliste/tannlege-ulleval/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__roa
+  kjede: odontia
+  klinikk_navn: Odontia Roa
+  klinikk_url: https://odontia.no/tannlege/roa
+  prisliste_url: https://odontia.no/prisliste/tannlege-roa/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__sandefjord
+  kjede: odontia
+  klinikk_navn: Odontia Sandefjord
+  klinikk_url: https://odontia.no/tannlege/sandefjord
+  prisliste_url: https://odontia.no/prisliste/tannlege-sandefjord/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__sandvika
+  kjede: odontia
+  klinikk_navn: Odontia Sandvika
+  klinikk_url: https://odontia.no/tannlege/sandvika
+  prisliste_url: https://odontia.no/prisliste/tannlege-sandvika/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__sortland
+  kjede: odontia
+  klinikk_navn: Odontia Sortland
+  klinikk_url: https://odontia.no/tannlege/sortland
+  prisliste_url: https://odontia.no/prisliste/tannlege-sortland/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__stange
+  kjede: odontia
+  klinikk_navn: Odontia Stange
+  klinikk_url: https://odontia.no/tannlege/stange
+  prisliste_url: https://odontia.no/prisliste/tannlege-stange/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__stokmarknes
+  kjede: odontia
+  klinikk_navn: Odontia Stokmarknes
+  klinikk_url: https://odontia.no/tannlege/stokmarknes
+  prisliste_url: https://odontia.no/prisliste/tannlege-sortland-2/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__strommen_storsenter
+  kjede: odontia
+  klinikk_navn: Odontia Strommen Storsenter
+  klinikk_url: https://odontia.no/tannlege/strommen-storsenter
+  prisliste_url: https://odontia.no/prisliste/tannlege-strommen/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__tonsberg
+  kjede: odontia
+  klinikk_navn: Odontia Tonsberg
+  klinikk_url: https://odontia.no/tannlege/tonsberg
+  prisliste_url: https://odontia.no/prisliste/prisliste-avdeling-kaldnes/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__tromso_aba
+  kjede: odontia
+  klinikk_navn: Odontia Tromso Aba
+  klinikk_url: https://odontia.no/tannlege/tromso-aba
+  prisliste_url: https://odontia.no/prisliste/tannlege-tromso-aba/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__tromso_byporten
+  kjede: odontia
+  klinikk_navn: Odontia Tromso Byporten
+  klinikk_url: https://odontia.no/tannlege/tromso-byporten
+  prisliste_url: https://odontia.no/prisliste/tannlege-tromso-byporten/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__varna
+  kjede: odontia
+  klinikk_navn: Odontia Varna
+  klinikk_url: https://odontia.no/tannlege/varna
+  prisliste_url: https://odontia.no/prisliste/tannlege-moss-varna/
+  prisliste_struktur: per_klinikk
+- klinikk_id: odontia__volda
+  kjede: odontia
+  klinikk_navn: Odontia Volda
+  klinikk_url: https://odontia.no/tannlege/volda
+  prisliste_url: https://odontia.no/prisliste/tannlege-volda/
+  prisliste_struktur: per_klinikk
+- klinikk_id: colosseum__a1_tannlegen
+  kjede: colosseum
+  klinikk_navn: Colosseum A1 Tannlegen
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/arendal/a1-tannlegen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__arendal_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Arendal Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/arendal/arendal-sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__kastell
+  kjede: colosseum
+  klinikk_navn: Colosseum Kastell
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/arendal/kastell/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__kirkegaten
+  kjede: colosseum
+  klinikk_navn: Colosseum Kirkegaten
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/arendal/kirkegaten/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__gasholmen
+  kjede: colosseum
+  klinikk_navn: Colosseum Gasholmen
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/farsund/gasholmen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__marvika_torv
+  kjede: colosseum
+  klinikk_navn: Colosseum Marvika Torv
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/kristiansand/marvika-torv/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__sorlandsparken
+  kjede: colosseum
+  klinikk_navn: Colosseum Sorlandsparken
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/kristiansand/sorlandsparken/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tannpaleet
+  kjede: colosseum
+  klinikk_navn: Colosseum Tannpaleet
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/kristiansand/tannpaleet/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tollbodgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Tollbodgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/kristiansand/tollbodgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__vestre_4_etasje
+  kjede: colosseum
+  klinikk_navn: Colosseum Vestre 4 Etasje
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/kristiansand/vestre-4-etasje/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__vestre_7_etasje
+  kjede: colosseum
+  klinikk_navn: Colosseum Vestre 7 Etasje
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/kristiansand/vestre-7-etasje/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__johnstons_gate
+  kjede: colosseum
+  klinikk_navn: Colosseum Johnstons Gate
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/mandal/johnstons-gate/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__hovedgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Hovedgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/agder/tvedestrand/hovedgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__asker_tannlege
+  kjede: colosseum
+  klinikk_navn: Colosseum Asker Tannlege
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/asker/asker-tannlege/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__bekkestua_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Bekkestua Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/bekkestua/bekkestua-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__amfi_bjorkeveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Amfi Bjorkeveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/bjorkelangen/amfi-bjorkeveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__ringveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Ringveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/jessheim/ringveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__storsenter_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Storsenter Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/jessheim/storsenter-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__dampsagveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Dampsagveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/lillestrom/dampsagveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__hakonskastet
+  kjede: colosseum
+  klinikk_navn: Colosseum Hakonskastet
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/nesodden/hakonskastet/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tangen_senter
+  kjede: colosseum
+  klinikk_navn: Colosseum Tangen Senter
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/nesodden/tangen-senter/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__trondheimsvegen
+  kjede: colosseum
+  klinikk_navn: Colosseum Trondheimsvegen
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/rahalt/trondheimsvegen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__radman_halmrastsvei
+  kjede: colosseum
+  klinikk_navn: Colosseum Radman Halmrastsvei
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/sandvika/radman-halmrastsvei/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__stjernesund
+  kjede: colosseum
+  klinikk_navn: Colosseum Stjernesund
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/strommen/stjernesund/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__strommen_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Strommen Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/strommen/strommen-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__molleveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Molleveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/akershus/vestby/molleveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__colosseum_tannlege_mjondalen
+  kjede: colosseum
+  klinikk_navn: Colosseum Colosseum Tannlege Mjondalen
+  klinikk_url: https://colosseumtannlege.no/klinikker/buskerud/drammen/colosseum-tannlege-mjondalen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__drammen_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Drammen Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/buskerud/drammen/drammen-sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__gulskogen
+  kjede: colosseum
+  klinikk_navn: Colosseum Gulskogen
+  klinikk_url: https://colosseumtannlege.no/klinikker/buskerud/drammen/gulskogen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__ovre_tverrgate
+  kjede: colosseum
+  klinikk_navn: Colosseum Ovre Tverrgate
+  klinikk_url: https://colosseumtannlege.no/klinikker/buskerud/drammen/ovre-tverrgate/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__alesund_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Alesund Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/alesund/alesund-sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__moa
+  kjede: colosseum
+  klinikk_navn: Colosseum Moa
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/alesund/moa/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__storgata_41
+  kjede: colosseum
+  klinikk_navn: Colosseum Storgata 41
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/kristiansund/storgata-41/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__bjornstjerne_bjornsonsveg
+  kjede: colosseum
+  klinikk_navn: Colosseum Bjornstjerne Bjornsonsveg
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/molde/bjornstjerne-bjornsonsveg/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__carolusbygget
+  kjede: colosseum
+  klinikk_navn: Colosseum Carolusbygget
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/molde/carolusbygget/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__molde_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Molde Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/molde/molde-sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__bankgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Bankgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/stranda/bankgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__storgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Storgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/more-og-romsdal/sykkylven/storgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__bodo_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Bodo Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/bodo/bodo-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__ramsalt
+  kjede: colosseum
+  klinikk_navn: Colosseum Ramsalt
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/bodo/ramsalt/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__fauske_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Fauske Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/fauske/fauske-sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__mo_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Mo Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/mo-i-rana/mo-sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__kongensgate_50
+  kjede: colosseum
+  klinikk_navn: Colosseum Kongensgate 50
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/narvik/kongensgate-50/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__kongensgate
+  kjede: colosseum
+  klinikk_navn: Colosseum Kongensgate
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/narvik/kongensgate/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__torvet
+  kjede: colosseum
+  klinikk_navn: Colosseum Torvet
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/narvik/torvet/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__rognan_sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Rognan Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/nordland/rognan/rognan-sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__trygve_lies_plass
+  kjede: colosseum
+  klinikk_navn: Colosseum Trygve Lies Plass
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/furuset/trygve-lies-plass/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__sagveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Sagveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/iladalen/sagveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__majorstuen_tannlege
+  kjede: colosseum
+  klinikk_navn: Colosseum Majorstuen Tannlege
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/majorstuen/majorstuen-tannlege/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__majorstuen_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Majorstuen Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/majorstuen/majorstuen-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__saeter_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Saeter Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/nordstrand/saeter-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__sandstuveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Sandstuveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/oslo/sandstuveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__farmannsgate
+  kjede: colosseum
+  klinikk_navn: Colosseum Farmannsgate
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/fredrikstad/farmannsgate/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__nygaardsgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Nygaardsgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/fredrikstad/nygaardsgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__orebekk
+  kjede: colosseum
+  klinikk_navn: Colosseum Orebekk
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/fredrikstad/orebekk/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__storgata4
+  kjede: colosseum
+  klinikk_navn: Colosseum Storgata4
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/fredrikstad/storgata4/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/fredrikstad/tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__colosseum_tannlege_moss
+  kjede: colosseum
+  klinikk_navn: Colosseum Colosseum Tannlege Moss
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/moss/colosseum-tannlege-moss/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__klyve_johansen
+  kjede: colosseum
+  klinikk_navn: Colosseum Klyve Johansen
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/moss/klyve-johansen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__torkoppveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Torkoppveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/moss/torkoppveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__st_marie_gate
+  kjede: colosseum
+  klinikk_navn: Colosseum St Marie Gate
+  klinikk_url: https://colosseumtannlege.no/klinikker/ostfold/sarpsborg/st-marie-gate/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__krambugata
+  kjede: colosseum
+  klinikk_navn: Colosseum Krambugata
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/algard/krambugata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__hovedgaten
+  kjede: colosseum
+  klinikk_navn: Colosseum Hovedgaten
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/karmoy/hovedgaten/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__jon_torbergssons_vei
+  kjede: colosseum
+  klinikk_navn: Colosseum Jon Torbergssons Vei
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/randaberg/jon-torbergssons-vei/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__langgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Langgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/sandnes/langgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__solakrossen
+  kjede: colosseum
+  klinikk_navn: Colosseum Solakrossen
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/sola/solakrossen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__vingveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Vingveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/sola/vingveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__sentrum
+  kjede: colosseum
+  klinikk_navn: Colosseum Sentrum
+  klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/stavanger/sentrum/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__skien_tannlege
+  kjede: colosseum
+  klinikk_navn: Colosseum Skien Tannlege
+  klinikk_url: https://colosseumtannlege.no/klinikker/telemark/skien/skien-tannlege/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__skien_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Skien Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/telemark/skien/skien-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tromso
+  kjede: colosseum
+  klinikk_navn: Colosseum Tromso
+  klinikk_url: https://colosseumtannlege.no/klinikker/troms/tromso/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__brekstad
+  kjede: colosseum
+  klinikk_navn: Colosseum Brekstad
+  klinikk_url: https://colosseumtannlege.no/klinikker/trondelag/fosen/brekstad/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__kongens_gate
+  kjede: colosseum
+  klinikk_navn: Colosseum Kongens Gate
+  klinikk_url: https://colosseumtannlege.no/klinikker/trondelag/steinkjer/kongens-gate/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__innherredsveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Innherredsveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/trondelag/trondheim/innherredsveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__horten_smil_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Horten Smil Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestfold/horten/horten-smil-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__trimveien
+  kjede: colosseum
+  klinikk_navn: Colosseum Trimveien
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestfold/horten/trimveien/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__thor_dahls_gate
+  kjede: colosseum
+  klinikk_navn: Colosseum Thor Dahls Gate
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestfold/sandefjord/thor-dahls-gate/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tollbodgaten
+  kjede: colosseum
+  klinikk_navn: Colosseum Tollbodgaten
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestfold/tonsberg/tollbodgaten/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tonsberg_smil_tannregulering
+  kjede: colosseum
+  klinikk_navn: Colosseum Tonsberg Smil Tannregulering
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestfold/tonsberg/tonsberg-smil-tannregulering/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__nattlandsfjellet
+  kjede: colosseum
+  klinikk_navn: Colosseum Nattlandsfjellet
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/bergen/nattlandsfjellet/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__tannlegehuset_landas
+  kjede: colosseum
+  klinikk_navn: Colosseum Tannlegehuset Landas
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/bergen/tannlegehuset-landas/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__wallendahl
+  kjede: colosseum
+  klinikk_navn: Colosseum Wallendahl
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/bergen/wallendahl/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__hestenesgata
+  kjede: colosseum
+  klinikk_navn: Colosseum Hestenesgata
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/floro/hestenesgata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__markegata
+  kjede: colosseum
+  klinikk_navn: Colosseum Markegata
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/floro/markegata/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__parkvegen
+  kjede: colosseum
+  klinikk_navn: Colosseum Parkvegen
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/sogndal/parkvegen/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: colosseum__straume
+  kjede: colosseum
+  klinikk_navn: Colosseum Straume
+  klinikk_url: https://colosseumtannlege.no/klinikker/vestland/sotra/straume/
+  prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__aal
+  kjede: oris
+  klinikk_navn: Oris Aal
+  klinikk_url: https://orisdental.no/klinikker/aal
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__arken_aasane_tannregulering
+  kjede: oris
+  klinikk_navn: Oris Arken Aasane Tannregulering
+  klinikk_url: https://orisdental.no/klinikker/arken-aasane-tannregulering
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__askoy
+  kjede: oris
+  klinikk_navn: Oris Askoy
+  klinikk_url: https://orisdental.no/klinikker/askoy
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__bossekop
+  kjede: oris
+  klinikk_navn: Oris Bossekop
+  klinikk_url: https://orisdental.no/klinikker/bossekop
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__broegelmannhuset
+  kjede: oris
+  klinikk_navn: Oris Broegelmannhuset
+  klinikk_url: https://orisdental.no/klinikker/broegelmannhuset
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__brosundet
+  kjede: oris
+  klinikk_navn: Oris Brosundet
+  klinikk_url: https://orisdental.no/klinikker/brosundet
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__bryn
+  kjede: oris
+  klinikk_navn: Oris Bryn
+  klinikk_url: https://orisdental.no/klinikker/bryn
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__bryne
+  kjede: oris
+  klinikk_navn: Oris Bryne
+  klinikk_url: https://orisdental.no/klinikker/bryne
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__bryne_tannregulering
+  kjede: oris
+  klinikk_navn: Oris Bryne Tannregulering
+  klinikk_url: https://orisdental.no/klinikker/bryne-tannregulering
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__drammen
+  kjede: oris
+  klinikk_navn: Oris Drammen
+  klinikk_url: https://orisdental.no/klinikker/drammen
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__drammen_avd_landfalloya
+  kjede: oris
+  klinikk_navn: Oris Drammen Avd Landfalloya
+  klinikk_url: https://orisdental.no/klinikker/drammen-avd-landfalloya
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__egersund
+  kjede: oris
+  klinikk_navn: Oris Egersund
+  klinikk_url: https://orisdental.no/klinikker/egersund
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__eikas
+  kjede: oris
+  klinikk_navn: Oris Eikas
+  klinikk_url: https://orisdental.no/klinikker/eikas
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__farmannsgate
+  kjede: oris
+  klinikk_navn: Oris Farmannsgate
+  klinikk_url: https://orisdental.no/klinikker/farmannsgate
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__fredrikstad
+  kjede: oris
+  klinikk_navn: Oris Fredrikstad
+  klinikk_url: https://orisdental.no/klinikker/fredrikstad
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__galleri_oslo
+  kjede: oris
+  klinikk_navn: Oris Galleri Oslo
+  klinikk_url: https://orisdental.no/klinikker/galleri-oslo
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__godtannagol
+  kjede: oris
+  klinikk_navn: Oris Godtannagol
+  klinikk_url: https://orisdental.no/klinikker/godtannagol
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__gressvik
+  kjede: oris
+  klinikk_navn: Oris Gressvik
+  klinikk_url: https://orisdental.no/klinikker/gressvik
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__gronnegata
+  kjede: oris
+  klinikk_navn: Oris Gronnegata
+  klinikk_url: https://orisdental.no/klinikker/gronnegata
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__hamar
+  kjede: oris
+  klinikk_navn: Oris Hamar
+  klinikk_url: https://orisdental.no/klinikker/hamar
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__harstad_torv
+  kjede: oris
+  klinikk_navn: Oris Harstad Torv
+  klinikk_url: https://orisdental.no/klinikker/harstad-torv
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__harstad_ved_havet
+  kjede: oris
+  klinikk_navn: Oris Harstad Ved Havet
+  klinikk_url: https://orisdental.no/klinikker/harstad-ved-havet
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__harstadtannlegene
+  kjede: oris
+  klinikk_navn: Oris Harstadtannlegene
+  klinikk_url: https://orisdental.no/klinikker/harstadtannlegene
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__haugesund
+  kjede: oris
+  klinikk_navn: Oris Haugesund
+  klinikk_url: https://orisdental.no/klinikker/haugesund
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__hinna_park
+  kjede: oris
+  klinikk_navn: Oris Hinna Park
+  klinikk_url: https://orisdental.no/klinikker/hinna-park
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__hokksund_tannregulering
+  kjede: oris
+  klinikk_navn: Oris Hokksund Tannregulering
+  klinikk_url: https://orisdental.no/klinikker/hokksund-tannregulering
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__homansbyen
+  kjede: oris
+  klinikk_navn: Oris Homansbyen
+  klinikk_url: https://orisdental.no/klinikker/homansbyen
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__hvalertannlegene
+  kjede: oris
+  klinikk_navn: Oris Hvalertannlegene
+  klinikk_url: https://orisdental.no/klinikker/hvalertannlegene
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__indre_arna
+  kjede: oris
+  klinikk_navn: Oris Indre Arna
+  klinikk_url: https://orisdental.no/klinikker/indre-arna
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__jorpeland
+  kjede: oris
+  klinikk_navn: Oris Jorpeland
+  klinikk_url: https://orisdental.no/klinikker/jorpeland
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__kjeveortoped_aavatsmark
+  kjede: oris
+  klinikk_navn: Oris Kjeveortoped Aavatsmark
+  klinikk_url: https://orisdental.no/klinikker/kjeveortoped-aavatsmark
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__knapstad
+  kjede: oris
+  klinikk_navn: Oris Knapstad
+  klinikk_url: https://orisdental.no/klinikker/knapstad
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__kolsas
+  kjede: oris
+  klinikk_navn: Oris Kolsas
+  klinikk_url: https://orisdental.no/klinikker/kolsas
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__kristiansand
+  kjede: oris
+  klinikk_navn: Oris Kristiansand
+  klinikk_url: https://orisdental.no/klinikker/kristiansand
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__kvadraturen_tannregulering
+  kjede: oris
+  klinikk_navn: Oris Kvadraturen Tannregulering
+  klinikk_url: https://orisdental.no/klinikker/kvadraturen-tannregulering
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__leutenhaven
+  kjede: oris
+  klinikk_navn: Oris Leutenhaven
+  klinikk_url: https://orisdental.no/klinikker/leutenhaven
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__lillehammer
+  kjede: oris
+  klinikk_navn: Oris Lillehammer
+  klinikk_url: https://orisdental.no/klinikker/lillehammer
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__lokketangen
+  kjede: oris
+  klinikk_navn: Oris Lokketangen
+  klinikk_url: https://orisdental.no/klinikker/lokketangen
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__lokkeveien
+  kjede: oris
+  klinikk_navn: Oris Lokkeveien
+  klinikk_url: https://orisdental.no/klinikker/lokkeveien
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__lykkegaarden
+  kjede: oris
+  klinikk_navn: Oris Lykkegaarden
+  klinikk_url: https://orisdental.no/klinikker/lykkegaarden
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__lysaker
+  kjede: oris
+  klinikk_navn: Oris Lysaker
+  klinikk_url: https://orisdental.no/klinikker/lysaker
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__maaloy
+  kjede: oris
+  klinikk_navn: Oris Maaloy
+  klinikk_url: https://orisdental.no/klinikker/maaloy
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__madla
+  kjede: oris
+  klinikk_navn: Oris Madla
+  klinikk_url: https://orisdental.no/klinikker/madla
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__martin_stage
+  kjede: oris
+  klinikk_navn: Oris Martin Stage
+  klinikk_url: https://orisdental.no/klinikker/martin-stage
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__melhus
+  kjede: oris
+  klinikk_navn: Oris Melhus
+  klinikk_url: https://orisdental.no/klinikker/melhus
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__mo_i_rana
+  kjede: oris
+  klinikk_navn: Oris Mo I Rana
+  klinikk_url: https://orisdental.no/klinikker/mo-i-rana
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__moa
+  kjede: oris
+  klinikk_navn: Oris Moa
+  klinikk_url: https://orisdental.no/klinikker/moa
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__moelv
+  kjede: oris
+  klinikk_navn: Oris Moelv
+  klinikk_url: https://orisdental.no/klinikker/moelv
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__moss_spesialistklinikk
+  kjede: oris
+  klinikk_navn: Oris Moss Spesialistklinikk
+  klinikk_url: https://orisdental.no/klinikker/moss-spesialistklinikk
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__munkegata
+  kjede: oris
+  klinikk_navn: Oris Munkegata
+  klinikk_url: https://orisdental.no/klinikker/munkegata
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__namsos_kjeveortopedi
+  kjede: oris
+  klinikk_navn: Oris Namsos Kjeveortopedi
+  klinikk_url: https://orisdental.no/klinikker/namsos-kjeveortopedi
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__narbo
+  kjede: oris
+  klinikk_navn: Oris Narbo
+  klinikk_url: https://orisdental.no/klinikker/narbo
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__narvik
+  kjede: oris
+  klinikk_navn: Oris Narvik
+  klinikk_url: https://orisdental.no/klinikker/narvik
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__nationaltheatret_tannregulering
+  kjede: oris
+  klinikk_navn: Oris Nationaltheatret Tannregulering
+  klinikk_url: https://orisdental.no/klinikker/nationaltheatret-tannregulering
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__nesttun
+  kjede: oris
+  klinikk_navn: Oris Nesttun
+  klinikk_url: https://orisdental.no/klinikker/nesttun
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__nittedal
+  kjede: oris
+  klinikk_navn: Oris Nittedal
+  klinikk_url: https://orisdental.no/klinikker/nittedal
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__oralkirurgisk_klinikk
+  kjede: oris
+  klinikk_navn: Oris Oralkirurgisk Klinikk
+  klinikk_url: https://orisdental.no/klinikker/oralkirurgisk-klinikk
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__orkanger
+  kjede: oris
+  klinikk_navn: Oris Orkanger
+  klinikk_url: https://orisdental.no/klinikker/orkanger
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__oyrane_torg
+  kjede: oris
+  klinikk_navn: Oris Oyrane Torg
+  klinikk_url: https://orisdental.no/klinikker/oyrane-torg
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__raufoss
+  kjede: oris
+  klinikk_navn: Oris Raufoss
+  klinikk_url: https://orisdental.no/klinikker/raufoss
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__rommen
+  kjede: oris
+  klinikk_navn: Oris Rommen
+  klinikk_url: https://orisdental.no/klinikker/rommen
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__ryen
+  kjede: oris
+  klinikk_navn: Oris Ryen
+  klinikk_url: https://orisdental.no/klinikker/ryen
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sandane
+  kjede: oris
+  klinikk_navn: Oris Sandane
+  klinikk_url: https://orisdental.no/klinikker/sandane
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sanden
+  kjede: oris
+  klinikk_navn: Oris Sanden
+  klinikk_url: https://orisdental.no/klinikker/sanden
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sandnes
+  kjede: oris
+  klinikk_navn: Oris Sandnes
+  klinikk_url: https://orisdental.no/klinikker/sandnes
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sandsli_tannregulering
+  kjede: oris
+  klinikk_navn: Oris Sandsli Tannregulering
+  klinikk_url: https://orisdental.no/klinikker/sandsli-tannregulering
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sandvika_storsenter
+  kjede: oris
+  klinikk_navn: Oris Sandvika Storsenter
+  klinikk_url: https://orisdental.no/klinikker/sandvika-storsenter
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sarpsborg
+  kjede: oris
+  klinikk_navn: Oris Sarpsborg
+  klinikk_url: https://orisdental.no/klinikker/sarpsborg
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sirkus_shopping
+  kjede: oris
+  klinikk_navn: Oris Sirkus Shopping
+  klinikk_url: https://orisdental.no/klinikker/sirkus-shopping
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__ski
+  kjede: oris
+  klinikk_navn: Oris Ski
+  klinikk_url: https://orisdental.no/klinikker/ski
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__ski_asenveien_2_etasje
+  kjede: oris
+  klinikk_navn: Oris Ski Asenveien 2 Etasje
+  klinikk_url: https://orisdental.no/klinikker/ski-asenveien-2-etasje
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__ski_asenveien_3_etasje
+  kjede: oris
+  klinikk_navn: Oris Ski Asenveien 3 Etasje
+  klinikk_url: https://orisdental.no/klinikker/ski-asenveien-3-etasje
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__ski_kjeveortopedi
+  kjede: oris
+  klinikk_navn: Oris Ski Kjeveortopedi
+  klinikk_url: https://orisdental.no/klinikker/ski-kjeveortopedi
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__skoyen
+  kjede: oris
+  klinikk_navn: Oris Skoyen
+  klinikk_url: https://orisdental.no/klinikker/skoyen
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__slemmestad
+  kjede: oris
+  klinikk_navn: Oris Slemmestad
+  klinikk_url: https://orisdental.no/klinikker/slemmestad
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sogne
+  kjede: oris
+  klinikk_navn: Oris Sogne
+  klinikk_url: https://orisdental.no/klinikker/sogne
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__sortland
+  kjede: oris
+  klinikk_navn: Oris Sortland
+  klinikk_url: https://orisdental.no/klinikker/sortland
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__stoa
+  kjede: oris
+  klinikk_navn: Oris Stoa
+  klinikk_url: https://orisdental.no/klinikker/stoa
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__stokmarknes
+  kjede: oris
+  klinikk_navn: Oris Stokmarknes
+  klinikk_url: https://orisdental.no/klinikker/stokmarknes
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__stord_heiane
+  kjede: oris
+  klinikk_navn: Oris Stord Heiane
+  klinikk_url: https://orisdental.no/klinikker/stord-heiane
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__stord_leirvik
+  kjede: oris
+  klinikk_navn: Oris Stord Leirvik
+  klinikk_url: https://orisdental.no/klinikker/stord-leirvik
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__tannlege_i_bergen_sentrum
+  kjede: oris
+  klinikk_navn: Oris Tannlege I Bergen Sentrum
+  klinikk_url: https://orisdental.no/klinikker/tannlege-i-bergen-sentrum
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__tannlege_levanger
+  kjede: oris
+  klinikk_navn: Oris Tannlege Levanger
+  klinikk_url: https://orisdental.no/klinikker/tannlege-levanger
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__tannteam_spesialistklinikk
+  kjede: oris
+  klinikk_navn: Oris Tannteam Spesialistklinikk
+  klinikk_url: https://orisdental.no/klinikker/tannteam-spesialistklinikk
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__tarnplassen
+  kjede: oris
+  klinikk_navn: Oris Tarnplassen
+  klinikk_url: https://orisdental.no/klinikker/tarnplassen
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__tonsberg
+  kjede: oris
+  klinikk_navn: Oris Tonsberg
+  klinikk_url: https://orisdental.no/klinikker/tonsberg
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__trondheim_spesialistklinikk
+  kjede: oris
+  klinikk_navn: Oris Trondheim Spesialistklinikk
+  klinikk_url: https://orisdental.no/klinikker/trondheim-spesialistklinikk
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__vagsbygd
+  kjede: oris
+  klinikk_navn: Oris Vagsbygd
+  klinikk_url: https://orisdental.no/klinikker/vagsbygd
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__vestkanten
+  kjede: oris
+  klinikk_navn: Oris Vestkanten
+  klinikk_url: https://orisdental.no/klinikker/vestkanten
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral
+- klinikk_id: oris__voyenenga
+  kjede: oris
+  klinikk_navn: Oris Voyenenga
+  klinikk_url: https://orisdental.no/klinikker/voyenenga
+  prisliste_url: https://orisdental.no/prisliste
+  prisliste_struktur: peker_på_sentral

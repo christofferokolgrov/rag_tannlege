@@ -10,3 +10,36 @@ store.db
 data/clinics.csv
 data/prices_raw.csv
 data/scrape_log.csv
+
+# HTML cache: by default ignored (full coverage runs ~50-80 MB).
+# Exceptions: fixture-clinic caches needed by smoke tests + sentral
+# prislister + the HelseSmart fixture page. Keeping these committed
+# preserves smoke-test determinism without bloating the repo.
+data/html_cache/**
+!data/html_cache/odontia/oslo_sentrum_klinikk.html
+!data/html_cache/odontia/oslo_sentrum_prisliste.html
+!data/html_cache/odontia/molde_klinikk.html
+!data/html_cache/odontia/molde_prisliste.html
+!data/html_cache/odontia/hoenefoss_klinikk.html
+!data/html_cache/odontia/hoenefoss_prisliste.html
+!data/html_cache/colosseum/central_prisliste.html
+!data/html_cache/colosseum/majorstuen_klinikk.html
+!data/html_cache/colosseum/stortingsgata_klinikk.html
+!data/html_cache/colosseum/bergen_wallendahl_klinikk.html
+!data/html_cache/colosseum/trondheim_innherredsveien_klinikk.html
+!data/html_cache/colosseum/stavanger_sentrum_klinikk.html
+!data/html_cache/oris/central_prisliste.html
+!data/html_cache/oris/aker_brygge_klinikk.html
+!data/html_cache/oris/arendal_klinikk.html
+!data/html_cache/oris/arken_asane_klinikk.html
+!data/html_cache/oris/bodo_klinikk.html
+!data/html_cache/oc/tannlegesenteret_taasen_klinikk.html
+!data/html_cache/oc/tannlegesenteret_taasen_prisliste.html
+!data/html_cache/oc/bergen_nord_klinikk.html
+!data/html_cache/oc/bergen_nord_prisliste.html
+!data/html_cache/oc/festningen_klinikk.html
+!data/html_cache/oc/festningen_prisliste.html
+!data/html_cache/oralcare/linderud_klinikk.html
+!data/html_cache/oralcare/linderud_prisliste.html
+!data/html_cache/helsesmart/colosseum_majorstuen.html
+

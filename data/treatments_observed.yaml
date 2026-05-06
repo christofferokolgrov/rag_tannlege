@@ -109,64 +109,94 @@ oc:
 - name: Uttrekning
   forekomst_klinikker: 1
 odontia:
+- name: Akutt rotbehandling
+  forekomst_klinikker: 1
+- name: Aligner behandling
+  forekomst_klinikker: 1
 - name: Bedøvelse
-  forekomst_klinikker: 3
+  forekomst_klinikker: 31
 - name: Bittskinne
-  forekomst_klinikker: 3
+  forekomst_klinikker: 28
 - name: Blekeskinner begge kjever
-  forekomst_klinikker: 3
+  forekomst_klinikker: 30
 - name: Blekestrips
-  forekomst_klinikker: 1
+  forekomst_klinikker: 3
 - name: Bleketube
-  forekomst_klinikker: 3
+  forekomst_klinikker: 31
+- name: CBCT
+  forekomst_klinikker: 1
 - name: Forbruksvarer
-  forekomst_klinikker: 3
+  forekomst_klinikker: 23
 - name: Helprotese
-  forekomst_klinikker: 3
+  forekomst_klinikker: 31
+- name: Implantatbehandling ink. tannkrone
+  forekomst_klinikker: 16
 - name: Kirurgisk fjerning av tann/rot
+  forekomst_klinikker: 25
+- name: Kirurgisk oppdekking
   forekomst_klinikker: 3
+- name: Kjeveortoped forundersøkelse
+  forekomst_klinikker: 1
+- name: Komplisert tanntrekking
+  forekomst_klinikker: 6
 - name: Konsultasjon for akutt
-  forekomst_klinikker: 3
+  forekomst_klinikker: 28
+- name: Konsultasjon hos spes
+  forekomst_klinikker: 1
 - name: Midlertidig fylling
-  forekomst_klinikker: 2
+  forekomst_klinikker: 29
 - name: Panoramarøntgen (OPG)
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
+- name: Partiell protese
+  forekomst_klinikker: 1
 - name: Pasientfoto
-  forekomst_klinikker: 2
+  forekomst_klinikker: 26
 - name: Perioundersøkelse med lommeregistrering
-  forekomst_klinikker: 3
+  forekomst_klinikker: 21
+- name: Premedikasjon
+  forekomst_klinikker: 1
+- name: Resept
+  forekomst_klinikker: 1
+- name: Retensjonsstreng
+  forekomst_klinikker: 1
 - name: Rotfylling fortann/hjørnetann
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Rotfylling liten jeksel
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Rotfylling stor jeksel
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Røntgenbilde
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Skallfasett
-  forekomst_klinikker: 3
-- name: Tannfarget fylling, ekstra stor
+  forekomst_klinikker: 23
+- name: Snorkeskinne
   forekomst_klinikker: 2
+- name: Tannfarget fylling, ekstra stor
+  forekomst_klinikker: 24
 - name: Tannfarget fylling, liten
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Tannfarget fylling, medium
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Tannfarget fylling, stor
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Tannkjøttbehandling
-  forekomst_klinikker: 3
+  forekomst_klinikker: 30
 - name: Tannkrone
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
 - name: Tannrens
-  forekomst_klinikker: 1
+  forekomst_klinikker: 20
 - name: Tannrens med airflow
-  forekomst_klinikker: 1
+  forekomst_klinikker: 4
 - name: Tannrens med pussepasta
-  forekomst_klinikker: 1
+  forekomst_klinikker: 6
 - name: Ukomplisert tanntrekking
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
+- name: Vivera retensjonsskinner
+  forekomst_klinikker: 1
 - name: Årlig kontroll hos tannlege
-  forekomst_klinikker: 3
+  forekomst_klinikker: 32
+- name: Årlig kontroll hos tannpleier
+  forekomst_klinikker: 5
 oralcare:
 - name: 2 implantat og implantatkroner
   forekomst_klinikker: 1
