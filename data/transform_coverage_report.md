@@ -1,6 +1,5 @@
 # Transform coverage report
 
-- Generated: 2026-05-06T12:16:46
 - Total canonical_long rows: 3910
 - Canonical IDs in YAML: 22
 - Real clinics in manifest: 232

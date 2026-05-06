@@ -22,7 +22,6 @@ from __future__ import annotations
 
 import csv
 from collections import defaultdict
-from datetime import datetime
 from pathlib import Path
 
 import yaml
@@ -192,7 +191,6 @@ def _write_coverage_report(
     lines: list[str] = []
     lines.append(f"# Transform coverage report")
     lines.append("")
-    lines.append(f"- Generated: {datetime.now().isoformat(timespec='seconds')}")
     lines.append(f"- Total canonical_long rows: {len(rows)}")
     lines.append(f"- Canonical IDs in YAML: {len(canonical_ids)}")
     lines.append(f"- Real clinics in manifest: {sum(real_clinics_by_kjede.values())}")
