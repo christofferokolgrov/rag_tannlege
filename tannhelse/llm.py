@@ -1,6 +1,10 @@
-from typing import Iterable
+from typing import Iterable, Literal
 
 from tannhelse.config import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, LLM_MODEL
+
+# (kind, token) — kind is "reasoning" for the model's chain-of-thought
+# (deepseek-reasoner only), "answer" for the user-visible response.
+StreamEvent = tuple[Literal["reasoning", "answer"], str]
 
 
 def _client():
@@ -23,7 +27,7 @@ def chat(messages: list[dict]) -> str:
     return resp.choices[0].message.content or ""
 
 
-def stream_chat(messages: list[dict]) -> Iterable[str]:
+def stream_chat(messages: list[dict]) -> Iterable[StreamEvent]:
     stream = _client().chat.completions.create(
         model=LLM_MODEL,
         messages=messages,
@@ -35,6 +39,9 @@ def stream_chat(messages: list[dict]) -> Iterable[str]:
         if not event.choices:
             continue
         delta = event.choices[0].delta
-        token = getattr(delta, "content", None)
-        if token:
-            yield token
+        reasoning = getattr(delta, "reasoning_content", None)
+        if reasoning:
+            yield "reasoning", reasoning
+        answer = getattr(delta, "content", None)
+        if answer:
+            yield "answer", answer

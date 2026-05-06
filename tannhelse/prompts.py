@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 
 SYSTEM_PROMPT = """\
 Du er en assistent som svarer på spørsmål om norsk tannhelseregulering, \
@@ -45,13 +46,34 @@ def build_messages(
     ]
 
 
-def parse_citations(answer, chunks):
+def _format_pages(chunk) -> str:
+    start = getattr(chunk, "page_start", None)
+    end = getattr(chunk, "page_end", None)
+    if start is None or end is None:
+        return ""
+    return f"s. {start}" if start == end else f"s. {start}–{end}"
+
+
+def parse_citations(answer, chunks, urls: dict[str, str] | None = None) -> str:
+    """Render the bibliography block under an answer.
+
+    `urls` maps PDF filename (basename of source_path) → public URL. When a
+    chunk's source PDF has a known URL, the document title is rendered as a
+    Markdown link so the reader can jump to the original.
+    """
+    urls = urls or {}
     markers = sorted({int(m) for m in re.findall(r"\[(\d+)\]", answer)})
     valid = [n for n in markers if 1 <= n <= len(chunks)]
     if not valid:
         return ""
-    lines = ["Kilder:"]
+    lines = ["**Kilder:**"]
     for n in valid:
         chunk = chunks[n - 1]
-        lines.append(f"[{n}] {chunk.document}, {chunk.section_label}")
+        source_path = getattr(chunk, "source_path", None)
+        filename = Path(source_path).name if source_path else None
+        url = urls.get(filename) if filename else None
+        title = f"[{chunk.document}]({url})" if url else chunk.document
+        pages = _format_pages(chunk)
+        suffix = f" ({pages})" if pages else ""
+        lines.append(f"[{n}] {title} — {chunk.section_label}{suffix}")
     return "\n".join(lines)

@@ -26,6 +26,22 @@ def test_valid_file_with_one_entry_returns_parsed_dict(tmp_path):
     }
 
 
+def test_override_with_url_is_valid(tmp_path):
+    yaml_path = tmp_path / "docs.yaml"
+    yaml_path.write_text(
+        'somefile.pdf:\n'
+        '  short_title: "Kort"\n'
+        '  url: "https://example.com/doc"\n',
+        encoding="utf-8",
+    )
+    assert load_overrides(yaml_path) == {
+        "somefile.pdf": {
+            "short_title": "Kort",
+            "url": "https://example.com/doc",
+        }
+    }
+
+
 def test_override_with_only_short_title_is_valid(tmp_path):
     yaml_path = tmp_path / "docs.yaml"
     yaml_path.write_text(

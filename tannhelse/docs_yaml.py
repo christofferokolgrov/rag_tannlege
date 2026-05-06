@@ -2,7 +2,7 @@ from pathlib import Path
 
 import yaml
 
-_ALLOWED_KEYS = frozenset({"title", "short_title"})
+_ALLOWED_KEYS = frozenset({"title", "short_title", "url"})
 
 
 def load_overrides(path: Path) -> dict[str, dict[str, str]]:
