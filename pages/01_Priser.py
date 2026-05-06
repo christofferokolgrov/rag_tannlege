@@ -85,7 +85,7 @@ def _render_oversikt(df: pd.DataFrame) -> None:
     overview = pd.DataFrame(rows)
     st.dataframe(
         overview,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "canonical_id": st.column_config.TextColumn("ID", width="medium"),
@@ -138,7 +138,7 @@ def _render_per_behandling(df: pd.DataFrame) -> None:
     )
     st.dataframe(
         detail,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
