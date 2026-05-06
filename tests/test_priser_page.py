@@ -103,12 +103,27 @@ def test_oversikt_renders_summary_dataframe(app):
     overview = app.dataframe[1].value
     # One row per canonical
     assert len(overview) >= 19
-    # Column headers use the chains' real brand-cased names, not the
-    # lowercase klinikk_id slugs.
-    expected_cols = {"Behandling", "Odontia", "Colosseum", "OC", "Oris"}
+    # Column headers use brand-cased names; "Uavhengige" appears as the 5th
+    # comparison group even when the underlying single__-clinics have 0
+    # rows in the current scrape (cells then read "—") — that's correct
+    # behaviour: the category exists, data sparsity shows transparently.
+    expected_cols = {"Behandling", "Odontia", "Colosseum", "OC", "Oris", "Uavhengige"}
     assert expected_cols.issubset(set(overview.columns))
     # canonical_id is intentionally not surfaced
     assert "canonical_id" not in overview.columns
+
+
+def test_uavhengige_column_present_even_when_empty(app):
+    """Per PRD #31, 'Uavhengige' is added as a 5th comparison group even
+    if no single-clinic price data was extracted in the current scrape.
+    Cells should show '—' for empty, not crash or be absent."""
+    overview = app.dataframe[1].value
+    assert "Uavhengige" in overview.columns
+    # When no single rows exist, every cell is "—" (or a partial number if
+    # any single clinic ever produced data). Verify the column exists and
+    # doesn't crash rendering.
+    uavhengige_cells = overview["Uavhengige"].tolist()
+    assert all(isinstance(c, str) for c in uavhengige_cells)
 
 
 def test_selecting_krone_shows_rows_for_all_chains():
