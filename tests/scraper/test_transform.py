@@ -60,8 +60,50 @@ def test_canonical_long_has_expected_columns(rows):
     assert list(rows[0].keys()) == EXPECTED_COLUMNS
 
 
-def test_canonical_long_excludes_helsesmart_rows(rows):
-    assert all(r["pris_kilde"] != "helsesmart" for r in rows)
+def test_canonical_index_falls_back_to_global_for_unknown_kjede():
+    """Per PRD #31 — kjede=single rows look up canonicals via the global
+    name index (any-kjede match), so independent clinics scraped from
+    HelseSmart get auto-mapped to canonicals like tooth_cleaning without
+    needing a `single:` synonym list in the YAML."""
+    import sys
+    sys.path.insert(0, str(REPO_ROOT / "tools"))
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "transform_module",
+        str(REPO_ROOT / "tools" / "transform_to_canonical.py"),
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+
+    canonical_doc = {
+        "canonical": [
+            {
+                "id": "tooth_cleaning",
+                "navn": "Tannrens",
+                "lag": 2,
+                "kjede_terminologi": {
+                    "odontia": ["Tannrens", "Tannrens med airflow"],
+                    "colosseum": ["Tannrens"],
+                    # No "single:" entry intentionally
+                },
+            },
+        ],
+        "meta": {"ikke_kanonisk_men_scrapes": []},
+    }
+    name_to_id, name_to_id_global, _, _, _ = mod._build_canonical_index(canonical_doc)
+    # Direct hit — odontia has it
+    assert name_to_id.get(("odontia", "Tannrens")) == "tooth_cleaning"
+    # Single not directly mapped; global fallback works
+    assert ("single", "Tannrens") not in name_to_id
+    assert name_to_id_global.get("Tannrens") == "tooth_cleaning"
+
+
+def test_canonical_long_includes_helsesmart_rows(rows):
+    """Per PRD #31, helsesmart-sourced rows are now included (reverses the
+    exclusion from slice #28). The Colosseum Majorstuen IMPLANTAT row is the
+    canonical example."""
+    helsesmart_rows = [r for r in rows if r["pris_kilde"] == "helsesmart"]
+    assert helsesmart_rows, "expected at least one helsesmart-sourced row"
 
 
 def test_canonical_long_excludes_pseudo_klinikk_rows(rows):
@@ -74,10 +116,15 @@ def test_canonical_long_includes_all_four_chains(rows):
 
 def test_canonical_long_sentral_propagation_uniform_for_colosseum(rows):
     """Every real Colosseum clinic should have the same number of
-    propagated rows (since they all inherit from colosseum__central)."""
+    propagated rows from the central prisliste. Colosseum Majorstuen is
+    expected to have ONE extra row (the HelseSmart-sourced IMPLANTAT) per
+    PRD #31 — exclude it from the uniformity check."""
     counts_per_clinic: dict[str, int] = {}
     for r in rows:
         if r["kjede"] != "colosseum":
+            continue
+        # Skip helsesmart-sourced rows; only count sentral-propagated ones
+        if r["pris_kilde"] == "helsesmart":
             continue
         counts_per_clinic[r["klinikk_id"]] = counts_per_clinic.get(r["klinikk_id"], 0) + 1
     assert counts_per_clinic, "no Colosseum rows after propagation"

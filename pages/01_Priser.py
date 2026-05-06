@@ -21,8 +21,9 @@ KJEDE_DISPLAY = {
     "colosseum": "Colosseum",
     "oc": "OC",
     "oris": "Oris",
+    "single": "Uavhengige",
 }
-KJEDE_ORDER = ["odontia", "colosseum", "oc", "oris"]
+KJEDE_ORDER = ["odontia", "colosseum", "oc", "oris", "single"]
 
 st.set_page_config(page_title="Tannhelse — Priser", page_icon=None)
 st.title("Pris-sammenligning på tvers av kjeder")

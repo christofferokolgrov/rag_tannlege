@@ -29,6 +29,7 @@ PARSERS = {
     "colosseum": colosseum,
     "oc": oc,
     "oris": oris,
+    "single": helsesmart,  # independent Oslo-area clinics scraped via HelseSmart
 }
 
 
