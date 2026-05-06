@@ -15,10 +15,10 @@ from scraper.fetch import RobotsBlockedError, fetch_with_cache
 from scraper.log import ScrapeLog
 from scraper.manifest import ManifestError, load_clinic_manifest, validate_manifest
 from scraper.output import write_clinics, write_prices_raw
-from scraper.parsers import odontia
+from scraper.parsers import odontia, oralcare
 from scraper.slug import parse_klinikk_id
 
-PARSERS = {"odontia": odontia}
+PARSERS = {"odontia": odontia, "oralcare": oralcare}
 
 
 def _cache_path(klinikk_id: str, kind: str) -> Path:

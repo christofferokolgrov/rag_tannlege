@@ -4,3 +4,14 @@ clinics:
     klinikk_navn: Odontia Oslo Sentrum
     klinikk_url: https://odontia.no/tannlege/oslo-sentrum
     prisliste_url: https://odontia.no/prisliste/tannlege-oslo-sentrum/
+
+  - klinikk_id: oralcare__linderud
+    kjede: oralcare
+    klinikk_navn: OralCare Linderud
+    # OralCare publishes one prisliste at /pris/, explicitly scoped to
+    # Linderud ("Dette er et utdrag fra vår prisliste for tannbehandling
+    # på Linderud i Oslo."). Hence Linderud is the only verified clinic
+    # this slice scrapes; see commit message and design §4.
+    klinikk_url: https://oralcare.no/linderud-oslo/
+    prisliste_url: https://oralcare.no/pris/
+    notes: "Eneste verifiserte OralCare-klinikk; Trondheim er flagget partnerklinikk uten egen prisliste, Tromsø har ingen egen klinikk-side"
