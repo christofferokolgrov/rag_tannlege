@@ -6,6 +6,8 @@ from pathlib import Path
 
 import yaml
 
+from collections import Counter, defaultdict
+
 from scraper.config import (
     CLINIC_MANIFEST_PATH,
     CLINICS_CSV,
@@ -13,6 +15,7 @@ from scraper.config import (
     HTML_CACHE_DIR,
     PRICES_RAW_CSV,
     SCRAPE_LOG_CSV,
+    TREATMENTS_OBSERVED_PATH,
 )
 from scraper.fetch import RobotsBlockedError, fetch_with_cache
 from scraper.log import ScrapeLog
@@ -38,6 +41,30 @@ def _cache_path(klinikk_id: str, kind: str) -> Path:
 def _helsesmart_cache_path(klinikk_id: str) -> Path:
     _, slug = parse_klinikk_id(klinikk_id)
     return HTML_CACHE_DIR / "helsesmart" / f"{slug}.html"
+
+
+def _emit_treatments_observed(price_rows) -> None:
+    """Group emitted PriceRows by kjede + behandling_navn_raw, count clinics
+    that publish each name. Idempotent: same input always produces the same
+    YAML.
+    """
+    # kjede → name → set of klinikk_ids
+    by_kjede: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
+    for row in price_rows:
+        kjede = row.klinikk_id.split("__", 1)[0]
+        by_kjede[kjede][row.behandling_navn_raw].add(row.klinikk_id)
+
+    output: dict = {}
+    for kjede in sorted(by_kjede):
+        names = by_kjede[kjede]
+        output[kjede] = [
+            {"name": name, "forekomst_klinikker": len(names[name])}
+            for name in sorted(names)
+        ]
+
+    TREATMENTS_OBSERVED_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with TREATMENTS_OBSERVED_PATH.open("w", encoding="utf-8") as f:
+        yaml.safe_dump(output, f, allow_unicode=True, sort_keys=False)
 
 
 def _load_helsesmart_targets() -> list[dict]:
@@ -178,6 +205,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
     for row in clinic_rows:
         if row["klinikk_id"] in helsesmart_url_by_klinikk:
             row["helsesmart_url"] = helsesmart_url_by_klinikk[row["klinikk_id"]]
+
+    _emit_treatments_observed(price_rows)
 
     write_clinics(clinic_rows, CLINICS_CSV)
     write_prices_raw(

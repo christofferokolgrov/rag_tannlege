@@ -9,6 +9,7 @@ HELSESMART_TARGETS_PATH = DATA_DIR / "helsesmart_targets.yaml"
 CLINICS_CSV = DATA_DIR / "clinics.csv"
 PRICES_RAW_CSV = DATA_DIR / "prices_raw.csv"
 SCRAPE_LOG_CSV = DATA_DIR / "scrape_log.csv"
+TREATMENTS_OBSERVED_PATH = DATA_DIR / "treatments_observed.yaml"
 
 RATE_LIMIT_SECONDS = 1.0
 USER_AGENT = (

@@ -1,0 +1,100 @@
+# Canonical treatment IDs for cross-chain price comparison.
+# Manually curated. Update by reviewing data/treatments_observed.yaml after
+# each scrape and adding kjede-specific synonyms or new canonical entries.
+#
+# Schema:
+#   meta:        version, last-updated, scope
+#   canonical:   {id, navn, lag, kjede_terminologi: {kjede: [synonyms]}}
+#   ikke_kanonisk_men_scrapes: behandlinger that are intentionally captured
+#     as `prisformat ∈ {per_dose, per_stk, per_halvtime}` add-ons rather than
+#     normalised into a comparable canonical row.
+
+meta:
+  versjon: 1
+  sist_oppdatert: 2026-05-06
+  scope: "kurven for prissammenligning fase 1"
+  ikke_kanonisk_men_scrapes:
+    - "Bedøvelse (per_dose tillegg)"
+    - "Forbruksvarer (per_stk tillegg)"
+    - "Oppdekking og engangsutstyr"
+
+canonical:
+  - id: annual_checkup
+    navn: "Årlig kontroll"
+    lag: 1
+    kjede_terminologi:
+      odontia: ["Årlig kontroll hos tannlege"]
+      colosseum: ["Undersøkelse"]
+      oc: ["Tannundersøkelse hos tannlege", "Tannundersøkelse"]
+      oris: ["Tannundersøkelse"]
+      oralcare: ["Første undersøkelse inkl. nødvendig 2D-røntgen"]
+
+  - id: tooth_cleaning
+    navn: "Tannrens"
+    lag: 1
+    kjede_terminologi:
+      odontia: ["Tannrens med airflow"]
+      colosseum: ["Tannrens"]
+      oc: ["Tannrens"]
+      oris: []
+      oralcare: []
+
+  - id: composite_filling_one_surface
+    navn: "Tannfarget fylling, én tannflate"
+    lag: 1
+    kjede_terminologi:
+      odontia: ["Tannfarget fylling, liten"]
+      colosseum: []
+      oc: []
+      oris: ["Fyllinger, én tannflate (kompositt)"]
+      oralcare: ["Komposittfylling, 1 flate, pris fra"]
+
+  - id: crown
+    navn: "Krone"
+    lag: 1
+    kjede_terminologi:
+      odontia: []
+      colosseum: ["Krone"]
+      oc: []
+      oris: []
+      oralcare: []
+
+  - id: root_canal_anterior
+    navn: "Rotfylling, fortann"
+    lag: 1
+    kjede_terminologi:
+      odontia: []
+      colosseum: ["Rotfyllingav fortann/hjørnetann"]
+      oc: []
+      oris: []
+      oralcare: []
+
+  - id: implant_with_crown
+    navn: "Implantat inkl. krone"
+    lag: 1
+    kjede_terminologi:
+      odontia: []
+      colosseum: ["IMPLANTAT"]  # via HelseSmart only — see helsesmart_targets.yaml
+      oc: []  # implant auto-fallback to HelseSmart deferred
+      oris: ["Implantat behandling - én tann inkl. krone"]
+      oralcare: []
+
+  - id: tooth_extraction_simple
+    navn: "Trekking, ukomplisert"
+    lag: 1
+    kjede_terminologi:
+      odontia: []
+      colosseum: ["Ukompliserttrekkingav tann"]
+      oc: []
+      oris: []
+      oralcare: []
+
+  - id: xray_intraoral
+    navn: "Intraoralt røntgenbilde"
+    lag: 1
+    kjede_terminologi:
+      odontia: []
+      colosseum: ["Røntgenbilde"]
+      oc: []
+      oris: ["Røntgenbilde"]
+      oralcare: []
