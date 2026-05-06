@@ -4,12 +4,31 @@ import streamlit as st
 
 # Streamlit Cloud puts secrets in st.secrets, but tannhelse.config reads
 # os.environ at import time. Bridge before the tannhelse imports below.
-for _key in ("OPENAI_API_KEY", "DEEPSEEK_API_KEY"):
-    if not os.environ.get(_key):
-        try:
-            os.environ[_key] = st.secrets[_key]
-        except (KeyError, FileNotFoundError):
-            pass
+_required = ("OPENAI_API_KEY", "DEEPSEEK_API_KEY")
+_visible_secrets: list[str] = []
+try:
+    _visible_secrets = list(st.secrets.keys())
+except Exception:
+    pass
+
+for _key in _required:
+    if os.environ.get(_key):
+        continue
+    try:
+        os.environ[_key] = str(st.secrets[_key])
+    except Exception:
+        pass
+
+_missing = [k for k in _required if not os.environ.get(k)]
+if _missing:
+    st.set_page_config(page_title="Tannhelse RAG", page_icon=None)
+    st.error(
+        f"Mangler API-nøkler: {', '.join(_missing)}.\n\n"
+        f"Synlige secrets-nøkler: {_visible_secrets or '(ingen — st.secrets er tom)'}\n\n"
+        "Legg dem inn under Settings → Secrets i Streamlit Cloud (TOML-format, "
+        "én nøkkel per linje, anførselstegn rundt verdien)."
+    )
+    st.stop()
 
 from tannhelse.config import DB_PATH
 from tannhelse.llm import stream_chat
