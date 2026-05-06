@@ -5,3 +5,8 @@ __pycache__/
 store.db
 .streamlit/
 .claude/scheduled_tasks.lock
+
+# Scraper run outputs (regenerated each `python -m scraper run`)
+data/clinics.csv
+data/prices_raw.csv
+data/scrape_log.csv
