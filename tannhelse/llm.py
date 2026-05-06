@@ -17,12 +17,19 @@ def _client():
     return OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
 
 
+# deepseek-v4-pro defaults to thinking-on, which causes 2–5 min response
+# times for our synthesis-heavy RAG queries. Explicitly disable so we get
+# fast, deep answers without the chain-of-thought streaming overhead.
+_THINKING_OFF = {"thinking": {"type": "disabled"}}
+
+
 def chat(messages: list[dict]) -> str:
     resp = _client().chat.completions.create(
         model=LLM_MODEL,
         messages=messages,
         temperature=0.1,
         max_tokens=1200,
+        extra_body=_THINKING_OFF,
     )
     return resp.choices[0].message.content or ""
 
@@ -34,6 +41,7 @@ def stream_chat(messages: list[dict]) -> Iterable[StreamEvent]:
         temperature=0.1,
         max_tokens=1200,
         stream=True,
+        extra_body=_THINKING_OFF,
     )
     for event in stream:
         if not event.choices:

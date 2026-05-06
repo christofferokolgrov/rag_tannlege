@@ -90,18 +90,23 @@ if query:
         # submits a query, not on page load.
         import openai
 
-        # deepseek-reasoner streams reasoning_content separately from content.
-        # Show reasoning in a collapsed expander so the user sees activity
-        # during the ~15s thinking phase, while the answer fills the bubble.
-        reasoning_box = st.expander("Tenker…", expanded=False)
-        reasoning_slot = reasoning_box.empty()
+        # Lazy-render the reasoning expander only when reasoning tokens
+        # arrive (thinking is currently disabled, so usually never). Keeps
+        # the UI clean on non-thinking models without dropping support for
+        # re-enabling thinking later.
+        expander_container = st.container()
         answer_slot = st.empty()
+        reasoning_slot = None
         reasoning_buf = ""
         answer_buf = ""
 
         try:
             for kind, token in stream_chat(messages):
                 if kind == "reasoning":
+                    if reasoning_slot is None:
+                        reasoning_slot = expander_container.expander(
+                            "Tenker…", expanded=False
+                        ).empty()
                     reasoning_buf += token
                     reasoning_slot.markdown(reasoning_buf)
                 else:
