@@ -73,6 +73,120 @@ def _maybe_load() -> pd.DataFrame | None:
     return _load(str(CANONICAL_LONG_PATH), mtime)
 
 
+def _chain_basket_summary(df: pd.DataFrame) -> pd.DataFrame:
+    """Aggregate canonical_long rows to one summary row per (kjede,
+    canonical_id), using the median of pris_min as the representative price.
+
+    Rationale:
+    - median is robust to outliers (e.g. Asker's anomalous 320 NOK Tannrens
+      with airflow which the page legitimately publishes but which would
+      otherwise skew the chain's basket total)
+    - pris_min is consistent across prisformat values: it's the floor for
+      fra-format rows (where pris_max is null), the cheap end for spread,
+      and equals pris_max for fast.
+    - Rows without a numeric pris_min (pure etter_konsultasjon) are dropped.
+
+    Returns columns: canonical_id, canonical_navn, lag, kjede,
+    representative_pris (Int), n_clinics (int).
+    """
+    priced = df.dropna(subset=["pris_min"]).copy()
+    if priced.empty:
+        return pd.DataFrame(columns=[
+            "canonical_id", "canonical_navn", "lag", "kjede",
+            "representative_pris", "n_clinics",
+        ])
+    grouped = (
+        priced.groupby(["canonical_id", "canonical_navn", "lag", "kjede"], dropna=False)
+        .agg(
+            representative_pris=("pris_min", "median"),
+            n_clinics=("klinikk_id", "nunique"),
+        )
+        .reset_index()
+    )
+    grouped["representative_pris"] = grouped["representative_pris"].round().astype("Int64")
+    return grouped
+
+
+def _render_sammenligning(df: pd.DataFrame) -> None:
+    st.subheader("Total kurv-pris per kjede")
+    summary = _chain_basket_summary(df)
+    if summary.empty:
+        st.info("Ingen tallpriser i valgt kurv.")
+        return
+
+    n_canonicals_total = df["canonical_id"].nunique()
+    coverage = summary.groupby("kjede")["canonical_id"].nunique()
+    incomplete = coverage[coverage < n_canonicals_total]
+
+    st.caption(
+        f"Sum av median pris-min per behandling i kurven ({n_canonicals_total} "
+        f"kanoniske behandlinger). "
+        "For 'fra'-priser er gulvverdien brukt — faktisk pris kan være høyere."
+    )
+    if not incomplete.empty:
+        missing = ", ".join(
+            f"{KJEDE_DISPLAY.get(k, k)} (mangler {n_canonicals_total - n} av "
+            f"{n_canonicals_total})"
+            for k, n in incomplete.items()
+        )
+        st.warning(f"Ufullstendig basket-dekning: {missing}")
+
+    summary_for_chart = summary.copy()
+    summary_for_chart["kjede_display"] = (
+        summary_for_chart["kjede"].map(KJEDE_DISPLAY).fillna(summary_for_chart["kjede"])
+    )
+
+    kjede_order_display = [
+        KJEDE_DISPLAY[k] for k in KJEDE_ORDER if k in summary["kjede"].values
+    ]
+
+    chart = (
+        alt.Chart(summary_for_chart)
+        .mark_bar()
+        .encode(
+            x=alt.X(
+                "representative_pris:Q",
+                stack="zero",
+                title="Total NOK (median pris-min summert)",
+            ),
+            y=alt.Y(
+                "kjede_display:N",
+                sort=kjede_order_display,
+                title=None,
+                axis=alt.Axis(labelFontSize=12),
+            ),
+            color=alt.Color(
+                "canonical_navn:N", legend=alt.Legend(title="Behandling"),
+            ),
+            tooltip=[
+                alt.Tooltip("kjede_display:N", title="Kjede"),
+                alt.Tooltip("canonical_navn:N", title="Behandling"),
+                alt.Tooltip("representative_pris:Q", title="Median pris (NOK)"),
+                alt.Tooltip("n_clinics:Q", title="Antall klinikker"),
+                alt.Tooltip("lag:Q", title="Lag"),
+            ],
+        )
+        .properties(height=alt.Step(38))
+    )
+    st.altair_chart(chart, width="stretch")
+
+    # Detail table: pivot to rows=kjede, columns=canonical_navn + Total
+    pivot = summary.pivot_table(
+        index="kjede",
+        columns="canonical_navn",
+        values="representative_pris",
+        aggfunc="first",
+    )
+    pivot.index = [KJEDE_DISPLAY.get(k, k) for k in pivot.index]
+    pivot.index.name = "Kjede"
+    # Only sum across canonicals the chain has data for (NaN cells excluded)
+    pivot["Total"] = pivot.sum(axis=1, skipna=True).astype("Int64")
+    pivot = pivot.reindex([KJEDE_DISPLAY[k] for k in KJEDE_ORDER if KJEDE_DISPLAY[k] in pivot.index])
+    pivot = pivot.reset_index()
+    st.caption("Detaljer — median pris per behandling, per kjede:")
+    st.dataframe(pivot, width="stretch", hide_index=True)
+
+
 def _format_price_range(group: pd.DataFrame) -> str:
     """Compact price-range string for the Oversikt cell."""
     mins = group["pris_min"].dropna()
@@ -293,7 +407,11 @@ if df is None:
 
 df = _apply_lag_filter(df)
 
-oversikt_tab, detail_tab = st.tabs(["Oversikt", "Per behandling"])
+sammenligning_tab, oversikt_tab, detail_tab = st.tabs(
+    ["Sammenligning", "Oversikt", "Per behandling"]
+)
+with sammenligning_tab:
+    _render_sammenligning(df)
 with oversikt_tab:
     _render_oversikt(df)
 with detail_tab:
