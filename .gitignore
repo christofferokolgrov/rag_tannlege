@@ -5,13 +5,13 @@ __pycache__/
 .streamlit/secrets.toml
 .claude/scheduled_tasks.lock
 
-# Scraper run outputs (regenerated each `python -m scraper run`)
-data/clinics.csv
+# Scraper run outputs.
+# clinics.csv + prices_canonical_long.csv ARE committed: the Streamlit pages
+# read them and they need to exist on Streamlit Cloud where we don't re-run
+# the scraper. prices_raw.csv + scrape_log.csv stay ignored — intermediate
+# / debugging artefacts that add noise to diffs.
 data/prices_raw.csv
 data/scrape_log.csv
-
-# Transform output (regenerated each `python tools/transform_to_canonical.py`)
-data/prices_canonical_long.csv
 
 # HTML cache: by default ignored (full coverage runs ~50-80 MB).
 # Exceptions: fixture-clinic caches needed by smoke tests + sentral
