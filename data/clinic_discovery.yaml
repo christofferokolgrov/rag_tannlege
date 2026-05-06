@@ -47,6 +47,40 @@ clinics:
     prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
     prisliste_struktur: peker_på_sentral
 
+  - klinikk_id: oris__central
+    kjede: oris
+    klinikk_navn: Oris Dental (sentral prisliste)
+    prisliste_url: https://orisdental.no/prisliste
+    prisliste_struktur: sentral
+
+  - klinikk_id: oris__aker_brygge
+    kjede: oris
+    klinikk_navn: Oris Aker Brygge
+    klinikk_url: https://orisdental.no/klinikker/aker-brygge
+    prisliste_url: https://orisdental.no/prisliste
+    prisliste_struktur: peker_på_sentral
+
+  - klinikk_id: oris__bodo
+    kjede: oris
+    klinikk_navn: Oris Bodø
+    klinikk_url: https://orisdental.no/klinikker/bodo
+    prisliste_url: https://orisdental.no/prisliste
+    prisliste_struktur: peker_på_sentral
+
+  - klinikk_id: oris__arendal
+    kjede: oris
+    klinikk_navn: Oris Arendal
+    klinikk_url: https://orisdental.no/klinikker/arendal
+    prisliste_url: https://orisdental.no/prisliste
+    prisliste_struktur: peker_på_sentral
+
+  - klinikk_id: oris__arken_asane
+    kjede: oris
+    klinikk_navn: Oris Arken Åsane (Bergen)
+    klinikk_url: https://orisdental.no/klinikker/arken-asane
+    prisliste_url: https://orisdental.no/prisliste
+    prisliste_struktur: peker_på_sentral
+
   # OC Tannklinikker — per-klinikk priser, prisene ligger inline på samme side
   # som klinikk-info (section.pricing). Begge URL-felt peker på samme side;
   # cli.py skriver ulike cache-filer (<slug>_klinikk.html, <slug>_prisliste.html)
