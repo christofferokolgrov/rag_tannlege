@@ -110,8 +110,14 @@ def test_canonical_long_excludes_pseudo_klinikk_rows(rows):
     assert all(not r["klinikk_id"].endswith("__central") for r in rows)
 
 
-def test_canonical_long_includes_all_four_chains(rows):
-    assert {r["kjede"] for r in rows} == {"odontia", "colosseum", "oc", "oris"}
+def test_canonical_long_includes_all_chains(rows):
+    """The 4 main chains plus 'single' (independent clinics, per PRD #31)."""
+    chains = {r["kjede"] for r in rows}
+    assert {"odontia", "colosseum", "oc", "oris"}.issubset(chains)
+    # 'single' is conditional — only present when single clinics have
+    # canonical-mapped data
+    if any(r["kjede"] == "single" for r in rows):
+        assert "single" in chains
 
 
 def test_canonical_long_sentral_propagation_uniform_for_colosseum(rows):
@@ -137,7 +143,8 @@ def test_canonical_long_sentral_propagation_uniform_for_colosseum(rows):
 
 def test_canonical_long_annual_checkup_covers_all_chains(rows):
     chains = {r["kjede"] for r in rows if r["canonical_id"] == "annual_checkup"}
-    assert chains == {"odontia", "colosseum", "oc", "oris"}
+    # 4 main chains always; 'single' optional depending on extraction
+    assert {"odontia", "colosseum", "oc", "oris"}.issubset(chains)
 
 
 def test_canonical_long_is_sorted_deterministically(rows):

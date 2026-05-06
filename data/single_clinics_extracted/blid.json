@@ -1,0 +1,304 @@
+{
+  "klinikk_id": "single__blid",
+  "extracted_count": 49,
+  "dropped_count": 1,
+  "dropped_reasons": [
+    "missing name or pris_min: {'behandling_navn_raw': 'Periodontittbehandling pr. 30 min (alle tillegg er inkludert i prisen)', 'pris_min': None, 'pris_max': None, 'prisformat': 'per_halvtime'}"
+  ],
+  "rows": [
+    {
+      "behandling_navn_raw": "Full undersøkelse og grundig rens",
+      "pris_min": 1295,
+      "pris_max": 1295,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Grundig tannrens",
+      "pris_min": 895,
+      "pris_max": 895,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannbleking med full undersøkelse",
+      "pris_min": 2995,
+      "pris_max": 2995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Akutt tannlegetime",
+      "pris_min": 995,
+      "pris_max": 995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Knukket tann/mistet fylling",
+      "pris_min": 2095,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Vurdering/smertelindring av visdomstann (eks opg)",
+      "pris_min": 495,
+      "pris_max": 495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannsmykke",
+      "pris_min": 995,
+      "pris_max": 995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Konsultasjon usynlig regulering",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Konsultasjon estetisk tannbehandling",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannlegeskrekk - samtale med tannlegen",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Liten fylling - 1 flate",
+      "pris_min": 1995,
+      "pris_max": 1995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Mellomstor fylling - 2 flater",
+      "pris_min": 2495,
+      "pris_max": 2495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Stor fylling - 3 flater",
+      "pris_min": 2695,
+      "pris_max": 2695,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Oppbygging av hel tann",
+      "pris_min": 2895,
+      "pris_max": 2895,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, 1 kanal",
+      "pris_min": 4995,
+      "pris_max": 4995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, 2 kanaler",
+      "pris_min": 5995,
+      "pris_max": 5995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling, 3 kanaler eller mer",
+      "pris_min": 6995,
+      "pris_max": 6995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Enkel tanntrekking",
+      "pris_min": 1795,
+      "pris_max": 1795,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Komplisert tanntrekking",
+      "pris_min": 2795,
+      "pris_max": 2795,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk fjerning av tann eller rot",
+      "pris_min": 3995,
+      "pris_max": 3995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Etterkontroll",
+      "pris_min": 495,
+      "pris_max": 495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Feste løsnet streng",
+      "pris_min": 1495,
+      "pris_max": 1495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fjerne streng",
+      "pris_min": 1695,
+      "pris_max": 1695,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Lage ny streng 1 kjeve (eks. tannteknikk)",
+      "pris_min": 2995,
+      "pris_max": 2995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Lage ny streng 2 kjever (eks. tannteknikk)",
+      "pris_min": 4995,
+      "pris_max": 4995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Light case",
+      "pris_min": 39995,
+      "pris_max": 39995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Medium case",
+      "pris_min": 45995,
+      "pris_max": 45995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Omfattende case",
+      "pris_min": 50995,
+      "pris_max": 50995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Avansert case",
+      "pris_min": 54995,
+      "pris_max": 54995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Konsultasjon for skallfasetter",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Skallfasett per tann",
+      "pris_min": 6495,
+      "pris_max": 6495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Retainerskinne 1 kjeve (eks. tannteknikk)",
+      "pris_min": 1495,
+      "pris_max": 1495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Retainerskinne 2 kjever (eks. tannteknikk)",
+      "pris_min": 2295,
+      "pris_max": 2295,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Valplastprotese og midlertidig protese",
+      "pris_min": 4395,
+      "pris_max": 4395,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Helprotese en kjeve",
+      "pris_min": 10495,
+      "pris_max": 10495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Delprotese en kjeve",
+      "pris_min": 12495,
+      "pris_max": 12495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Helsett (en helprotese i hver kjeve)",
+      "pris_min": 16495,
+      "pris_max": 16495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Implantat inkludert implantatkrone",
+      "pris_min": 34995,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Dekkprotese på to implantater",
+      "pris_min": 12995,
+      "pris_max": 12995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Ukomplisert tanntrekking",
+      "pris_min": 2495,
+      "pris_max": 2495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Komplisert tanntrekking",
+      "pris_min": 3495,
+      "pris_max": 3495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk fjerning av tann/rot",
+      "pris_min": 5995,
+      "pris_max": 5995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Etterkontroll",
+      "pris_min": 795,
+      "pris_max": 795,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rottspissamputasjon av enkel tann",
+      "pris_min": 4995,
+      "pris_max": 4995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rottspissamputasjon av større tann",
+      "pris_min": 5995,
+      "pris_max": 5995,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Implantatkonsultasjon hos spesialist i oral kirurgi",
+      "pris_min": 1195,
+      "pris_max": 1195,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Implantatkonsultasjon hos tannlege med Helsedirektoratets godkjenning i implantatprotetikk",
+      "pris_min": 1195,
+      "pris_max": 1195,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse hos spesialist",
+      "pris_min": 1495,
+      "pris_max": 1495,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Panoramarøntgen (opg)",
+      "pris_min": 700,
+      "pris_max": 700,
+      "prisformat": "fast"
+    }
+  ]
+}

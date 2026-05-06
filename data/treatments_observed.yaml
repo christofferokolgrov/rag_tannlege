@@ -252,3 +252,742 @@ oris:
   forekomst_klinikker: 1
 - name: Visdomstannoperasjon
   forekomst_klinikker: 1
+single:
+- name: '2 implantat og implantatkroner: 44 973 kr'
+  forekomst_klinikker: 1
+- name: '3-leddsbro på to implantat: : 53 593 kr'
+  forekomst_klinikker: 1
+- name: 3D-skanning
+  forekomst_klinikker: 1
+- name: AirFlow Rens
+  forekomst_klinikker: 1
+- name: AirFlow i forbindelse med undersøkelse
+  forekomst_klinikker: 1
+- name: AirFlow som egenbehandling
+  forekomst_klinikker: 1
+- name: Airflow (tillegg til undersøkelse)
+  forekomst_klinikker: 1
+- name: Airflow (uten undersøkelse)
+  forekomst_klinikker: 1
+- name: Airflow Frisk (20 min)
+  forekomst_klinikker: 1
+- name: Airflow og tannrens – kampanjepris (før kr 1325)
+  forekomst_klinikker: 1
+- name: Akutt konsultasjon/undersøkelse
+  forekomst_klinikker: 1
+- name: Akutt tannlegetime
+  forekomst_klinikker: 1
+- name: Akutt undersøkelse
+  forekomst_klinikker: 3
+- name: Akutt undersøkelse inkludert konsultasjon og et røntgenbilde
+  forekomst_klinikker: 1
+- name: Akuttundersøkelse
+  forekomst_klinikker: 1
+- name: Anestesi
+  forekomst_klinikker: 1
+- name: Anestesi (bedøvelse) pr 1,8ml/område
+  forekomst_klinikker: 1
+- name: Anestesi per karpyle (sprøyte)
+  forekomst_klinikker: 1
+- name: Anti-apnèskinne
+  forekomst_klinikker: 1
+- name: Avansert case
+  forekomst_klinikker: 1
+- name: Bedøvelse
+  forekomst_klinikker: 4
+- name: Bedøvelse, pr. injeksjon
+  forekomst_klinikker: 1
+- name: 'Bedøvelse: Infiltrasjons- eller ledningsanestesi'
+  forekomst_klinikker: 1
+- name: Begge kjever (skinnebleking)
+  forekomst_klinikker: 1
+- name: Behandling av  marginal periodontitt
+  forekomst_klinikker: 2
+- name: Behandlingsplan
+  forekomst_klinikker: 1
+- name: Biopsi
+  forekomst_klinikker: 1
+- name: Bittskinne
+  forekomst_klinikker: 3
+- name: Bittskinne / midlertidig Valplast erstatning eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Bittskinne egenandel (Helfo refusjon trukket fra)
+  forekomst_klinikker: 1
+- name: Bittskinne etter HELFO refusjon (egenandel)
+  forekomst_klinikker: 1
+- name: Blekemiddel - 2 stk
+  forekomst_klinikker: 1
+- name: Blekeskinner - underkjeve og overkjeve
+  forekomst_klinikker: 1
+- name: Bleking (en kjeve) inklusiv blekemiddel og skinne
+  forekomst_klinikker: 1
+- name: Bleking (to kjever) inklusiv blekemiddel og skinner
+  forekomst_klinikker: 1
+- name: Botox mot tanngnissing/bruxisme
+  forekomst_klinikker: 1
+- name: Bro
+  forekomst_klinikker: 1
+- name: Bro i metall og porselen per ledd
+  forekomst_klinikker: 1
+- name: Broledd, pilar/ festetann
+  forekomst_klinikker: 1
+- name: CBCT – 3D røntgenbilde (inkludert tolkning av kjeve- og ansiktsradiolog)
+  forekomst_klinikker: 1
+- name: Ceph / Cephalogram røntgen
+  forekomst_klinikker: 1
+- name: Cephalostat
+  forekomst_klinikker: 1
+- name: Dekkprotese på to implantater
+  forekomst_klinikker: 1
+- name: Delprotese
+  forekomst_klinikker: 2
+- name: Delprotese en kjeve
+  forekomst_klinikker: 1
+- name: Delprotese, en kjeve
+  forekomst_klinikker: 1
+- name: Delprotese, en kjeve + tanntekn.
+  forekomst_klinikker: 1
+- name: 'Delprotese: 16 100'
+  forekomst_klinikker: 1
+- name: Digital Smile Design
+  forekomst_klinikker: 1
+- name: Dyp tannrens (del av perio-behandling) (egenandel ved refusjon)
+  forekomst_klinikker: 1
+- name: Dyp tannrens, grundig rens ved tannkjøttsykdom
+  forekomst_klinikker: 1
+- name: Dyp tannrens/perio-behandling
+  forekomst_klinikker: 1
+- name: Egenandel hard bittskinne/TMD beh. eks tanntekn.
+  forekomst_klinikker: 1
+- name: Egenandel ved kirurgisk fjerning av tann + evt. etterkontroll
+  forekomst_klinikker: 1
+- name: Ekstra bleketube
+  forekomst_klinikker: 1
+- name: En kjeve (skinnebleking)
+  forekomst_klinikker: 1
+- name: Enkel tanntrekking
+  forekomst_klinikker: 1
+- name: Enkel undersøkelse
+  forekomst_klinikker: 1
+- name: Ett implantat inkludert tannkrone (standard)
+  forekomst_klinikker: 1
+- name: Etterkontroll
+  forekomst_klinikker: 1
+- name: Feste løsnet streng
+  forekomst_klinikker: 1
+- name: Fjerne streng
+  forekomst_klinikker: 1
+- name: Fjerning av overfladiske hudlesjoner (eks. mucocele, gummy smile, fibrom,
+    papillom, herpes/forskjølelsessår, tungebånd og leppebånd).
+  forekomst_klinikker: 1
+- name: Fjerning av tannsten
+  forekomst_klinikker: 1
+- name: Fjerning av visdomstann - spesialist/oralkirurg
+  forekomst_klinikker: 1
+- name: Fjerning av visdomstann eller dyptliggende rot
+  forekomst_klinikker: 1
+- name: 'Fjerning av visdomstann: enkel trekking'
+  forekomst_klinikker: 1
+- name: 'Fjerning av visdomstann: kirurgisk fjerning'
+  forekomst_klinikker: 1
+- name: Foto, pr. bilde
+  forekomst_klinikker: 1
+- name: Full undersøkelse og grundig rens
+  forekomst_klinikker: 1
+- name: Fullkrone Cerec - krone som lages på klinikken og kan sementeres samme dag
+  forekomst_klinikker: 1
+- name: Fullkrone fra tannteknikker - krone sendes til teknikker for fremstilling
+  forekomst_klinikker: 1
+- name: Fullkrone i metall og porselen uten stift
+  forekomst_klinikker: 1
+- name: Fylling (1 flate)
+  forekomst_klinikker: 1
+- name: Fylling (2 flater)
+  forekomst_klinikker: 1
+- name: Fylling (3 flater)
+  forekomst_klinikker: 1
+- name: Fylling 1 flate
+  forekomst_klinikker: 2
+- name: Fylling 1 flate (kompositt)
+  forekomst_klinikker: 1
+- name: Fylling 2 flater
+  forekomst_klinikker: 2
+- name: Fylling 2 flater (kompositt)
+  forekomst_klinikker: 1
+- name: Fylling 3 flater
+  forekomst_klinikker: 2
+- name: Fylling 3 flater (kompositt)
+  forekomst_klinikker: 1
+- name: Fylling 4 flater (kompositt)
+  forekomst_klinikker: 1
+- name: Første undersøkelse inkl. nødvendig 2D-røntgen
+  forekomst_klinikker: 1
+- name: Førstegangsundersøkelse inkluderer grundig undersøkelse av tenner, tannkjøtt
+    og slimhinner, profesjonell tannrens med scaler og AirFlow. Det settes av god
+    tid til å kartlegge dine behov. Evt. OPG-røntgen kommer i tillegg. Hygienetillegg
+    tilkommer.
+  forekomst_klinikker: 1
+- name: 'Gratis konsultasjon: Tannlegeskrekk'
+  forekomst_klinikker: 1
+- name: Grundig rens av tenner
+  forekomst_klinikker: 1
+- name: Grundig rens av tenner (pyrea/tannkjøttsykdom)
+  forekomst_klinikker: 1
+- name: Grundig tannrens
+  forekomst_klinikker: 1
+- name: Hard bittskinne/TMD beh. (egenandel) + tanntekn.
+  forekomst_klinikker: 1
+- name: Hardplast bittskinne
+  forekomst_klinikker: 1
+- name: Helkeramisk krone på en jeksel
+  forekomst_klinikker: 1
+- name: Helkeramisk krone på et implantat i overkjeven
+  forekomst_klinikker: 1
+- name: Helprotese
+  forekomst_klinikker: 2
+- name: Helprotese (en kjeve) eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Helprotese (gebiss)
+  forekomst_klinikker: 1
+- name: Helprotese en kjeve
+  forekomst_klinikker: 1
+- name: Helprotese, en kjeve (gebiss)
+  forekomst_klinikker: 1
+- name: Helprotese, en kjeve + tanntekn.
+  forekomst_klinikker: 1
+- name: 'Helprotese: 15 800'
+  forekomst_klinikker: 1
+- name: Helsett (en helprotese i hver kjeve)
+  forekomst_klinikker: 1
+- name: Helsett + tanntekn.
+  forekomst_klinikker: 1
+- name: Hengeledd i bro + tanntekn.
+  forekomst_klinikker: 1
+- name: Hjemmebleking med skinne per kjeve
+  forekomst_klinikker: 1
+- name: Hygienetillegg
+  forekomst_klinikker: 5
+- name: Hygienetillegg (Klargjøring, oppdekking, engangsutstyr og smittevern) tilkommer
+    ved hvert besøk.
+  forekomst_klinikker: 1
+- name: Hygienetillegg allmennbehandling
+  forekomst_klinikker: 1
+- name: Hygienetillegg i forbindelse med kirurgi / ekstraksjon
+  forekomst_klinikker: 1
+- name: Hygienetillegg per behandling
+  forekomst_klinikker: 1
+- name: Hygienetillegg ved endo
+  forekomst_klinikker: 1
+- name: Hygienetillegg ved endodontisk behandling
+  forekomst_klinikker: 1
+- name: Hygienetillegg ved kirurgi
+  forekomst_klinikker: 1
+- name: Hygienetillegg ved kirurgisk behandling
+  forekomst_klinikker: 1
+- name: Hygienetillegg, pr. behandlingsseanse
+  forekomst_klinikker: 1
+- name: Hygienetiltak
+  forekomst_klinikker: 1
+- name: Hygienetiltak / engangsutstyr pr. konsultasjon
+  forekomst_klinikker: 1
+- name: Implantat
+  forekomst_klinikker: 1
+- name: Implantat - for implantatskrue og toppkonstruksjon
+  forekomst_klinikker: 1
+- name: Implantat inkludert implantatkrone
+  forekomst_klinikker: 1
+- name: Implantat inklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: 'Implantat m/distanse og krone: 23 073 kr'
+  forekomst_klinikker: 1
+- name: 'Implantat, pris fra: 9 000 kr'
+  forekomst_klinikker: 1
+- name: Implantatkonsultasjon hos spesialist i oral kirurgi
+  forekomst_klinikker: 1
+- name: Implantatkonsultasjon hos tannlege med Helsedirektoratets godkjenning i implantatprotetikk
+  forekomst_klinikker: 1
+- name: Implantatkrone
+  forekomst_klinikker: 1
+- name: 'Implantatkrone inkl. distanse, pris fra: 13 233 kr'
+  forekomst_klinikker: 1
+- name: Innlegg
+  forekomst_klinikker: 2
+- name: Invisalign
+  forekomst_klinikker: 1
+- name: Invisalign (usynlig tannregulering) inkl. tannbleking og Vivera-retainer
+  forekomst_klinikker: 1
+- name: Invisalign (usynlige tannreguleringsskinner)
+  forekomst_klinikker: 1
+- name: Invisalign behandling
+  forekomst_klinikker: 1
+- name: Invisalign-konsultasjon
+  forekomst_klinikker: 2
+- name: Kirurgisk fjerning - komplisert. Egenandel (etter HELFO-refusjon). Pris kan
+    variere fra kompleksitet og tidsbruk, samt om behandling utføres av allmenntannlege
+    eller spesialist.
+  forekomst_klinikker: 1
+- name: Kirurgisk fjerning av retinert tann eller dyptliggende rot
+  forekomst_klinikker: 1
+- name: Kirurgisk fjerning av tann / rotrest (delvis refusjon fra Helfo)
+  forekomst_klinikker: 1
+- name: Kirurgisk fjerning av tann eller rot
+  forekomst_klinikker: 1
+- name: 'Kirurgisk fjerning av tann eller rot, pris fra: 6 200 kr'
+  forekomst_klinikker: 1
+- name: Kirurgisk fjerning av tann/rot
+  forekomst_klinikker: 1
+- name: Kirurgisk inngrep ved behandling av marginal periodontitt
+  forekomst_klinikker: 1
+- name: Kirurgisk oppdekning
+  forekomst_klinikker: 1
+- name: Kirurgisk tanntrekking
+  forekomst_klinikker: 1
+- name: Kirurgisk tanntrekking av visdomstann eller dypliggennde rot
+  forekomst_klinikker: 1
+- name: Kirurgisk tanntrekking hos oralkirurg
+  forekomst_klinikker: 1
+- name: Kjeveleddslidelser
+  forekomst_klinikker: 1
+- name: Kjeveleddslidelser-konsultasjon
+  forekomst_klinikker: 1
+- name: Knukket tann/mistet fylling
+  forekomst_klinikker: 1
+- name: Komplett undersøkelse
+  forekomst_klinikker: 3
+- name: Komplisert tanntrekking
+  forekomst_klinikker: 1
+- name: Kompositt 1 flate
+  forekomst_klinikker: 1
+- name: Kompositt 2 flater
+  forekomst_klinikker: 1
+- name: Kompositt 3 flater
+  forekomst_klinikker: 1
+- name: Kompositt 4 flater
+  forekomst_klinikker: 1
+- name: 'Komposittfylling, 1 flate, pris fra : 1 365 kr'
+  forekomst_klinikker: 1
+- name: 'Komposittfylling, 2 flater, pris fra: 1 855 kr'
+  forekomst_klinikker: 1
+- name: 'Komposittfylling, 3 flater, pris fra: 2 060 kr'
+  forekomst_klinikker: 1
+- name: Konsultasjon allmenntannlege
+  forekomst_klinikker: 1
+- name: Konsultasjon estetisk tannbehandling
+  forekomst_klinikker: 1
+- name: Konsultasjon for skallfasetter
+  forekomst_klinikker: 1
+- name: Konsultasjon laserbehandling
+  forekomst_klinikker: 1
+- name: Konsultasjon usynlig regulering
+  forekomst_klinikker: 1
+- name: Konus oppbygd med Composipost
+  forekomst_klinikker: 1
+- name: Kostnadsfri Invisalign konsultasjon med iTero scan
+  forekomst_klinikker: 1
+- name: Krone
+  forekomst_klinikker: 1
+- name: Krone (alle typer) + tanntekn.
+  forekomst_klinikker: 1
+- name: Krone eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Krone, metall/ keramikk
+  forekomst_klinikker: 1
+- name: Kroneoppbygging i kompositt
+  forekomst_klinikker: 1
+- name: Laboratorieprøve
+  forekomst_klinikker: 1
+- name: Lage ny streng 1 kjeve (eks. tannteknikk)
+  forekomst_klinikker: 1
+- name: Lage ny streng 2 kjever (eks. tannteknikk)
+  forekomst_klinikker: 1
+- name: Lappoperasjon < 4 tenner
+  forekomst_klinikker: 1
+- name: Lappoperasjon > 4 tenner
+  forekomst_klinikker: 1
+- name: Light case
+  forekomst_klinikker: 1
+- name: Liten fylling
+  forekomst_klinikker: 2
+- name: Liten fylling - 1 flate
+  forekomst_klinikker: 1
+- name: Medium case
+  forekomst_klinikker: 1
+- name: 'Mellomledd MK ved broarbeid (som ikke er på implantat): 7 000 kr'
+  forekomst_klinikker: 1
+- name: Mellomledd eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: 'Mellomledd metallfri ved broarbeid (som ikke er på implantat): 6 700 kr'
+  forekomst_klinikker: 1
+- name: Mellomstor fylling - 2 flater
+  forekomst_klinikker: 1
+- name: Metallkeram krone inkludert tannteknikker
+  forekomst_klinikker: 1
+- name: Middels stor fylling
+  forekomst_klinikker: 2
+- name: 'Midlertidig delprotese 1-2 tenner: 5 100 kr'
+  forekomst_klinikker: 1
+- name: 'Midlertidig delprotese 3-5 tenner: 7 500 kr'
+  forekomst_klinikker: 1
+- name: 'Midlertidig delprotese 6-14 tenner: 12 500'
+  forekomst_klinikker: 1
+- name: Midlertidig fylling
+  forekomst_klinikker: 2
+- name: Mykplast bittskinne
+  forekomst_klinikker: 1
+- name: Narkose
+  forekomst_klinikker: 1
+- name: OPG (panorama røntgen)
+  forekomst_klinikker: 1
+- name: OPG Panoramarøntgen
+  forekomst_klinikker: 1
+- name: Omfattende case
+  forekomst_klinikker: 1
+- name: Omfattende undersøkelse, utredning, henvisning og behandlingsplanlegging
+  forekomst_klinikker: 1
+- name: Oppbygging av hel tann
+  forekomst_klinikker: 1
+- name: Oppdekningshonorar ved rotbehandling og kirurgi
+  forekomst_klinikker: 1
+- name: Panorama-røntgen (OPG)
+  forekomst_klinikker: 1
+- name: Panoramarøntgen
+  forekomst_klinikker: 1
+- name: Panoramarøntgen (OPG bilde)
+  forekomst_klinikker: 1
+- name: Panoramarøntgen (opg)
+  forekomst_klinikker: 1
+- name: Panoramarøntgen/ OPG
+  forekomst_klinikker: 1
+- name: Partiellprotese (delprotese) eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Pasientfoto, per bilde
+  forekomst_klinikker: 1
+- name: Periobehandling allmenntannlege (refusjon fra HELFO på deler av behandlingen)
+  forekomst_klinikker: 1
+- name: Period.beh. uten kirurgi, 30 min (egenandel)
+  forekomst_klinikker: 1
+- name: Period.beh. uten kirurgi, 60 min (egenandel)
+  forekomst_klinikker: 1
+- name: Periodontal behandling (behandling av tannkjøttsykdom), per 30 min. Egenandel
+    (etter HELFO-refusjon).
+  forekomst_klinikker: 1
+- name: Periodontitt behandling per seanse. Etter refusjon
+  forekomst_klinikker: 1
+- name: Porselen-onlay / Gull-onlay eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Porselenfasetter
+  forekomst_klinikker: 1
+- name: Porselensfasett fortann (høyestetikk) + tanntekn.
+  forekomst_klinikker: 1
+- name: Porselensinnlegg 4 flater
+  forekomst_klinikker: 1
+- name: Porselenskroner
+  forekomst_klinikker: 1
+- name: Profesjonell tannrens med scaler og Air-flow som forebyggende behandling,
+    30 min.
+  forekomst_klinikker: 1
+- name: Rebasering av protese eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Rebasering protese + tanntekn.
+  forekomst_klinikker: 1
+- name: Recall-undersøkelse av pasient med bilder, rens og forebyggende informasjon
+  forekomst_klinikker: 1
+- name: Retainerskinne 1 kjeve (eks. tannteknikk)
+  forekomst_klinikker: 1
+- name: Retainerskinne 2 kjever (eks. tannteknikk)
+  forekomst_klinikker: 1
+- name: Retensjons-retainer overkjeve og underkjeve
+  forekomst_klinikker: 1
+- name: Rotfylling (1 rotkanal)
+  forekomst_klinikker: 1
+- name: Rotfylling (2 kanaler)
+  forekomst_klinikker: 1
+- name: Rotfylling (Undersøkelse og diagnostikk)
+  forekomst_klinikker: 1
+- name: Rotfylling (fortann/hjørnetann)
+  forekomst_klinikker: 1
+- name: Rotfylling (jeksel)
+  forekomst_klinikker: 1
+- name: Rotfylling (liten jeksel)
+  forekomst_klinikker: 1
+- name: Rotfylling (stor jeksel)
+  forekomst_klinikker: 1
+- name: Rotfylling 1 kanal
+  forekomst_klinikker: 1
+- name: Rotfylling 2 kanaler
+  forekomst_klinikker: 1
+- name: Rotfylling 3-4 kanaler
+  forekomst_klinikker: 1
+- name: Rotfylling allmenntannlege
+  forekomst_klinikker: 1
+- name: Rotfylling av nekrotisk fortann
+  forekomst_klinikker: 1
+- name: Rotfylling av nekrotisk jeksel
+  forekomst_klinikker: 1
+- name: Rotfylling av tann med 1 rotkanal
+  forekomst_klinikker: 1
+- name: Rotfylling av vital fortann
+  forekomst_klinikker: 1
+- name: Rotfylling en kanal
+  forekomst_klinikker: 1
+- name: Rotfylling fortann
+  forekomst_klinikker: 1
+- name: Rotfylling fortann/hjørnetann
+  forekomst_klinikker: 1
+- name: Rotfylling jeksel
+  forekomst_klinikker: 1
+- name: Rotfylling liten jeksel
+  forekomst_klinikker: 1
+- name: Rotfylling premolar
+  forekomst_klinikker: 1
+- name: Rotfylling stor jeksel
+  forekomst_klinikker: 2
+- name: Rotfylling to kanaler
+  forekomst_klinikker: 1
+- name: Rotfylling, 1 kanal
+  forekomst_klinikker: 1
+- name: Rotfylling, 2 kanaler
+  forekomst_klinikker: 1
+- name: Rotfylling, 3 kanaler eller mer
+  forekomst_klinikker: 1
+- name: 'Rotfylling, fortann, pris fra: 4 850 kr'
+  forekomst_klinikker: 1
+- name: Rotfylling, fortann/hjørnetann
+  forekomst_klinikker: 1
+- name: 'Rotfylling, hjørnetann (premolar), pris fra: 5 500 kr'
+  forekomst_klinikker: 1
+- name: 'Rotfylling, jeksel (molar), pris fra: 7 150 kr'
+  forekomst_klinikker: 1
+- name: Rotfylling, molar
+  forekomst_klinikker: 1
+- name: Rotfylling, premolar
+  forekomst_klinikker: 1
+- name: Rottspissamputasjon av enkel tann
+  forekomst_klinikker: 1
+- name: Rottspissamputasjon av større tann
+  forekomst_klinikker: 1
+- name: Rtg. OPG
+  forekomst_klinikker: 1
+- name: Røntgen per bilde
+  forekomst_klinikker: 1
+- name: Røntgenbilde
+  forekomst_klinikker: 5
+- name: Røntgenbilde (apikal/BW)
+  forekomst_klinikker: 1
+- name: Røntgenbilde (pr. stk)
+  forekomst_klinikker: 1
+- name: Røntgenundersøkelse per bilde
+  forekomst_klinikker: 1
+- name: Skallfasett
+  forekomst_klinikker: 3
+- name: 'Skallfasett metallfri (e.max): 7 900 kr'
+  forekomst_klinikker: 1
+- name: Skallfasett per tann
+  forekomst_klinikker: 1
+- name: Skallfasetter (porselensfasade) eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Skallfasetter/ laminat, innlegg
+  forekomst_klinikker: 1
+- name: Skifte calaseptinnlegg pr. besøk
+  forekomst_klinikker: 1
+- name: Smertebehandling kroniske muskulære smerter ved tanngnissing og slitne tyggemuskler
+  forekomst_klinikker: 1
+- name: Snorkeskinne
+  forekomst_klinikker: 3
+- name: Snorkeskinner
+  forekomst_klinikker: 1
+- name: Sportskinne
+  forekomst_klinikker: 1
+- name: Stor fylling
+  forekomst_klinikker: 2
+- name: Stor fylling - 3 flater
+  forekomst_klinikker: 1
+- name: Støpt konus eksklusiv tannteknikk
+  forekomst_klinikker: 1
+- name: Støpt stiftkonus + tanntekn.
+  forekomst_klinikker: 1
+- name: Tannbeskytter
+  forekomst_klinikker: 1
+- name: Tannbleking
+  forekomst_klinikker: 1
+- name: Tannbleking inkl. undersøkelse 90min
+  forekomst_klinikker: 1
+- name: Tannbleking med full undersøkelse
+  forekomst_klinikker: 1
+- name: Tannbleking med tilpasset blekeskinne og 2 tuber (kampanje ut mai)
+  forekomst_klinikker: 1
+- name: Tannbleking – Hjemmebleking (1 kjeve)
+  forekomst_klinikker: 1
+- name: Tannbleking – Hjemmebleking (2 kjever)
+  forekomst_klinikker: 1
+- name: Tannbleking – kampanjepris (før kr 5500)
+  forekomst_klinikker: 1
+- name: Tannbleking, begge kjever (kampanje)
+  forekomst_klinikker: 1
+- name: Tannbro
+  forekomst_klinikker: 2
+- name: Tannbro inkludert tannteknikk
+  forekomst_klinikker: 1
+- name: Tannfarget fylling (kompositt) 1 flate
+  forekomst_klinikker: 1
+- name: Tannfarget fylling (kompositt) 2 flater
+  forekomst_klinikker: 1
+- name: Tannfarget fylling (kompositt) 3 flater
+  forekomst_klinikker: 1
+- name: Tannfarget fylling (kompositt) 4 flater
+  forekomst_klinikker: 1
+- name: Tannfarget fylling, 1 flate
+  forekomst_klinikker: 2
+- name: Tannfarget fylling, 2 flater
+  forekomst_klinikker: 1
+- name: Tannfarget fylling, 2 flaterr
+  forekomst_klinikker: 1
+- name: Tannfarget fylling, 3 flater
+  forekomst_klinikker: 1
+- name: Tannfarget fylling, 3 flaterr
+  forekomst_klinikker: 1
+- name: Tannfarget fylling, 4 flater
+  forekomst_klinikker: 1
+- name: Tannfarget fylling, 4 flater eller merr
+  forekomst_klinikker: 1
+- name: Tannfarget liten fylling 1 flate
+  forekomst_klinikker: 1
+- name: Tannfarget middels fylling 2 flater
+  forekomst_klinikker: 1
+- name: Tannfarget stor fylling 3 flater
+  forekomst_klinikker: 1
+- name: Tannimplantat
+  forekomst_klinikker: 2
+- name: Tannimplantat inklusive tannteknikk
+  forekomst_klinikker: 1
+- name: Tannimplantat-konsultasjon
+  forekomst_klinikker: 1
+- name: Tannimplantatundersøkelse
+  forekomst_klinikker: 1
+- name: Tannkrone
+  forekomst_klinikker: 1
+- name: Tannkrone full-keramisk
+  forekomst_klinikker: 1
+- name: Tannkrone metall-keramisk
+  forekomst_klinikker: 1
+- name: 'Tannkrone metallfri (e.max): 8 000 kr'
+  forekomst_klinikker: 1
+- name: 'Tannkrone metallfri (zirkonia, monoblock): 7 300 kr'
+  forekomst_klinikker: 1
+- name: Tannlegeskrekk - samtale med tannlegen
+  forekomst_klinikker: 1
+- name: Tannlegeskrekk – konsultasjon
+  forekomst_klinikker: 1
+- name: Tannprotese (gebiss)
+  forekomst_klinikker: 1
+- name: Tannprotese i over- og underkjeven
+  forekomst_klinikker: 1
+- name: Tannprotese over- og underkjeve (komplett)
+  forekomst_klinikker: 1
+- name: Tannregulering
+  forekomst_klinikker: 1
+- name: Tannrens (30 min)
+  forekomst_klinikker: 1
+- name: Tannrens (60 min)
+  forekomst_klinikker: 1
+- name: Tannsmykke
+  forekomst_klinikker: 2
+- name: Tannsmykke (inkl. smykken)
+  forekomst_klinikker: 1
+- name: Tannspa – Forebygging & egenomsorg
+  forekomst_klinikker: 1
+- name: Tanntrekking (ekstraksjon), enkel
+  forekomst_klinikker: 1
+- name: Tanntrekking (enkel)
+  forekomst_klinikker: 1
+- name: Tanntrekking (komplisert)
+  forekomst_klinikker: 2
+- name: Tanntrekking (ukomplisert)
+  forekomst_klinikker: 1
+- name: Tanntrekking enkel
+  forekomst_klinikker: 1
+- name: Tanntrekking komplisert
+  forekomst_klinikker: 2
+- name: Tanntrekking ukomplisert
+  forekomst_klinikker: 1
+- name: Tidsdebitering, 30 minutter
+  forekomst_klinikker: 1
+- name: 'Tidsdebitering:'
+  forekomst_klinikker: 1
+- name: 'Tillegg for eventuell stål i protese (ved behov): 3 900 kr'
+  forekomst_klinikker: 1
+- name: Tillegg maskinell rotfyllingsinstrumentering pr. seanse
+  forekomst_klinikker: 1
+- name: Timehonorar hos spes. i periodonti
+  forekomst_klinikker: 1
+- name: Timehonorar i allmennpraksis
+  forekomst_klinikker: 1
+- name: Trekke tann - ukomplisert
+  forekomst_klinikker: 1
+- name: Trekking av tann
+  forekomst_klinikker: 1
+- name: 'Trekking av tann, komplisert, pris fra: 2 500 kr'
+  forekomst_klinikker: 1
+- name: 'Trekking av tann, ukomplisert, pris fra: 1 430 kr'
+  forekomst_klinikker: 1
+- name: 'Treledds bro MK (erstatte en tann): 23 000 kr'
+  forekomst_klinikker: 1
+- name: 'Treledds bro metallfri (erstatte en tann) inkl 1 bedøvelse: 21 300 kr'
+  forekomst_klinikker: 1
+- name: Ukomplisert ekstraksjon
+  forekomst_klinikker: 1
+- name: Ukomplisert ekstraksjon av tann eller rot
+  forekomst_klinikker: 2
+- name: Ukomplisert tanntrekking
+  forekomst_klinikker: 1
+- name: Undersøkelse
+  forekomst_klinikker: 3
+- name: Undersøkelse FRESH
+  forekomst_klinikker: 1
+- name: Undersøkelse Fresh
+  forekomst_klinikker: 1
+- name: Undersøkelse PREMIUM
+  forekomst_klinikker: 1
+- name: Undersøkelse Premium
+  forekomst_klinikker: 1
+- name: Undersøkelse STANDARD
+  forekomst_klinikker: 1
+- name: Undersøkelse av ny pasient med bilder, rens og forebyggende informasjon
+  forekomst_klinikker: 1
+- name: Undersøkelse hos spesialist
+  forekomst_klinikker: 1
+- name: Undersøkelse hos spesialist, priser fra
+  forekomst_klinikker: 1
+- name: Undersøkelse hos tannpleier inkl. tannrens og AirFlow
+  forekomst_klinikker: 1
+- name: Undersøkelse inkl. tannbleking – kampanjepris (før kr 5500)
+  forekomst_klinikker: 1
+- name: Undersøkelse inkludert to røntgenbilder og enkel rens
+  forekomst_klinikker: 1
+- name: Undersøkelse inkludert to røntgenbilder og enkel rens med airflow
+  forekomst_klinikker: 1
+- name: Undersøkelse med fire røntgenbilder og tannrenss
+  forekomst_klinikker: 1
+- name: Undersøkelse ny pasient
+  forekomst_klinikker: 1
+- name: Undersøkelse, inkl. profesjonell tannrens med scaler og Air-flow, 4 røntgenbilder.
+    Hygienetillegg tilkommer
+  forekomst_klinikker: 1
+- name: Undersøkelse/2rtg./hyg./prisoverslag/inkl. enkel rens
+  forekomst_klinikker: 1
+- name: Usynlig tannregulering (Invisalign)
+  forekomst_klinikker: 1
+- name: Usynlig tannregulering konsultasjon
+  forekomst_klinikker: 1
+- name: Usynlig tannregulering konsultasjon og scanning for simulasjon
+  forekomst_klinikker: 1
+- name: Valplastprotese og midlertidig protese
+  forekomst_klinikker: 1
+- name: Vanlig tannrens
+  forekomst_klinikker: 1
+- name: Vivera retensjonsskinner
+  forekomst_klinikker: 1
+- name: Vurdering/smertelindring av visdomstann (eks opg)
+  forekomst_klinikker: 1
+- name: Zirconia tannkrone inkludert tannteknikk
+  forekomst_klinikker: 1

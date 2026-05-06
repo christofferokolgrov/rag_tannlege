@@ -1,0 +1,68 @@
+{
+  "klinikk_id": "single__nordstrand_tannlegesenter",
+  "extracted_count": 10,
+  "dropped_count": 0,
+  "dropped_reasons": [],
+  "rows": [
+    {
+      "behandling_navn_raw": "Behandling av  marginal periodontitt",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Helkeramisk krone på en jeksel",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Helkeramisk krone på et implantat i overkjeven",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk inngrep ved behandling av marginal periodontitt",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Liten fylling",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Middels stor fylling",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling av tann med 1 rotkanal",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Stor fylling",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Ukomplisert ekstraksjon av tann eller rot",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse",
+      "pris_min": null,
+      "pris_max": null,
+      "prisformat": "etter_konsultasjon"
+    }
+  ]
+}

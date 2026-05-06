@@ -21,7 +21,7 @@ from scraper.fetch import RobotsBlockedError, fetch_with_cache
 from scraper.log import ScrapeLog
 from scraper.manifest import ManifestError, load_clinic_manifest, validate_manifest
 from scraper.output import write_clinics, write_prices_raw
-from scraper.parsers import colosseum, helsesmart, oc, odontia, oris
+from scraper.parsers import colosseum, helsesmart, oc, odontia, oris, single_json
 from scraper.slug import parse_klinikk_id
 
 PARSERS = {
@@ -29,7 +29,10 @@ PARSERS = {
     "colosseum": colosseum,
     "oc": oc,
     "oris": oris,
-    "single": helsesmart,  # independent Oslo-area clinics scraped via HelseSmart
+    # Independent Oslo-area clinics — prices pre-extracted via DeepSeek
+    # over each clinic's own website HTML; parser reads from
+    # data/single_clinics_extracted/<slug>.json. See PRD #31 + tools/extract_single_clinics.py.
+    "single": single_json,
 }
 
 

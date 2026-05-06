@@ -1381,255 +1381,101 @@ clinics:
   klinikk_url: https://orisdental.no/klinikker/voyenenga
   prisliste_url: https://orisdental.no/prisliste
   prisliste_struktur: peker_på_sentral
+- klinikk_id: single__oslo_tannlegesenter
+  kjede: single
+  klinikk_navn: Oslo Tannlegesenter
+  klinikk_url: https://oslotannlegesenter.no
+  prisliste_url: https://oslotannlegesenter.no/tannlege-priser/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://oslotannlegesenter.no (confidence=high)
+- klinikk_id: single__smil_tannlegesenter
+  kjede: single
+  klinikk_navn: Smil Tannlegesenter
+  klinikk_url: https://www.smiltannlegesenter.no
+  prisliste_url: https://www.smiltannlegesenter.no/prisliste
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.smiltannlegesenter.no (confidence=high)
+- klinikk_id: single__clear_tannlegesenter
+  kjede: single
+  klinikk_navn: Clear Tannlegesenter
+  klinikk_url: https://www.cleartannlegesenter.no
+  prisliste_url: https://www.cleartannlegesenter.no/tannlegepriser
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.cleartannlegesenter.no (confidence=high)
+- klinikk_id: single__blid
+  kjede: single
+  klinikk_navn: Blid Tannhelse
+  klinikk_url: https://www.blid.no
+  prisliste_url: https://www.blid.no/behandlinger-og-prisliste
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.blid.no (confidence=high)
+- klinikk_id: single__tanntunet
+  kjede: single
+  klinikk_navn: Tanntunet Tannhelsesenter
+  klinikk_url: https://tanntunet.no
+  prisliste_url: https://tanntunet.no/priser/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://tanntunet.no (confidence=high)
 - klinikk_id: single__majorstua_tannlegene
   kjede: single
   klinikk_navn: Majorstua Tannlegene
-  klinikk_url: https://www.helsesmart.no/klinikk/tannklinikk-majorstua-8433/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannklinikk-majorstua-8433/priser/
+  klinikk_url: https://majorstuatannlegene.no
+  prisliste_url: https://majorstuatannlegene.no/tannlege-priser/
   prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.78
-- klinikk_id: single__estetisk_tannregulering
+  notes: DeepSeek-extracted from https://majorstuatannlegene.no (confidence=high)
+- klinikk_id: single__nydalen_tannlegesenter
   kjede: single
-  klinikk_navn: Estetisk Tannregulering
-  klinikk_url: https://www.helsesmart.no/klinikk/estetika-tannklinikk-8747/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/estetika-tannklinikk-8747/priser/
+  klinikk_navn: Nydalen Tannlegesenter
+  klinikk_url: https://nydalentannlegesenter.no
+  prisliste_url: https://nydalentannlegesenter.no/priser
   prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.67
-- klinikk_id: single__sentrum_tannlegesenter
+  notes: DeepSeek-extracted from https://nydalentannlegesenter.no (confidence=high)
+- klinikk_id: single__dentalia
   kjede: single
-  klinikk_navn: Sentrum Tannlegesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/sentrum-tannlegevakt-7695/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/sentrum-tannlegevakt-7695/priser/
+  klinikk_navn: Dentalia
+  klinikk_url: https://dentalia.no
+  prisliste_url: https://dentalia.no/prisliste/
   prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
+  notes: DeepSeek-extracted from https://dentalia.no (confidence=high)
+- klinikk_id: single__oralcare
+  kjede: single
+  klinikk_navn: OralCare Linderud
+  klinikk_url: https://oralcare.no
+  prisliste_url: https://oralcare.no/pris/
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://oralcare.no (confidence=high)
+- klinikk_id: single__toyen_tannlegevakt
+  kjede: single
+  klinikk_navn: Tøyen Tannlegevakt
+  klinikk_url: https://www.toyentannlegevakt.no
+  prisliste_url: https://www.toyentannlegevakt.no/priser/prisliste
+  prisliste_struktur: per_klinikk
+  notes: DeepSeek-extracted from https://www.toyentannlegevakt.no (confidence=high)
 - klinikk_id: single__nordstrand_tannlegesenter
   kjede: single
   klinikk_navn: Nordstrand Tannlegesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/nordstrand-tannlegesenter-7569/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/nordstrand-tannlegesenter-7569/priser/
+  klinikk_url: https://nordstrandtannlegesenter.no
+  prisliste_url: https://nordstrandtannlegesenter.no/tannlege-priser/
   prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.80
-- klinikk_id: single__slottsparken_tannklinikk
+  notes: DeepSeek-extracted from https://nordstrandtannlegesenter.no (confidence=high)
+- klinikk_id: single__slemdal_tannlegesenter
   kjede: single
-  klinikk_navn: Slottsparken Tannklinikk
-  klinikk_url: https://www.helsesmart.no/klinikk/slottsparken-tannklinikk-7778/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/slottsparken-tannklinikk-7778/priser/
+  klinikk_navn: Slemdal Tannlegesenter
+  klinikk_url: https://slemdaltannlegesenter.no
+  prisliste_url: https://slemdaltannlegesenter.no/priser
   prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.83
-- klinikk_id: single__frogner_tannklinikk
+  notes: DeepSeek-extracted from https://slemdaltannlegesenter.no (confidence=high)
+- klinikk_id: single__orbdent
   kjede: single
-  klinikk_navn: Frogner Tannklinikk
-  klinikk_url: https://www.helsesmart.no/klinikk/frogner-tannklinikk-7772/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/frogner-tannklinikk-7772/priser/
+  klinikk_navn: Orbdent Oslo
+  klinikk_url: https://orbdent.no
+  prisliste_url: https://orbdent.no/priser/
   prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
-- klinikk_id: single__torshov_tannlegesenter
+  notes: DeepSeek-extracted from https://orbdent.no (confidence=high)
+- klinikk_id: single__tann_og_kjeve
   kjede: single
-  klinikk_navn: Torshov Tannlegesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/torshov-tannklinikk-8060/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/torshov-tannklinikk-8060/priser/
+  klinikk_navn: Tann- og kjeveklinikken (Rommen)
+  klinikk_url: https://tannlegerommen.no
+  prisliste_url: https://tannlegerommen.no/priser
   prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
-- klinikk_id: single__tveitaklinikken
-  kjede: single
-  klinikk_navn: Tveitaklinikken
-  klinikk_url: https://www.helsesmart.no/klinikk/vitalisklinikken-904/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/vitalisklinikken-904/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
-- klinikk_id: single__tannlege_klette_co
-  kjede: single
-  klinikk_navn: Tannlege Klette & Co.
-  klinikk_url: https://www.helsesmart.no/klinikk/tannlege-klette-co-7641/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannlege-klette-co-7641/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.86
-- klinikk_id: single__grunerloekkas_hus_tannlegesenter
-  kjede: single
-  klinikk_navn: Grünerløkkas Hus Tannlegesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/grunerlokka-tannhelsesenter-7993/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/grunerlokka-tannhelsesenter-7993/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.69
-- klinikk_id: single__bogstadveien_tannlegesenter
-  kjede: single
-  klinikk_navn: Bogstadveien Tannlegesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/klinikk-bogstadveien-2022/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/klinikk-bogstadveien-2022/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.83
-- klinikk_id: single__vinderentannlegene
-  kjede: single
-  klinikk_navn: Vinderentannlegene
-  klinikk_url: https://www.helsesmart.no/klinikk/ryentannlegene-9645/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/ryentannlegene-9645/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.70
-- klinikk_id: single__manglerud_tannhelsesenter
-  kjede: single
-  klinikk_navn: Manglerud Tannhelsesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/manglerud-tannhelsesenter-7595/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/manglerud-tannhelsesenter-7595/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.78
-- klinikk_id: single__din_tannlege
-  kjede: single
-  klinikk_navn: Din Tannlege
-  klinikk_url: https://www.helsesmart.no/klinikk/din-tannlege-8375/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/din-tannlege-8375/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.83
-- klinikk_id: single__tannhelseklinikken
-  kjede: single
-  klinikk_navn: Tannhelseklinikken
-  klinikk_url: https://www.helsesmart.no/klinikk/tangen-helseklinikk-2261/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tangen-helseklinikk-2261/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.76
-- klinikk_id: single__tannbuen
-  kjede: single
-  klinikk_navn: Tannbuen
-  klinikk_url: https://www.helsesmart.no/klinikk/tannbuen-7612/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannbuen-7612/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.76
-- klinikk_id: single__stortorvet_tannhelsesenter
-  kjede: single
-  klinikk_navn: Stortorvet Tannhelsesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/stortorvet-tannhelsesenter-7731/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/stortorvet-tannhelsesenter-7731/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.80
-- klinikk_id: single__cc_vest_tannlegesenter
-  kjede: single
-  klinikk_navn: Cc Vest Tannlegesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/cc-vest-tannlegesenter-7587/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/cc-vest-tannlegesenter-7587/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
-- klinikk_id: single__zina_kristiansen_oralkirurgi
-  kjede: single
-  klinikk_navn: Zina Kristiansen Oralkirurgi
-  klinikk_url: https://www.helsesmart.no/klinikk/memira-kristiansand-655/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/memira-kristiansand-655/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.67
-- klinikk_id: single__periodontispesialistene
-  kjede: single
-  klinikk_navn: Periodontispesialistene
-  klinikk_url: https://www.helsesmart.no/klinikk/hjertespesialisten-2516/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/hjertespesialisten-2516/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.65
-- klinikk_id: single__tannlegene_baldetorp
-  kjede: single
-  klinikk_navn: Tannlegene Baldetorp
-  klinikk_url: https://www.helsesmart.no/klinikk/tannlegene-baldetorp-7691/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannlegene-baldetorp-7691/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.78
-- klinikk_id: single__storo_storsenter_tannklinikk
-  kjede: single
-  klinikk_navn: Storo Storsenter Tannklinikk
-  klinikk_url: https://www.helsesmart.no/klinikk/storo-storsenter-tannklinikk-8277/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/storo-storsenter-tannklinikk-8277/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.86
-- klinikk_id: single__tannlege_birger_nygaard_oestby
-  kjede: single
-  klinikk_navn: Tannlege Birger Nygaard Østby
-  klinikk_url: https://www.helsesmart.no/klinikk/tannlege-irene-nygard-8959/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannlege-irene-nygard-8959/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
-- klinikk_id: single__tannlege_team_linderud
-  kjede: single
-  klinikk_navn: Tannlege Team Linderud
-  klinikk_url: https://www.helsesmart.no/klinikk/tannlegeteam-linderud-12442/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannlegeteam-linderud-12442/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.86
-- klinikk_id: single__tannlege_mark_b_earl
-  kjede: single
-  klinikk_navn: Tannlege Mark B. Earl
-  klinikk_url: https://www.helsesmart.no/klinikk/tannlege-mark-b-earl-8314/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannlege-mark-b-earl-8314/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.89
-- klinikk_id: single__tann_klinikkenno
-  kjede: single
-  klinikk_navn: Tann-Klinikken.No
-  klinikk_url: https://www.helsesmart.no/klinikk/tann-klinikken-no-8104/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tann-klinikken-no-8104/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
-- klinikk_id: single__tannlegekontoret_i_tidemansgate_2
-  kjede: single
-  klinikk_navn: Tannlegekontoret I Tidemansgate 2
-  klinikk_url: https://www.helsesmart.no/klinikk/legekontoret-fem-faste-da-11091/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/legekontoret-fem-faste-da-11091/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.66
-- klinikk_id: single__ekebergveien_tannklinikk_tannlegene_skaanes_og_wisloeff
-  kjede: single
-  klinikk_navn: Ekebergveien Tannklinikk Tannlegene Skaanes og Wisløff
-  klinikk_url: https://www.helsesmart.no/klinikk/ekebergveien-tannklinikk-tannlegene-skaanes-wisloff-ans-7623/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/ekebergveien-tannklinikk-tannlegene-skaanes-wisloff-ans-7623/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.84
-- klinikk_id: single__kalbakken_tannlegesenter
-  kjede: single
-  klinikk_navn: Kalbakken Tannlegesenter
-  klinikk_url: https://www.helsesmart.no/klinikk/kalbakken-klinikken-967/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/kalbakken-klinikken-967/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.82
-- klinikk_id: single__tannlege_oslo
-  kjede: single
-  klinikk_navn: Tannlege Oslo
-  klinikk_url: https://www.helsesmart.no/klinikk/tannlege-oslo-8475/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannlege-oslo-8475/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.76
-- klinikk_id: single__holmlia_tannlegekontor
-  kjede: single
-  klinikk_navn: Holmlia Tannlegekontor
-  klinikk_url: https://www.helsesmart.no/klinikk/holmlia-tannlegekontor-7926/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/holmlia-tannlegekontor-7926/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.74
-- klinikk_id: single__bogstadveien_proteselaboratorium
-  kjede: single
-  klinikk_navn: Bogstadveien Proteselaboratorium
-  klinikk_url: https://www.helsesmart.no/klinikk/tannteknikker-tom-coles-bogstadveien-proteselaberatorium-8442/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannteknikker-tom-coles-bogstadveien-proteselaberatorium-8442/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.67
-- klinikk_id: single__etterstad_tannklinikk
-  kjede: single
-  klinikk_navn: Etterstad Tannklinikk
-  klinikk_url: https://www.helsesmart.no/klinikk/etterstad-tannklinikk-9158/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/etterstad-tannklinikk-9158/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.78
-- klinikk_id: single__privattannlegen
-  kjede: single
-  klinikk_navn: Privattannlegen
-  klinikk_url: https://www.helsesmart.no/klinikk/privattannlegen-11429/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/privattannlegen-11429/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.83
-- klinikk_id: single__hoeybraaten_tannklinikk
-  kjede: single
-  klinikk_navn: Høybråten Tannklinikk
-  klinikk_url: https://www.helsesmart.no/klinikk/hoybraten-tannklinikk-7935/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/hoybraten-tannklinikk-7935/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.70
-- klinikk_id: single__tannlege_ann_kristin_engen
-  kjede: single
-  klinikk_navn: Tannlege Ann-Kristin Engen
-  klinikk_url: https://www.helsesmart.no/klinikk/tannlege-ann-kristin-engen-7711/priser/
-  prisliste_url: https://www.helsesmart.no/klinikk/tannlege-ann-kristin-engen-7711/priser/
-  prisliste_struktur: per_klinikk
-  notes: matched via HelseSmart sitemap @ 0.91
+  notes: DeepSeek-extracted from https://tannlegerommen.no (confidence=medium)

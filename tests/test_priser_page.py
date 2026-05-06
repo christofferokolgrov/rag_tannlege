@@ -136,7 +136,7 @@ def test_selecting_krone_shows_rows_for_all_chains():
     # (Sammenligning, Oversikt, Per behandling)
     detail = at.dataframe[2].value
     assert len(detail) > 0
-    assert set(detail["kjede"].unique()) == {"odontia", "colosseum", "oc", "oris"}
+    assert {"odontia", "colosseum", "oc", "oris"}.issubset(set(detail["kjede"].unique()))
 
 
 def _has_altair_chart(at: AppTest) -> bool:

@@ -1,0 +1,266 @@
+{
+  "klinikk_id": "single__clear_tannlegesenter",
+  "extracted_count": 43,
+  "dropped_count": 0,
+  "dropped_reasons": [],
+  "rows": [
+    {
+      "behandling_navn_raw": "Undersøkelse STANDARD",
+      "pris_min": 690,
+      "pris_max": 690,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse PREMIUM",
+      "pris_min": 2990,
+      "pris_max": 2990,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse FRESH",
+      "pris_min": 1290,
+      "pris_max": 1290,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse ny pasient",
+      "pris_min": 690,
+      "pris_max": 690,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse Fresh",
+      "pris_min": 1290,
+      "pris_max": 1290,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse Premium",
+      "pris_min": 2990,
+      "pris_max": 2990,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse",
+      "pris_min": 1190,
+      "pris_max": 1190,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Akutt undersøkelse",
+      "pris_min": 529,
+      "pris_max": 529,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Røntgenbilde",
+      "pris_min": 219,
+      "pris_max": 219,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Panorama-røntgen (OPG)",
+      "pris_min": 899,
+      "pris_max": 899,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetillegg",
+      "pris_min": 269,
+      "pris_max": 269,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bedøvelse",
+      "pris_min": 269,
+      "pris_max": 269,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Dyp tannrens, grundig rens ved tannkjøttsykdom",
+      "pris_min": 890,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Vanlig tannrens",
+      "pris_min": 590,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Airflow (tillegg til undersøkelse)",
+      "pris_min": 350,
+      "pris_max": 350,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Airflow (uten undersøkelse)",
+      "pris_min": 490,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Fylling 1 flate",
+      "pris_min": 1679,
+      "pris_max": 1679,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling 2 flater",
+      "pris_min": 1899,
+      "pris_max": 1899,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fylling 3 flater",
+      "pris_min": 2199,
+      "pris_max": 2199,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Midlertidig fylling",
+      "pris_min": 649,
+      "pris_max": 649,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Skallfasett",
+      "pris_min": 6290,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannkrone",
+      "pris_min": 5890,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannbro",
+      "pris_min": 5999,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Innlegg",
+      "pris_min": 5999,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannimplantat inklusive tannteknikk",
+      "pris_min": 29900,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannprotese i over- og underkjeven",
+      "pris_min": 17900,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannprotese (gebiss)",
+      "pris_min": 10900,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling fortann",
+      "pris_min": 4190,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling premolar",
+      "pris_min": 5190,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling jeksel",
+      "pris_min": 6490,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tanntrekking (enkel)",
+      "pris_min": 1890,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tanntrekking (komplisert)",
+      "pris_min": 2200,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk tanntrekking av visdomstann eller dypliggennde rot",
+      "pris_min": 3990,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk tanntrekking hos oralkirurg",
+      "pris_min": 5500,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Snorkeskinne",
+      "pris_min": 9500,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Bittskinne egenandel (Helfo refusjon trukket fra)",
+      "pris_min": 3990,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Narkosebehandling",
+      "pris_min": 4000,
+      "pris_max": 4000,
+      "prisformat": "per_time"
+    },
+    {
+      "behandling_navn_raw": "Usynlig tannregulering konsultasjon",
+      "pris_min": 0,
+      "pris_max": 0,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Usynlig tannregulering konsultasjon og scanning for simulasjon",
+      "pris_min": 199,
+      "pris_max": 199,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Usynlig tannregulering (Invisalign)",
+      "pris_min": 28000,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannsmykke",
+      "pris_min": 890,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Tannbleking",
+      "pris_min": 2490,
+      "pris_max": 2490,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tidsdebitering:",
+      "pris_min": 350,
+      "pris_max": null,
+      "prisformat": "fra"
+    }
+  ]
+}
