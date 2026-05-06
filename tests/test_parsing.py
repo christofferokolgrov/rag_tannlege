@@ -18,6 +18,14 @@ def test_three_level_numeric_heading_returns_three_element_path():
     assert numeric_heading_path("8.3.1 Detaljbestemmelser") == ["8", "8.3", "8.3.1"]
 
 
+def test_swedish_numeric_heading_starting_with_a_umlaut_returns_path():
+    assert numeric_heading_path("2.1 Ärenden") == ["2", "2.1"]
+
+
+def test_swedish_numeric_heading_starting_with_o_umlaut_returns_path():
+    assert numeric_heading_path("3 Översikt") == ["3"]
+
+
 def test_plain_text_returns_none():
     assert numeric_heading_path("Dette er en setning.") is None
 

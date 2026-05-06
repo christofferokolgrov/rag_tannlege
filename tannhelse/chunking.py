@@ -11,8 +11,8 @@ from tannhelse.config import (
     CHUNK_SIZE_TOKENS,
 )
 
-_SENTENCE_BREAK_RE = re.compile(r"(?<=[.?!])\s+(?=[A-ZÆØÅ])")
-_ABBREVIATIONS = ("f.eks.", "bl.a.", "pkt.", "dvs.", "mv.")
+_SENTENCE_BREAK_RE = re.compile(r"(?<=[.?!])\s+(?=[A-ZÆØÅÄÖ])")
+_ABBREVIATIONS = ("f.eks.", "bl.a.", "pkt.", "dvs.", "mv.", "t.ex.", "m.fl.", "osv.")
 _ENCODER = tiktoken.get_encoding("cl100k_base")
 
 
@@ -116,6 +116,7 @@ class Chunk:
     page_start: int
     page_end: int
     text: str
+    language: str = "no"
 
 
 def _make_chunk_id(content_hash: str, chunk_index: int) -> str:
@@ -123,7 +124,12 @@ def _make_chunk_id(content_hash: str, chunk_index: int) -> str:
 
 
 def chunk_spans(
-    spans, *, document: str, source_path: str, content_hash: str
+    spans,
+    *,
+    document: str,
+    source_path: str,
+    content_hash: str,
+    language: str = "no",
 ) -> Iterable[Chunk]:
     groups = group_spans_by_section(list(spans))
     chunk_index = 0
@@ -146,5 +152,6 @@ def chunk_spans(
                 page_start=group.page_start,
                 page_end=group.page_end,
                 text=window_text,
+                language=language,
             )
             chunk_index += 1

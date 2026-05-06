@@ -90,3 +90,67 @@ def test_empty_file_returns_empty_dict(tmp_path):
     yaml_path = tmp_path / "docs.yaml"
     yaml_path.write_text("", encoding="utf-8")
     assert load_overrides(yaml_path) == {}
+
+
+def test_language_no_is_accepted(tmp_path):
+    yaml_path = tmp_path / "docs.yaml"
+    yaml_path.write_text(
+        'somefile.pdf:\n'
+        '  short_title: "Norsk"\n'
+        '  language: "no"\n',
+        encoding="utf-8",
+    )
+    assert load_overrides(yaml_path) == {
+        "somefile.pdf": {"short_title": "Norsk", "language": "no"}
+    }
+
+
+def test_language_sv_is_accepted(tmp_path):
+    yaml_path = tmp_path / "docs.yaml"
+    yaml_path.write_text(
+        'somefile.pdf:\n'
+        '  short_title: "Sveriges Prop."\n'
+        '  language: sv\n',
+        encoding="utf-8",
+    )
+    assert load_overrides(yaml_path) == {
+        "somefile.pdf": {"short_title": "Sveriges Prop.", "language": "sv"}
+    }
+
+
+def test_invalid_language_value_raises_value_error(tmp_path):
+    yaml_path = tmp_path / "docs.yaml"
+    yaml_path.write_text(
+        'somefile.pdf:\n'
+        '  short_title: "Engelsk"\n'
+        '  language: en\n',
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="language"):
+        load_overrides(yaml_path)
+
+
+def test_unquoted_language_no_gives_helpful_error(tmp_path):
+    # YAML 1.1 parses bare `no` as boolean False — surface the fix-it message
+    # rather than a cryptic enum mismatch.
+    yaml_path = tmp_path / "docs.yaml"
+    yaml_path.write_text(
+        'somefile.pdf:\n'
+        '  short_title: "Norsk"\n'
+        '  language: no\n',
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="YAML boolean"):
+        load_overrides(yaml_path)
+
+
+def test_omitted_language_is_valid(tmp_path):
+    # Backwards-compat: existing entries without `language` must still load.
+    yaml_path = tmp_path / "docs.yaml"
+    yaml_path.write_text(
+        'somefile.pdf:\n  short_title: "Kort"\n',
+        encoding="utf-8",
+    )
+    assert load_overrides(yaml_path) == {
+        "somefile.pdf": {"short_title": "Kort"}
+    }

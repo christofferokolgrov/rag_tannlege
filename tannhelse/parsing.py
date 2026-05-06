@@ -6,7 +6,7 @@ from typing import Iterable
 
 import fitz
 
-_NUMERIC_HEADING_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+[A-ZÆØÅ]")
+_NUMERIC_HEADING_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+[A-ZÆØÅÄÖ]")
 _TOC_DOT_LEADER_RE = re.compile(r"\.{3,}")
 _BOLD_SHORT_MAX_WORDS = 8
 _FONT_HEADING_RATIO = 1.15

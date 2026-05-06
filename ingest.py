@@ -54,6 +54,7 @@ def _ingest_one(
     path: Path, store: Store, override: dict[str, str], chash: str
 ) -> int:
     document = _document_title(path, override)
+    language = override.get("language", "no")
     spans = list(parse_pdf(path))
     chunks = list(
         chunk_spans(
@@ -61,6 +62,7 @@ def _ingest_one(
             document=document,
             source_path=str(path),
             content_hash=chash,
+            language=language,
         )
     )
     if not chunks:

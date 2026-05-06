@@ -33,11 +33,25 @@ import pytest
 
 @pytest.mark.parametrize(
     "abbrev",
-    ["f.eks.", "bl.a.", "pkt.", "dvs.", "mv."],
+    ["f.eks.", "bl.a.", "pkt.", "dvs.", "mv.", "t.ex.", "m.fl.", "osv."],
 )
 def test_abbreviation_followed_by_capitalized_noun_does_not_split(abbrev):
     text = f"Vi bruker {abbrev} Tannlegeforeningen som rådgiver."
     assert split_sentences(text) == [text]
+
+
+def test_swedish_uppercase_a_umlaut_starts_new_sentence():
+    assert split_sentences("Han kom hem. Ärligt talat var det sent.") == [
+        "Han kom hem.",
+        "Ärligt talat var det sent.",
+    ]
+
+
+def test_swedish_uppercase_o_umlaut_starts_new_sentence():
+    assert split_sentences("Det var länge sedan. Övervägande gäller fortfarande.") == [
+        "Det var länge sedan.",
+        "Övervägande gäller fortfarande.",
+    ]
 
 
 def test_short_text_returns_single_chunk_equal_to_input():

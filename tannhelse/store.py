@@ -44,7 +44,8 @@ class Store:
                 section_label TEXT NOT NULL,
                 page_start INTEGER NOT NULL,
                 page_end INTEGER NOT NULL,
-                text TEXT NOT NULL
+                text TEXT NOT NULL,
+                language TEXT NOT NULL DEFAULT 'no'
             );
 
             CREATE VIRTUAL TABLE IF NOT EXISTS vec_chunks USING vec0(
@@ -72,8 +73,8 @@ class Store:
                     """
                     INSERT OR REPLACE INTO chunks
                     (chunk_id, document, source_path, content_hash, chunk_index,
-                     section_path, section_label, page_start, page_end, text)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     section_path, section_label, page_start, page_end, text, language)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         chunk.chunk_id,
@@ -86,6 +87,7 @@ class Store:
                         chunk.page_start,
                         chunk.page_end,
                         chunk.text,
+                        chunk.language,
                     ),
                 )
                 self._conn.execute(
@@ -106,30 +108,45 @@ class Store:
         query_vec: list[float],
         k: int,
         documents: list[str] | None = None,
+        languages: list[str] | None = None,
     ) -> list[Chunk]:
+        select_cols = (
+            "c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index, "
+            "c.section_path, c.section_label, c.page_start, c.page_end, c.text, c.language"
+        )
+        extra_clauses: list[str] = []
+        extra_params: list = []
         if documents:
-            # vec0 MATCH applies kNN before our SQL-level document filter, so
-            # asking for only `k` candidates would leave most filtered out.
-            # Overfetch the full vector pool so the IN filter sees every
-            # candidate ranked by distance.
+            extra_clauses.append(
+                f"c.document IN ({','.join('?' * len(documents))})"
+            )
+            extra_params.extend(documents)
+        if languages:
+            extra_clauses.append(
+                f"c.language IN ({','.join('?' * len(languages))})"
+            )
+            extra_params.extend(languages)
+
+        if extra_clauses:
+            # vec0 MATCH applies kNN before our SQL-level filters, so asking
+            # for only `k` candidates would leave most filtered out. Overfetch
+            # the full vector pool so the IN filter sees every candidate
+            # ranked by distance.
             pool = self._conn.execute(
                 "SELECT COUNT(*) FROM vec_chunks"
             ).fetchone()[0]
-            placeholders = ",".join("?" * len(documents))
             sql = f"""
-                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
+                SELECT {select_cols}
                 FROM vec_chunks v
                 JOIN chunks c ON c.chunk_id = v.chunk_id
-                WHERE v.embedding MATCH ? AND k = ? AND c.document IN ({placeholders})
+                WHERE v.embedding MATCH ? AND k = ? AND {' AND '.join(extra_clauses)}
                 ORDER BY v.distance
                 LIMIT ?
             """
-            params = (_serialize_vector(query_vec), pool, *documents, k)
+            params = (_serialize_vector(query_vec), pool, *extra_params, k)
         else:
-            sql = """
-                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
+            sql = f"""
+                SELECT {select_cols}
                 FROM vec_chunks v
                 JOIN chunks c ON c.chunk_id = v.chunk_id
                 WHERE v.embedding MATCH ? AND k = ?
@@ -144,33 +161,38 @@ class Store:
         query: str,
         k: int,
         documents: list[str] | None = None,
+        languages: list[str] | None = None,
     ) -> list[Chunk]:
         fts_query = _build_fts_query(query)
         if not fts_query:
             return []
+        select_cols = (
+            "c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index, "
+            "c.section_path, c.section_label, c.page_start, c.page_end, c.text, c.language"
+        )
+        extra_clauses: list[str] = []
+        extra_params: list = []
         if documents:
-            placeholders = ",".join("?" * len(documents))
-            sql = f"""
-                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
-                FROM chunks_fts f
-                JOIN chunks c ON c.chunk_id = f.chunk_id
-                WHERE f.text MATCH ? AND c.document IN ({placeholders})
-                ORDER BY bm25(chunks_fts)
-                LIMIT ?
-            """
-            params = (fts_query, *documents, k)
-        else:
-            sql = """
-                SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                       c.section_path, c.section_label, c.page_start, c.page_end, c.text
-                FROM chunks_fts f
-                JOIN chunks c ON c.chunk_id = f.chunk_id
-                WHERE f.text MATCH ?
-                ORDER BY bm25(chunks_fts)
-                LIMIT ?
-            """
-            params = (fts_query, k)
+            extra_clauses.append(
+                f"c.document IN ({','.join('?' * len(documents))})"
+            )
+            extra_params.extend(documents)
+        if languages:
+            extra_clauses.append(
+                f"c.language IN ({','.join('?' * len(languages))})"
+            )
+            extra_params.extend(languages)
+
+        where_extras = (" AND " + " AND ".join(extra_clauses)) if extra_clauses else ""
+        sql = f"""
+            SELECT {select_cols}
+            FROM chunks_fts f
+            JOIN chunks c ON c.chunk_id = f.chunk_id
+            WHERE f.text MATCH ?{where_extras}
+            ORDER BY bm25(chunks_fts)
+            LIMIT ?
+        """
+        params = (fts_query, *extra_params, k)
         rows = self._conn.execute(sql, params).fetchall()
         return [Chunk(*row) for row in rows]
 
@@ -228,8 +250,8 @@ class Store:
                     """
                     INSERT INTO chunks
                     (chunk_id, document, source_path, content_hash, chunk_index,
-                     section_path, section_label, page_start, page_end, text)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     section_path, section_label, page_start, page_end, text, language)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         chunk.chunk_id,
@@ -242,6 +264,7 @@ class Store:
                         chunk.page_start,
                         chunk.page_end,
                         chunk.text,
+                        chunk.language,
                     ),
                 )
                 self._conn.execute(

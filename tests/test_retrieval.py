@@ -2,7 +2,12 @@ import pytest
 
 from tannhelse.chunking import Chunk
 from tannhelse.config import EMBEDDING_DIM, TOP_K_GLOBAL, TOP_K_PER_DOC
-from tannhelse.retrieval import detect_documents, retrieve, rrf_merge
+from tannhelse.retrieval import (
+    detect_documents,
+    detect_languages,
+    retrieve,
+    rrf_merge,
+)
 from tannhelse.store import Store
 
 
@@ -97,6 +102,7 @@ def _make_chunk(
     section_path: str = "1",
     page_start: int = 1,
     page_end: int = 1,
+    language: str = "no",
 ) -> Chunk:
     return Chunk(
         chunk_id=chunk_id,
@@ -109,6 +115,7 @@ def _make_chunk(
         page_start=page_start,
         page_end=page_end,
         text=text,
+        language=language,
     )
 
 
@@ -309,6 +316,122 @@ def test_rrf_fusion_merges_disjoint_dense_and_bm25_top_results(
     )
     assert "bm25-winner" in result_ids, (
         "bm25 top-1 should appear in fused results"
+    )
+    store.close()
+
+
+def test_detect_languages_no_swedish_keyword_returns_norwegian_only():
+    assert detect_languages("Hva sier NOU 2024-18 om refusjon?") == ["no"]
+
+
+def test_detect_languages_with_sverige_keyword_returns_no_and_sv():
+    assert detect_languages("Hva sier Sverige om refusjon?") == ["no", "sv"]
+
+
+@pytest.mark.parametrize(
+    "trigger",
+    [
+        "sverige",
+        "svensk",
+        "svenska",
+        "svenske",
+        "Riksdagen",
+        "socialstyrelsen",
+        "Socialutskottet",
+        "betänkande",
+        "HSLF-FS",
+        "tandvård",
+    ],
+)
+def test_detect_languages_trigger_keywords_surface_swedish_pool(trigger):
+    assert "sv" in detect_languages(f"Hva sier {trigger} om dette?")
+
+
+def test_detect_languages_trigger_match_is_case_insensitive():
+    assert detect_languages("Hva sier SVERIGE?") == ["no", "sv"]
+    assert detect_languages("Hva sier sverige?") == ["no", "sv"]
+
+
+def test_retrieve_excludes_swedish_chunks_when_no_trigger_in_query(
+    tmp_path, monkeypatch
+):
+    # NO + SE chunks share a query token. Without a trigger keyword, only
+    # NO chunks should surface.
+    chunks = [
+        (
+            _make_chunk("no-0", "NorskDoc", "Refusjon shareword finansiering", language="no"),
+            _one_hot(100),
+        ),
+        (
+            _make_chunk("sv-0", "SvenskDoc", "Tandvård shareword finansiering", language="sv"),
+            _one_hot(200),
+        ),
+    ]
+    store = _seeded_store(tmp_path, chunks)
+    _patch_query_vec(monkeypatch, _one_hot(0))
+
+    results = retrieve("Hva er reglene for shareword?", store)
+
+    docs = {c.document for c in results}
+    assert "NorskDoc" in docs
+    assert "SvenskDoc" not in docs, (
+        f"SE chunks leaked without trigger: {[c.document for c in results]}"
+    )
+    store.close()
+
+
+def test_retrieve_includes_swedish_chunks_when_trigger_word_in_query(
+    tmp_path, monkeypatch
+):
+    chunks = [
+        (
+            _make_chunk("no-0", "NorskDoc", "Refusjon shareword finansiering", language="no"),
+            _one_hot(100),
+        ),
+        (
+            _make_chunk("sv-0", "SvenskDoc", "Tandvård shareword finansiering", language="sv"),
+            _one_hot(200),
+        ),
+    ]
+    store = _seeded_store(tmp_path, chunks)
+    _patch_query_vec(monkeypatch, _one_hot(0))
+
+    results = retrieve("Sammenlign med Sverige om shareword", store)
+
+    docs = {c.document for c in results}
+    assert "NorskDoc" in docs
+    assert "SvenskDoc" in docs
+    store.close()
+
+
+def test_retrieve_doc_name_match_bypasses_language_filter(
+    tmp_path, monkeypatch
+):
+    # User names a NO doc explicitly but also says "Sverige". Per design:
+    # doc-name wins, language filter ignored. Result must contain only
+    # NorskDoc, even though the trigger fired.
+    chunks = [
+        (
+            _make_chunk("no-0", "NorskDoc", "Refusjon shareword", language="no"),
+            _one_hot(100),
+        ),
+        (
+            _make_chunk("no-1", "NorskDoc", "Tannhelse shareword", language="no"),
+            _one_hot(101),
+        ),
+        (
+            _make_chunk("sv-0", "SvenskDoc", "Tandvård shareword", language="sv"),
+            _one_hot(200),
+        ),
+    ]
+    store = _seeded_store(tmp_path, chunks)
+    _patch_query_vec(monkeypatch, _one_hot(0))
+
+    results = retrieve("Hva sier NorskDoc og Sverige om shareword?", store)
+
+    docs = {c.document for c in results}
+    assert docs == {"NorskDoc"}, (
+        f"named NO doc should win over language trigger; got {docs}"
     )
     store.close()
 
