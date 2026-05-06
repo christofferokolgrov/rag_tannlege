@@ -1,8 +1,22 @@
 import sys
 
-from tannhelse.config import RRF_K, TOP_K_GLOBAL, TOP_K_PER_RETRIEVER
+from tannhelse.config import RRF_K, TOP_K_GLOBAL, TOP_K_PER_DOC, TOP_K_PER_RETRIEVER
 from tannhelse.embedding import embed_texts
 from tannhelse.store import Store
+
+# Substring-match (lowercased) signals that the query references Sweden or
+# Swedish-system documents. Hit ⇒ Swedish chunks become eligible for
+# retrieval alongside Norwegian. Miss ⇒ Norwegian-only.
+SWEDISH_TRIGGER_KEYWORDS = (
+    "sverige",
+    "svensk",          # also matches "svenska", "svenske"
+    "riksdag",         # also matches "riksdagen"
+    "socialstyrelsen",
+    "socialutskott",   # also matches "socialutskottet"
+    "betänkande",      # SE-only spelling (NO is "betenkning")
+    "hslf-fs",
+    "tandvård",        # SE word — NO is "tannhelse"
+)
 
 
 def rrf_merge(rankings, k: int = RRF_K, top: int = TOP_K_GLOBAL):
@@ -22,9 +36,31 @@ def rrf_merge(rankings, k: int = RRF_K, top: int = TOP_K_GLOBAL):
     return ordered[:top]
 
 
-def retrieve(query: str, store: Store) -> list:
-    [query_vec] = embed_texts([query])
-    dense_hits = store.dense_search(query_vec, k=TOP_K_PER_RETRIEVER)
+def detect_documents(query: str, known_documents: list[str]) -> list[str]:
+    query_lower = query.lower()
+    return [doc for doc in known_documents if doc.lower() in query_lower]
+
+
+def detect_languages(query: str) -> list[str]:
+    query_lower = query.lower()
+    languages = ["no"]
+    if any(kw in query_lower for kw in SWEDISH_TRIGGER_KEYWORDS):
+        languages.append("sv")
+    return languages
+
+
+def _hybrid_search(
+    query: str,
+    query_vec,
+    store,
+    k_per_retriever,
+    top,
+    documents=None,
+    languages=None,
+):
+    dense_hits = store.dense_search(
+        query_vec, k=k_per_retriever, documents=documents, languages=languages
+    )
 
     if store.fts_count() == 0:
         print(
@@ -32,9 +68,11 @@ def retrieve(query: str, store: Store) -> list:
             "Run `uv run python ingest.py` to populate the BM25 index.",
             file=sys.stderr,
         )
-        return dense_hits[:TOP_K_GLOBAL]
+        return dense_hits[:top]
 
-    bm25_hits = store.bm25_search(query, k=TOP_K_PER_RETRIEVER)
+    bm25_hits = store.bm25_search(
+        query, k=k_per_retriever, documents=documents, languages=languages
+    )
 
     by_id = {c.chunk_id: c for c in dense_hits}
     by_id.update({c.chunk_id: c for c in bm25_hits})
@@ -42,6 +80,38 @@ def retrieve(query: str, store: Store) -> list:
     merged_ids = rrf_merge(
         [[c.chunk_id for c in dense_hits], [c.chunk_id for c in bm25_hits]],
         k=RRF_K,
-        top=TOP_K_GLOBAL,
+        top=top,
     )
     return [by_id[cid] for cid in merged_ids]
+
+
+def retrieve(query: str, store: Store) -> list:
+    [query_vec] = embed_texts([query])
+
+    known_documents = [doc for doc, _ in store.list_documents()]
+    matched = detect_documents(query, known_documents)
+
+    if matched:
+        results = []
+        for doc in matched:
+            results.extend(
+                _hybrid_search(
+                    query,
+                    query_vec,
+                    store,
+                    k_per_retriever=TOP_K_PER_RETRIEVER,
+                    top=TOP_K_PER_DOC,
+                    documents=[doc],
+                )
+            )
+        return results
+
+    languages = detect_languages(query)
+    return _hybrid_search(
+        query,
+        query_vec,
+        store,
+        k_per_retriever=TOP_K_PER_RETRIEVER,
+        top=TOP_K_GLOBAL,
+        languages=languages,
+    )

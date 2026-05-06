@@ -2,8 +2,7 @@
 __pycache__/
 *.pyc
 .env
-store.db
-.streamlit/
+.streamlit/secrets.toml
 .claude/scheduled_tasks.lock
 
 # Scraper run outputs (regenerated each `python -m scraper run`)

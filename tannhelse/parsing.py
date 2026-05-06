@@ -6,12 +6,15 @@ from typing import Iterable
 
 import fitz
 
-_NUMERIC_HEADING_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+\S")
+_NUMERIC_HEADING_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+[A-ZÆØÅÄÖ]")
 _TOC_DOT_LEADER_RE = re.compile(r"\.{3,}")
 _BOLD_SHORT_MAX_WORDS = 8
 _FONT_HEADING_RATIO = 1.15
 _FITZ_BOLD_FLAG = 16
 _SENTENCE_TERMINATORS = (".", "!", "?")
+_TOC_PAGE_HEADING_FRACTION = 0.6
+_TOC_PAGE_DOT_LEADER_FRACTION = 0.25
+_TOC_PAGE_MIN_LINES = 8
 
 _NO_HEADING_LABEL = "(uten kapitteltittel)"
 
@@ -32,8 +35,14 @@ def is_heading(text, font_size, bold, page_median):
         return False
     if not _HAS_ALPHA_RE.search(text):
         return False
+    # Hyphen-terminated lines are mid-word continuations, not section labels.
+    if text.rstrip().endswith("-"):
+        return False
     if numeric_heading_path(text) is not None:
-        return True
+        # Footnote bodies (smaller font) start with a digit too; only treat
+        # numeric-prefixed lines as headings when they're at least as large
+        # as the page's median text size.
+        return font_size >= page_median
     if font_size > page_median * _FONT_HEADING_RATIO:
         return True
     if (
@@ -50,6 +59,26 @@ def section_for_heading(text):
     if path is not None:
         return "/".join(path), f"Kap. {text}"
     return text, text
+
+
+def is_toc_page(lines: list[tuple[str, float, bool]], page_median: float) -> bool:
+    """A TOC page has either lots of dot-leader lines (the visual TOC
+    signature) or a high fraction of heading-shaped lines.
+
+    Used to suppress heading detection on TOC pages, where wrapped entries
+    like "Utvalgets mandat," and "finansering av tannhelse-" otherwise
+    trigger the bold/font heuristics and produce hundreds of spurious
+    sections.
+    """
+    if len(lines) < _TOC_PAGE_MIN_LINES:
+        return False
+    dot_leaders = sum(1 for text, _, _ in lines if _TOC_DOT_LEADER_RE.search(text))
+    if dot_leaders / len(lines) >= _TOC_PAGE_DOT_LEADER_FRACTION:
+        return True
+    candidates = sum(
+        1 for text, size, bold in lines if is_heading(text, size, bold, page_median)
+    )
+    return candidates / len(lines) >= _TOC_PAGE_HEADING_FRACTION
 
 
 @dataclass(frozen=True)
@@ -101,13 +130,19 @@ def parse_pdf(path: Path) -> Iterable[ParsedSpan]:
                         section_label=section_label,
                     )
 
-            for text, size, bold in lines:
-                if is_heading(text, size, bold, page_median):
-                    yield from flush()
-                    buffer.clear()
-                    section_path, section_label = section_for_heading(text)
-                else:
+            if is_toc_page(lines, page_median):
+                # TOC pages: keep text as body under the current section,
+                # don't promote any line to a heading.
+                for text, _size, _bold in lines:
                     buffer.append(text)
+            else:
+                for text, size, bold in lines:
+                    if is_heading(text, size, bold, page_median):
+                        yield from flush()
+                        buffer.clear()
+                        section_path, section_label = section_for_heading(text)
+                    else:
+                        buffer.append(text)
 
             yield from flush()
 

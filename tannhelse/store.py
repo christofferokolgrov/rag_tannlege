@@ -44,7 +44,8 @@ class Store:
                 section_label TEXT NOT NULL,
                 page_start INTEGER NOT NULL,
                 page_end INTEGER NOT NULL,
-                text TEXT NOT NULL
+                text TEXT NOT NULL,
+                language TEXT NOT NULL DEFAULT 'no'
             );
 
             CREATE VIRTUAL TABLE IF NOT EXISTS vec_chunks USING vec0(
@@ -72,8 +73,8 @@ class Store:
                     """
                     INSERT OR REPLACE INTO chunks
                     (chunk_id, document, source_path, content_hash, chunk_index,
-                     section_path, section_label, page_start, page_end, text)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     section_path, section_label, page_start, page_end, text, language)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         chunk.chunk_id,
@@ -86,6 +87,7 @@ class Store:
                         chunk.page_start,
                         chunk.page_end,
                         chunk.text,
+                        chunk.language,
                     ),
                 )
                 self._conn.execute(
@@ -101,40 +103,178 @@ class Store:
                     (chunk.chunk_id, chunk.text),
                 )
 
-    def dense_search(self, query_vec: list[float], k: int) -> list[Chunk]:
-        rows = self._conn.execute(
+    def dense_search(
+        self,
+        query_vec: list[float],
+        k: int,
+        documents: list[str] | None = None,
+        languages: list[str] | None = None,
+    ) -> list[Chunk]:
+        select_cols = (
+            "c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index, "
+            "c.section_path, c.section_label, c.page_start, c.page_end, c.text, c.language"
+        )
+        extra_clauses: list[str] = []
+        extra_params: list = []
+        if documents:
+            extra_clauses.append(
+                f"c.document IN ({','.join('?' * len(documents))})"
+            )
+            extra_params.extend(documents)
+        if languages:
+            extra_clauses.append(
+                f"c.language IN ({','.join('?' * len(languages))})"
+            )
+            extra_params.extend(languages)
+
+        if extra_clauses:
+            # vec0 MATCH applies kNN before our SQL-level filters, so asking
+            # for only `k` candidates would leave most filtered out. Overfetch
+            # the full vector pool so the IN filter sees every candidate
+            # ranked by distance.
+            pool = self._conn.execute(
+                "SELECT COUNT(*) FROM vec_chunks"
+            ).fetchone()[0]
+            sql = f"""
+                SELECT {select_cols}
+                FROM vec_chunks v
+                JOIN chunks c ON c.chunk_id = v.chunk_id
+                WHERE v.embedding MATCH ? AND k = ? AND {' AND '.join(extra_clauses)}
+                ORDER BY v.distance
+                LIMIT ?
             """
-            SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                   c.section_path, c.section_label, c.page_start, c.page_end, c.text
-            FROM vec_chunks v
-            JOIN chunks c ON c.chunk_id = v.chunk_id
-            WHERE v.embedding MATCH ? AND k = ?
-            ORDER BY v.distance
-            """,
-            (_serialize_vector(query_vec), k),
-        ).fetchall()
+            params = (_serialize_vector(query_vec), pool, *extra_params, k)
+        else:
+            sql = f"""
+                SELECT {select_cols}
+                FROM vec_chunks v
+                JOIN chunks c ON c.chunk_id = v.chunk_id
+                WHERE v.embedding MATCH ? AND k = ?
+                ORDER BY v.distance
+            """
+            params = (_serialize_vector(query_vec), k)
+        rows = self._conn.execute(sql, params).fetchall()
         return [Chunk(*row) for row in rows]
 
-    def bm25_search(self, query: str, k: int) -> list[Chunk]:
+    def bm25_search(
+        self,
+        query: str,
+        k: int,
+        documents: list[str] | None = None,
+        languages: list[str] | None = None,
+    ) -> list[Chunk]:
         fts_query = _build_fts_query(query)
         if not fts_query:
             return []
-        rows = self._conn.execute(
-            """
-            SELECT c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index,
-                   c.section_path, c.section_label, c.page_start, c.page_end, c.text
+        select_cols = (
+            "c.chunk_id, c.document, c.source_path, c.content_hash, c.chunk_index, "
+            "c.section_path, c.section_label, c.page_start, c.page_end, c.text, c.language"
+        )
+        extra_clauses: list[str] = []
+        extra_params: list = []
+        if documents:
+            extra_clauses.append(
+                f"c.document IN ({','.join('?' * len(documents))})"
+            )
+            extra_params.extend(documents)
+        if languages:
+            extra_clauses.append(
+                f"c.language IN ({','.join('?' * len(languages))})"
+            )
+            extra_params.extend(languages)
+
+        where_extras = (" AND " + " AND ".join(extra_clauses)) if extra_clauses else ""
+        sql = f"""
+            SELECT {select_cols}
             FROM chunks_fts f
             JOIN chunks c ON c.chunk_id = f.chunk_id
-            WHERE f.text MATCH ?
+            WHERE f.text MATCH ?{where_extras}
             ORDER BY bm25(chunks_fts)
             LIMIT ?
-            """,
-            (fts_query, k),
-        ).fetchall()
+        """
+        params = (fts_query, *extra_params, k)
+        rows = self._conn.execute(sql, params).fetchall()
         return [Chunk(*row) for row in rows]
 
     def fts_count(self) -> int:
         return self._conn.execute("SELECT COUNT(*) FROM chunks_fts").fetchone()[0]
+
+    def existing_content_hash(self, source_path: str) -> str | None:
+        row = self._conn.execute(
+            "SELECT content_hash FROM chunks WHERE source_path = ? LIMIT 1",
+            (source_path,),
+        ).fetchone()
+        return row[0] if row else None
+
+    def delete_by_source_path(self, source_path: str) -> int:
+        with self._conn:
+            return self._delete_by_source_path(source_path)
+
+    def _delete_by_source_path(self, source_path: str) -> int:
+        chunk_ids = [
+            row[0]
+            for row in self._conn.execute(
+                "SELECT chunk_id FROM chunks WHERE source_path = ?",
+                (source_path,),
+            ).fetchall()
+        ]
+        if not chunk_ids:
+            return 0
+        placeholders = ",".join("?" * len(chunk_ids))
+        self._conn.execute(
+            f"DELETE FROM chunks_fts WHERE chunk_id IN ({placeholders})",
+            chunk_ids,
+        )
+        self._conn.execute(
+            f"DELETE FROM vec_chunks WHERE chunk_id IN ({placeholders})",
+            chunk_ids,
+        )
+        self._conn.execute(
+            "DELETE FROM chunks WHERE source_path = ?",
+            (source_path,),
+        )
+        return len(chunk_ids)
+
+    def replace_for_source_path(
+        self,
+        source_path: str,
+        chunks: Iterable[Chunk],
+        embeddings: list[list[float]],
+    ) -> None:
+        chunk_list = list(chunks)
+        assert len(chunk_list) == len(embeddings)
+        with self._conn:
+            self._delete_by_source_path(source_path)
+            for chunk, vec in zip(chunk_list, embeddings):
+                self._conn.execute(
+                    """
+                    INSERT INTO chunks
+                    (chunk_id, document, source_path, content_hash, chunk_index,
+                     section_path, section_label, page_start, page_end, text, language)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        chunk.chunk_id,
+                        chunk.document,
+                        chunk.source_path,
+                        chunk.content_hash,
+                        chunk.chunk_index,
+                        chunk.section_path,
+                        chunk.section_label,
+                        chunk.page_start,
+                        chunk.page_end,
+                        chunk.text,
+                        chunk.language,
+                    ),
+                )
+                self._conn.execute(
+                    "INSERT INTO vec_chunks (chunk_id, embedding) VALUES (?, ?)",
+                    (chunk.chunk_id, _serialize_vector(vec)),
+                )
+                self._conn.execute(
+                    "INSERT INTO chunks_fts (chunk_id, text) VALUES (?, ?)",
+                    (chunk.chunk_id, chunk.text),
+                )
 
     def list_documents(self) -> list[tuple[str, str]]:
         rows = self._conn.execute(
