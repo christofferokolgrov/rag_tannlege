@@ -22,6 +22,8 @@ TIMEOUT_SECONDS = 30
 
 @pytest.fixture(scope="module")
 def app() -> AppTest:
+    """Module-level fixture rendering the page with the "Alle" lag filter
+    selected, so tests against the full 22-canonical state see every row."""
     if not CANONICAL_LONG_PATH.exists():
         pytest.skip(
             "data/prices_canonical_long.csv missing; run "
@@ -29,6 +31,9 @@ def app() -> AppTest:
         )
     at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
     at.run()
+    # Default radio is "Forbrukerkurv (lag 1)" — switch to "Alle" so
+    # existing "all canonicals visible" assertions still hold.
+    at.radio[0].set_value("Alle (inkl. lag 3)").run()
     return at
 
 
@@ -70,6 +75,7 @@ def test_oversikt_renders_summary_dataframe(app):
 def test_selecting_krone_shows_rows_for_all_chains():
     at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
     at.run()
+    at.radio[0].set_value("Alle (inkl. lag 3)").run()
     at.selectbox[0].set_value("Krone").run()
     assert not at.exception
     detail = at.dataframe[1].value
@@ -96,9 +102,48 @@ def test_per_behandling_renders_an_altair_chart_for_default_canonical(app):
 def test_chart_persists_after_changing_canonical():
     at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
     at.run()
+    at.radio[0].set_value("Alle (inkl. lag 3)").run()
     at.selectbox[0].set_value("Krone").run()
     assert not at.exception
     assert _has_altair_chart(at), "chart missing after switching to Krone"
+
+
+def test_lag_filter_default_shows_only_consumer_basket():
+    """Default radio is 'Forbrukerkurv (lag 1)' — should expose only the 4
+    consumer-basket canonicals in the dropdown."""
+    at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
+    at.run()
+    options = at.selectbox[0].options
+    assert len(options) == 4
+    expected = {
+        "Årlig kontroll",
+        "Tannfarget fylling, én tannflate",
+        "Tannfarget fylling, to tannflater",
+        "Tannfarget fylling, tre tannflater",
+    }
+    assert set(options) == expected
+
+
+def test_lag_filter_alle_exposes_all_canonicals():
+    at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
+    at.run()
+    at.radio[0].set_value("Alle (inkl. lag 3)").run()
+    options = at.selectbox[0].options
+    assert len(options) == 22
+
+
+def test_lag_filter_lag_one_plus_two_excludes_lag_three():
+    """The 'Lag 1 + 2' option drops lag-3 canonicals like cbct_xray and
+    bite_splint."""
+    at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
+    at.run()
+    at.radio[0].set_value("Lag 1 + 2").run()
+    options = at.selectbox[0].options
+    # 4 lag-1 + 9 lag-2 = 13
+    assert len(options) == 13
+    assert "Krone" in options  # crown is lag 2
+    assert "CBCT 3D-røntgen" not in options  # cbct_xray is lag 3
+    assert "Bittskinne" not in options  # bite_splint is lag 3
 
 
 def test_missing_canonical_long_renders_graceful_error(tmp_path):

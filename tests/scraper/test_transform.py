@@ -19,6 +19,7 @@ COVERAGE_REPORT = REPO_ROOT / "data" / "transform_coverage_report.md"
 EXPECTED_COLUMNS = [
     "canonical_id",
     "canonical_navn",
+    "lag",
     "kjede",
     "klinikk_id",
     "behandling_navn_raw",

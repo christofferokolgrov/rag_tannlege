@@ -87,7 +87,7 @@ canonical:
 
   - id: tooth_cleaning
     navn: "Tannrens"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Tannrens med airflow", "Tannrens", "Tannrens med pussepasta"]
       colosseum: ["Tannrens"]
@@ -123,7 +123,7 @@ canonical:
 
   - id: composite_filling_four_plus_surfaces
     navn: "Tannfarget fylling, fire eller flere tannflater"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Tannfarget fylling, ekstra stor"]
       colosseum: []
@@ -132,7 +132,7 @@ canonical:
 
   - id: crown
     navn: "Krone"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Tannkrone"]
       colosseum: ["Krone"]
@@ -141,7 +141,7 @@ canonical:
 
   - id: root_canal_anterior
     navn: "Rotfylling, fortann"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Rotfylling fortann/hjørnetann"]
       colosseum: ["Rotfyllingav fortann/hjørnetann"]
@@ -150,7 +150,7 @@ canonical:
 
   - id: implant_with_crown
     navn: "Implantat inkl. krone"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Implantatbehandling ink. tannkrone"]
       colosseum: ["IMPLANTAT"]  # via HelseSmart only — see helsesmart_targets.yaml
@@ -159,7 +159,7 @@ canonical:
 
   - id: tooth_extraction_simple
     navn: "Trekking, ukomplisert"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Ukomplisert tanntrekking"]
       colosseum: ["Ukompliserttrekkingav tann"]
@@ -168,7 +168,7 @@ canonical:
 
   - id: tooth_extraction_complex
     navn: "Trekking, komplisert (kirurgisk uten visdomstann)"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Komplisert tanntrekking"]
       colosseum: []
@@ -177,7 +177,7 @@ canonical:
 
   - id: root_canal_premolar
     navn: "Rotfylling, premolar (liten jeksel)"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Rotfylling liten jeksel"]
       colosseum: ["Rotfyllingav liten jeksel"]
@@ -186,7 +186,7 @@ canonical:
 
   - id: root_canal_molar
     navn: "Rotfylling, molar (stor jeksel)"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Rotfylling stor jeksel"]
       colosseum: ["Rotfyllingav stor jeksel"]
@@ -195,7 +195,7 @@ canonical:
 
   - id: xray_intraoral
     navn: "Intraoralt røntgenbilde"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Røntgenbilde"]
       colosseum: ["Røntgenbilde"]
@@ -206,7 +206,7 @@ canonical:
 
   - id: bite_splint
     navn: "Bittskinne"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Bittskinne"]
       colosseum: []
@@ -215,7 +215,7 @@ canonical:
 
   - id: denture_full
     navn: "Helprotese"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Helprotese"]
       colosseum: []
@@ -224,7 +224,7 @@ canonical:
 
   - id: denture_partial
     navn: "Delprotese / partiell protese"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Partiell protese"]
       colosseum: []
@@ -233,7 +233,7 @@ canonical:
 
   - id: veneer
     navn: "Skallfasett / fasett"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["Skallfasett"]
       colosseum: ["Fasett"]
@@ -242,7 +242,7 @@ canonical:
 
   - id: panoramic_xray
     navn: "Panoramarøntgen (OPG)"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Panoramarøntgen (OPG)"]
       colosseum: ["OPG (panoramarøntgen)"]
@@ -251,7 +251,7 @@ canonical:
 
   - id: cbct_xray
     navn: "CBCT 3D-røntgen"
-    lag: 1
+    lag: 3
     kjede_terminologi:
       odontia: ["CBCT"]
       colosseum: ["EgenandelCBCT"]
@@ -260,7 +260,7 @@ canonical:
 
   - id: anesthesia_per_dose
     navn: "Bedøvelse, per dose"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Bedøvelse"]
       colosseum: ["Bedøvelse"]
@@ -269,7 +269,7 @@ canonical:
 
   - id: wisdom_tooth_surgery
     navn: "Visdomstann-operasjon / kirurgisk fjerning"
-    lag: 1
+    lag: 2
     kjede_terminologi:
       odontia: ["Kirurgisk fjerning av tann/rot"]
       colosseum: ["Kirurgiskfjerning avvisdomstann/tann/rot"]

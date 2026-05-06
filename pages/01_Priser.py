@@ -34,9 +34,31 @@ def _load(path_str: str, mtime: float) -> pd.DataFrame:
     re-running the transform refreshes the page on next interaction."""
     df = pd.read_csv(
         path_str,
-        dtype={"pris_min": "Int64", "pris_max": "Int64"},
+        dtype={"pris_min": "Int64", "pris_max": "Int64", "lag": "Int64"},
     )
     return df
+
+
+LAG_FILTERS = {
+    "Forbrukerkurv (lag 1)": {1},
+    "Lag 1 + 2": {1, 2},
+    "Alle (inkl. lag 3)": {1, 2, 3},
+}
+
+
+def _apply_lag_filter(df: pd.DataFrame) -> pd.DataFrame:
+    choice = st.radio(
+        "Vis behandlingsnivå:",
+        options=list(LAG_FILTERS),
+        horizontal=True,
+        help=(
+            "Lag 1 = de 4 ofte-bestilte behandlingene som alle 4 store kjeder "
+            "publiserer pris for (årlig kontroll + tannfarget fylling 1/2/3 flater). "
+            "Lag 2 = øvrige behandlinger med full 4/4 dekning. "
+            "Lag 3 = behandlinger der minst én kjede mangler pris."
+        ),
+    )
+    return df[df["lag"].isin(LAG_FILTERS[choice])]
 
 
 def _maybe_load() -> pd.DataFrame | None:
@@ -268,6 +290,8 @@ def _format_bar_text(row: pd.Series) -> str:
 df = _maybe_load()
 if df is None:
     st.stop()
+
+df = _apply_lag_filter(df)
 
 oversikt_tab, detail_tab = st.tabs(["Oversikt", "Per behandling"])
 with oversikt_tab:
