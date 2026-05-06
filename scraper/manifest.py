@@ -1,12 +1,9 @@
-import re
 from collections import Counter
 from pathlib import Path
 
 import yaml
 
-KLINIKK_ID_PATTERN = re.compile(
-    r"^(odontia|oris|colosseum|oc|oralcare|single)__[a-z0-9_]+$"
-)
+from scraper.slug import KLINIKK_ID_PATTERN
 
 
 class ManifestError(ValueError):
