@@ -31,31 +31,31 @@
       "prisformat": "fast"
     },
     {
-      "behandling_navn_raw": "Komposittfylling, 1 flate, pris fra : 1 365 kr",
+      "behandling_navn_raw": "Komposittfylling, 1 flate",
       "pris_min": 1365,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Komposittfylling, 2 flater, pris fra: 1 855 kr",
+      "behandling_navn_raw": "Komposittfylling, 2 flater",
       "pris_min": 1855,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Komposittfylling, 3 flater, pris fra: 2 060 kr",
+      "behandling_navn_raw": "Komposittfylling, 3 flater",
       "pris_min": 2060,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Implantat, pris fra: 9 000 kr",
+      "behandling_navn_raw": "Implantat",
       "pris_min": 9000,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Implantatkrone inkl. distanse, pris fra: 13 233 kr",
+      "behandling_navn_raw": "Implantatkrone inkl. distanse",
       "pris_min": 13233,
       "pris_max": null,
       "prisformat": "fra"
@@ -121,19 +121,19 @@
       "prisformat": "fast"
     },
     {
-      "behandling_navn_raw": "Trekking av tann, ukomplisert, pris fra: 1 430 kr",
+      "behandling_navn_raw": "Trekking av tann, ukomplisert",
       "pris_min": 1430,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Trekking av tann, komplisert, pris fra: 2 500 kr",
+      "behandling_navn_raw": "Trekking av tann, komplisert",
       "pris_min": 2500,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Kirurgisk fjerning av tann eller rot, pris fra: 6 200 kr",
+      "behandling_navn_raw": "Kirurgisk fjerning av tann eller rot",
       "pris_min": 6200,
       "pris_max": null,
       "prisformat": "fra"
@@ -175,19 +175,19 @@
       "prisformat": "fast"
     },
     {
-      "behandling_navn_raw": "Rotfylling, fortann, pris fra: 4 850 kr",
+      "behandling_navn_raw": "Rotfylling, fortann",
       "pris_min": 4850,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Rotfylling, hjørnetann (premolar), pris fra: 5 500 kr",
+      "behandling_navn_raw": "Rotfylling, hjørnetann (premolar)",
       "pris_min": 5500,
       "pris_max": null,
       "prisformat": "fra"
     },
     {
-      "behandling_navn_raw": "Rotfylling, jeksel (molar), pris fra: 7 150 kr",
+      "behandling_navn_raw": "Rotfylling, jeksel (molar)",
       "pris_min": 7150,
       "pris_max": null,
       "prisformat": "fra"

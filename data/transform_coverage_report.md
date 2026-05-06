@@ -1,6 +1,6 @@
 # Transform coverage report
 
-- Total canonical_long rows: 4019
+- Total canonical_long rows: 4047
 - Canonical IDs in YAML: 22
 - Real clinics in manifest: 245
 
@@ -8,11 +8,11 @@
 
 | canonical_id | odontia | colosseum | oc | oris | single |
 |---|---|---|---|---|---|
-| annual_checkup | ✓ (40) | ✓ (91) | ✓ (18) | ✓ (94) | ✓ (3) |
+| annual_checkup | ✓ (40) | ✓ (91) | ✓ (18) | ✓ (94) | ✓ (16) |
 | tooth_cleaning | ✓ (32) | ✓ (91) | — | — | — |
-| composite_filling_one_surface | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (2) |
-| composite_filling_two_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (2) |
-| composite_filling_three_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (2) |
+| composite_filling_one_surface | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (7) |
+| composite_filling_two_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (7) |
+| composite_filling_three_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (7) |
 | composite_filling_four_plus_surfaces | ✓ (24) | — | ✓ (1) | — | — |
 | crown | ✓ (34) | ✓ (91) | ✓ (15) | ✓ (94) | ✓ (2) |
 | root_canal_anterior | ✓ (33) | ✓ (91) | ✓ (1) | ✓ (94) | ✓ (1) |
@@ -88,4 +88,4 @@ Sentral propagation sanity: every real clinic in a sentral chain
 - **colosseum**: 91 clinic(s), variable row counts [16, 17] ⚠
 - **oc**: 14 clinic(s), variable row counts [9, 10, 11, 15] ⚠
 - **oris**: 94 clinic(s), all with 19 rows ✓
-- **single**: 10 clinic(s), variable row counts [1, 2, 3, 4, 7, 8] ⚠
+- **single**: 11 clinic(s), variable row counts [2, 3, 4, 6, 7, 8, 15] ⚠

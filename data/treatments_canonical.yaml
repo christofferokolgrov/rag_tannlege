@@ -1,277 +1,367 @@
-# Canonical treatment IDs for cross-chain price comparison.
-# Manually curated. Update by reviewing data/treatments_observed.yaml after
-# each scrape and adding kjede-specific synonyms or new canonical entries.
-#
-# Schema:
-#   meta:        version, last-updated, scope
-#   canonical:   {id, navn, lag, kjede_terminologi: {kjede: [synonyms]}}
-#   ikke_kanonisk_men_scrapes: behandlinger that are intentionally captured
-#     as `prisformat ∈ {per_dose, per_stk, per_halvtime}` add-ons rather than
-#     normalised into a comparable canonical row.
-
 meta:
   versjon: 2
   sist_oppdatert: 2026-05-06
-  scope: "kurven for prissammenligning fase 1"
+  scope: kurven for prissammenligning fase 1
   ikke_kanonisk_men_scrapes:
-    - "Forbruksvarer (per_stk tillegg)"
-    - "Oppdekking og engangsutstyr"
-    # Out-of-scope treatments — real, but outside fase-1 prissammenligning basket
-    - "Aligner behandling"
-    - "Vivera retensjonsskinner"
-    - "Snorkeskinne"
-    - "Pasientfoto"
-    - "Resept"
-    - "Premedikasjon"
-    - "Bleketube"
-    - "Blekestrips"
-    - "Blekeskinner begge kjever"
-    - "Blekeskinne (inkludert blekemiddel, en kjeve)"
-    - "Blekebehandling"
-    - "Akutt rotbehandling"
-    - "Hygienetillegg"
-    - "Hygienetillegg (når ikke inkl. i stykkpris)"
-    - "Hygienetillegg allmennbehandling"
-    - "Ikke-møtt gebyr"
-    - "Konsultasjonusynlig tannregulering"  # Colosseum parser artifact
-    - "Førstekonsultasjontannregulering"    # ortho first consult, separate specialty
-    - "Konsultasjon for akutt"
-    - "Tannkjøttbehandling"
-    # Specialty / orthodontics — outside fase-1
-    - "Kjeveortoped forundersøkelse"
-    - "Konsultasjon hos spes"
-    - "Undersøkelse student"
-    - "Undersøkelse hos spesialist, priser fra"
-    - "Min Tannhelsestatus"  # Oris-specific premium variant of annual_checkup
-    # Bridges / multi-component — outside fase-1 prissammenligning basket
-    - "3-leddsbro på to implantat:"
-    - "Broledd"
-    - "Mellomledd metallfri ved broarbeid (som ikke er på implantat)"
-    - "Mellomledd MK ved broarbeid (som ikke er på implantat)"
-    - "Treledds bro metallfri (erstatte en tann) inkl 1 bedøvelse"
-    - "Treledds bro MK (erstatte en tann)"
-    - "2 implantat og implantatkroner"
-    # Add-ons / preparation — not standalone treatments
-    - "Kirurgisk oppdekking"
-    - "Tillegg for eventuell stål i protese (ved behov)"
-    - "Midlertidig fylling"
-    - "Midlertidig delprotese 1-2 tenner"
-    - "Midlertidig delprotese 3-5 tenner"
-    - "Midlertidig delprotese 6-14 tenner"
-    - "Rebasering (oppføring protese) tannteknikk"
-    - "Retensjonsstreng"
-    - "Perioundersøkelse med lommeregistrering"
-    - "Støpt fylling (gull/porselen) inkl. tannteknikk"
-    # Anatomical labels appearing as standalone rows in OC's price table —
-    # tooth-type tags rather than treatments per se
-    - "Fortann"
-    - "Fortann og hjørnetann"
-    - "Fortann og liten jeksel"
-    - "Liten jeksel"
-    - "Stor jeksel"
-    - "Stor Jeksel"
-    # Oris row-headers leaking through the parser
-    - "Ved behandling"
-    - "Ved kirurgi"
-    - "Ved konsultasjon / kontroll"
-
+  - Forbruksvarer (per_stk tillegg)
+  - Oppdekking og engangsutstyr
+  - Aligner behandling
+  - Vivera retensjonsskinner
+  - Snorkeskinne
+  - Pasientfoto
+  - Resept
+  - Premedikasjon
+  - Bleketube
+  - Blekestrips
+  - Blekeskinner begge kjever
+  - Blekeskinne (inkludert blekemiddel, en kjeve)
+  - Blekebehandling
+  - Akutt rotbehandling
+  - Hygienetillegg
+  - Hygienetillegg (når ikke inkl. i stykkpris)
+  - Hygienetillegg allmennbehandling
+  - Ikke-møtt gebyr
+  - Konsultasjonusynlig tannregulering
+  - Førstekonsultasjontannregulering
+  - Konsultasjon for akutt
+  - Tannkjøttbehandling
+  - Kjeveortoped forundersøkelse
+  - Konsultasjon hos spes
+  - Undersøkelse student
+  - Undersøkelse hos spesialist, priser fra
+  - Min Tannhelsestatus
+  - '3-leddsbro på to implantat:'
+  - Broledd
+  - Mellomledd metallfri ved broarbeid (som ikke er på implantat)
+  - Mellomledd MK ved broarbeid (som ikke er på implantat)
+  - Treledds bro metallfri (erstatte en tann) inkl 1 bedøvelse
+  - Treledds bro MK (erstatte en tann)
+  - 2 implantat og implantatkroner
+  - Kirurgisk oppdekking
+  - Tillegg for eventuell stål i protese (ved behov)
+  - Midlertidig fylling
+  - Midlertidig delprotese 1-2 tenner
+  - Midlertidig delprotese 3-5 tenner
+  - Midlertidig delprotese 6-14 tenner
+  - Rebasering (oppføring protese) tannteknikk
+  - Retensjonsstreng
+  - Perioundersøkelse med lommeregistrering
+  - Støpt fylling (gull/porselen) inkl. tannteknikk
+  - Fortann
+  - Fortann og hjørnetann
+  - Fortann og liten jeksel
+  - Liten jeksel
+  - Stor jeksel
+  - Stor Jeksel
+  - Ved behandling
+  - Ved kirurgi
+  - Ved konsultasjon / kontroll
 canonical:
-  - id: annual_checkup
-    navn: "Årlig kontroll"
-    lag: 1
-    kjede_terminologi:
-      odontia: ["Årlig kontroll hos tannlege", "Årlig kontroll hos tannpleier"]
-      colosseum: ["Undersøkelse"]
-      oc: ["Tannundersøkelse hos tannlege", "Tannundersøkelse", "Tannundersøkelse hos tannpleier"]
-      oris: ["Tannundersøkelse"]
-
-  - id: tooth_cleaning
-    navn: "Tannrens"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Tannrens med airflow", "Tannrens", "Tannrens med pussepasta"]
-      colosseum: ["Tannrens"]
-      oc: ["Tannrens"]
-      oris: []
-
-  - id: composite_filling_one_surface
-    navn: "Tannfarget fylling, én tannflate"
-    lag: 1
-    kjede_terminologi:
-      odontia: ["Tannfarget fylling, liten"]
-      colosseum: ["Fyllinger, én tannflate (kompositt)"]
-      oc: ["Fylling 1 flate"]
-      oris: ["Fyllinger, én tannflate (kompositt)"]
-
-  - id: composite_filling_two_surfaces
-    navn: "Tannfarget fylling, to tannflater"
-    lag: 1
-    kjede_terminologi:
-      odontia: ["Tannfarget fylling, medium"]
-      colosseum: ["Fyllinger, to tannflater (kompositt)"]
-      oc: ["Fylling 2 flater"]
-      oris: ["Fyllinger, to tannflater (kompositt)"]
-
-  - id: composite_filling_three_surfaces
-    navn: "Tannfarget fylling, tre tannflater"
-    lag: 1
-    kjede_terminologi:
-      odontia: ["Tannfarget fylling, stor"]
-      colosseum: ["Fyllinger, tre tannflater (kompositt)"]
-      oc: ["Fylling 3 flater"]
-      oris: ["Fyllinger, tre tannflater (kompositt)"]
-
-  - id: composite_filling_four_plus_surfaces
-    navn: "Tannfarget fylling, fire eller flere tannflater"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Tannfarget fylling, ekstra stor"]
-      colosseum: []
-      oc: ["Fylling 4 flater eller mer"]
-      oris: []
-
-  - id: crown
-    navn: "Krone"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Tannkrone"]
-      colosseum: ["Krone"]
-      oc: ["Tannkrone", "Helkrone inkl. tannteknikk", "Helkrone inkl. tannteknikk (zirkonium)", "Tannkrone Implantatbasert"]
-      oris: ["Krone"]
-
-  - id: root_canal_anterior
-    navn: "Rotfylling, fortann"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Rotfylling fortann/hjørnetann"]
-      colosseum: ["Rotfyllingav fortann/hjørnetann"]
-      oc: ["Rotbehandling (rotfylling) fortann og hjørnetann"]
-      oris: ["Rotfylling, én rotkanal (fortann)"]
-
-  - id: implant_with_crown
-    navn: "Implantat inkl. krone"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Implantatbehandling ink. tannkrone"]
-      colosseum: ["IMPLANTAT"]  # via HelseSmart only — see helsesmart_targets.yaml
-      oc: []  # implant auto-fallback to HelseSmart deferred (#22 follow-up)
-      oris: ["Implantat behandling - én tann inkl. krone"]
-
-  - id: tooth_extraction_simple
-    navn: "Trekking, ukomplisert"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Ukomplisert tanntrekking"]
-      colosseum: ["Ukompliserttrekkingav tann"]
-      oc: ["Ukomplisert trekking av tann", "Uttrekning"]
-      oris: ["Ukomplisert trekking av tann"]
-
-  - id: tooth_extraction_complex
-    navn: "Trekking, komplisert (kirurgisk uten visdomstann)"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Komplisert tanntrekking"]
-      colosseum: []
-      oc: []
-      oris: []
-
-  - id: root_canal_premolar
-    navn: "Rotfylling, premolar (liten jeksel)"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Rotfylling liten jeksel"]
-      colosseum: ["Rotfyllingav liten jeksel"]
-      oc: ["Rotbehandling (rotfylling) premolar"]
-      oris: ["Rotfylling, to rotkanaler (hjørne/sidetann)"]
-
-  - id: root_canal_molar
-    navn: "Rotfylling, molar (stor jeksel)"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Rotfylling stor jeksel"]
-      colosseum: ["Rotfyllingav stor jeksel"]
-      oc: ["Rotbehandling (rotfylling) molar, inkl. røntgen og anestesi"]
-      oris: ["Rotfylling, tre rotkanaler (jeksel)", "Rotfylling, fire rotkanaler"]
-
-  - id: xray_intraoral
-    navn: "Intraoralt røntgenbilde"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Røntgenbilde"]
-      colosseum: ["Røntgenbilde"]
-      oc: ["Røntgenbilde"]
-      oris: ["Røntgenbilde"]
-
-  # ---- Bucket B: new canonicals from #24 synonym round ----
-
-  - id: bite_splint
-    navn: "Bittskinne"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Bittskinne"]
-      colosseum: []
-      oc: ["Bittskinne inkl. tannteknikk"]
-      oris: ["Bittskinne"]
-
-  - id: denture_full
-    navn: "Helprotese"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Helprotese"]
-      colosseum: []
-      oc: ["Helprotese (en kjeve) inkl. tannteknikk"]
-      oris: ["Helprotese, per kjeve"]
-
-  - id: denture_partial
-    navn: "Delprotese / partiell protese"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Partiell protese"]
-      colosseum: []
-      oc: ["Partiell protese (delprotese) inkl. tannteknikk"]
-      oris: []
-
-  - id: veneer
-    navn: "Skallfasett / fasett"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["Skallfasett"]
-      colosseum: ["Fasett"]
-      oc: []
-      oris: ["Fasett (porselensfasade)"]
-
-  - id: panoramic_xray
-    navn: "Panoramarøntgen (OPG)"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Panoramarøntgen (OPG)"]
-      colosseum: ["OPG (panoramarøntgen)"]
-      oc: ["OPG"]
-      oris: ["OPG (panoramarøntgen)"]
-
-  - id: cbct_xray
-    navn: "CBCT 3D-røntgen"
-    lag: 3
-    kjede_terminologi:
-      odontia: ["CBCT"]
-      colosseum: ["EgenandelCBCT"]
-      oc: []
-      oris: ["CBCT"]
-
-  - id: anesthesia_per_dose
-    navn: "Bedøvelse, per dose"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Bedøvelse"]
-      colosseum: ["Bedøvelse"]
-      oc: ["Bedøvelse"]
-      oris: ["Bedøvelse (enkel injeksjon)"]
-
-  - id: wisdom_tooth_surgery
-    navn: "Visdomstann-operasjon / kirurgisk fjerning"
-    lag: 2
-    kjede_terminologi:
-      odontia: ["Kirurgisk fjerning av tann/rot"]
-      colosseum: ["Kirurgiskfjerning avvisdomstann/tann/rot"]
-      oc: ["Kirurgisk fjerning av tann", "Kirurgisk fjernelse av tann"]
-      oris: ["Visdomstannoperasjon"]
+- id: annual_checkup
+  navn: Årlig kontroll
+  lag: 1
+  kjede_terminologi:
+    odontia:
+    - Årlig kontroll hos tannlege
+    - Årlig kontroll hos tannpleier
+    colosseum:
+    - Undersøkelse
+    oc:
+    - Tannundersøkelse hos tannlege
+    - Tannundersøkelse
+    - Tannundersøkelse hos tannpleier
+    oris:
+    - Tannundersøkelse
+    single:
+    - Komplett undersøkelse
+    - Akutt undersøkelse
+    - Undersøkelse STANDARD
+    - Undersøkelse PREMIUM
+    - Undersøkelse FRESH
+    - Undersøkelse Premium
+    - Undersøkelse Fresh
+    - Undersøkelse ny pasient
+    - Undersøkelse hos tannpleier inkl. tannrens og AirFlow
+    - Tannlegekonsultasjon
+    - Konsultasjon
+    - Tannundersøkelse hos tannpleier
+- id: tooth_cleaning
+  navn: Tannrens
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Tannrens med airflow
+    - Tannrens
+    - Tannrens med pussepasta
+    colosseum:
+    - Tannrens
+    oc:
+    - Tannrens
+    oris: []
+    single:
+    - Tannrens og pussing
+    - Profesjonell tannrens
+    - Tannrens hos tannpleier
+- id: composite_filling_one_surface
+  navn: Tannfarget fylling, én tannflate
+  lag: 1
+  kjede_terminologi:
+    odontia:
+    - Tannfarget fylling, liten
+    colosseum:
+    - Fyllinger, én tannflate (kompositt)
+    oc:
+    - Fylling 1 flate
+    oris:
+    - Fyllinger, én tannflate (kompositt)
+    single:
+    - Liten fylling
+    - Liten fylling - 1 flate
+    - Tannfarget liten fylling 1 flate
+    - Fylling 1 flate (kompositt)
+    - Komposittfylling, 1 flate
+    - Komposittfylling 1 flate
+    - Plastfylling, 1 flate
+- id: composite_filling_two_surfaces
+  navn: Tannfarget fylling, to tannflater
+  lag: 1
+  kjede_terminologi:
+    odontia:
+    - Tannfarget fylling, medium
+    colosseum:
+    - Fyllinger, to tannflater (kompositt)
+    oc:
+    - Fylling 2 flater
+    oris:
+    - Fyllinger, to tannflater (kompositt)
+    single:
+    - Middels stor fylling
+    - Mellomstor fylling - 2 flater
+    - Tannfarget middels fylling 2 flater
+    - Fylling 2 flater (kompositt)
+    - Komposittfylling, 2 flater
+    - Komposittfylling 2 flater
+    - Plastfylling, 2 flater
+- id: composite_filling_three_surfaces
+  navn: Tannfarget fylling, tre tannflater
+  lag: 1
+  kjede_terminologi:
+    odontia:
+    - Tannfarget fylling, stor
+    colosseum:
+    - Fyllinger, tre tannflater (kompositt)
+    oc:
+    - Fylling 3 flater
+    oris:
+    - Fyllinger, tre tannflater (kompositt)
+    single:
+    - Stor fylling
+    - Stor fylling - 3 flater
+    - Tannfarget stor fylling 3 flater
+    - Fylling 3 flater (kompositt)
+    - Komposittfylling, 3 flater
+    - Komposittfylling 3 flater
+    - Plastfylling, 3 flater
+- id: composite_filling_four_plus_surfaces
+  navn: Tannfarget fylling, fire eller flere tannflater
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Tannfarget fylling, ekstra stor
+    colosseum: []
+    oc:
+    - Fylling 4 flater eller mer
+    oris: []
+- id: crown
+  navn: Krone
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Tannkrone
+    colosseum:
+    - Krone
+    oc:
+    - Tannkrone
+    - Helkrone inkl. tannteknikk
+    - Helkrone inkl. tannteknikk (zirkonium)
+    - Tannkrone Implantatbasert
+    oris:
+    - Krone
+    single:
+    - Tannkrone
+    - Krone
+    - Porselens krone
+    - Krone (porselen)
+- id: root_canal_anterior
+  navn: Rotfylling, fortann
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Rotfylling fortann/hjørnetann
+    colosseum:
+    - Rotfyllingav fortann/hjørnetann
+    oc:
+    - Rotbehandling (rotfylling) fortann og hjørnetann
+    oris:
+    - Rotfylling, én rotkanal (fortann)
+- id: implant_with_crown
+  navn: Implantat inkl. krone
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Implantatbehandling ink. tannkrone
+    colosseum:
+    - IMPLANTAT
+    oc: []
+    oris:
+    - Implantat behandling - én tann inkl. krone
+- id: tooth_extraction_simple
+  navn: Trekking, ukomplisert
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Ukomplisert tanntrekking
+    colosseum:
+    - Ukompliserttrekkingav tann
+    oc:
+    - Ukomplisert trekking av tann
+    - Uttrekning
+    oris:
+    - Ukomplisert trekking av tann
+- id: tooth_extraction_complex
+  navn: Trekking, komplisert (kirurgisk uten visdomstann)
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Komplisert tanntrekking
+    colosseum: []
+    oc: []
+    oris: []
+- id: root_canal_premolar
+  navn: Rotfylling, premolar (liten jeksel)
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Rotfylling liten jeksel
+    colosseum:
+    - Rotfyllingav liten jeksel
+    oc:
+    - Rotbehandling (rotfylling) premolar
+    oris:
+    - Rotfylling, to rotkanaler (hjørne/sidetann)
+- id: root_canal_molar
+  navn: Rotfylling, molar (stor jeksel)
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Rotfylling stor jeksel
+    colosseum:
+    - Rotfyllingav stor jeksel
+    oc:
+    - Rotbehandling (rotfylling) molar, inkl. røntgen og anestesi
+    oris:
+    - Rotfylling, tre rotkanaler (jeksel)
+    - Rotfylling, fire rotkanaler
+- id: xray_intraoral
+  navn: Intraoralt røntgenbilde
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Røntgenbilde
+    colosseum:
+    - Røntgenbilde
+    oc:
+    - Røntgenbilde
+    oris:
+    - Røntgenbilde
+- id: bite_splint
+  navn: Bittskinne
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Bittskinne
+    colosseum: []
+    oc:
+    - Bittskinne inkl. tannteknikk
+    oris:
+    - Bittskinne
+- id: denture_full
+  navn: Helprotese
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Helprotese
+    colosseum: []
+    oc:
+    - Helprotese (en kjeve) inkl. tannteknikk
+    oris:
+    - Helprotese, per kjeve
+- id: denture_partial
+  navn: Delprotese / partiell protese
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Partiell protese
+    colosseum: []
+    oc:
+    - Partiell protese (delprotese) inkl. tannteknikk
+    oris: []
+- id: veneer
+  navn: Skallfasett / fasett
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - Skallfasett
+    colosseum:
+    - Fasett
+    oc: []
+    oris:
+    - Fasett (porselensfasade)
+- id: panoramic_xray
+  navn: Panoramarøntgen (OPG)
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Panoramarøntgen (OPG)
+    colosseum:
+    - OPG (panoramarøntgen)
+    oc:
+    - OPG
+    oris:
+    - OPG (panoramarøntgen)
+- id: cbct_xray
+  navn: CBCT 3D-røntgen
+  lag: 3
+  kjede_terminologi:
+    odontia:
+    - CBCT
+    colosseum:
+    - EgenandelCBCT
+    oc: []
+    oris:
+    - CBCT
+- id: anesthesia_per_dose
+  navn: Bedøvelse, per dose
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Bedøvelse
+    colosseum:
+    - Bedøvelse
+    oc:
+    - Bedøvelse
+    oris:
+    - Bedøvelse (enkel injeksjon)
+- id: wisdom_tooth_surgery
+  navn: Visdomstann-operasjon / kirurgisk fjerning
+  lag: 2
+  kjede_terminologi:
+    odontia:
+    - Kirurgisk fjerning av tann/rot
+    colosseum:
+    - Kirurgiskfjerning avvisdomstann/tann/rot
+    oc:
+    - Kirurgisk fjerning av tann
+    - Kirurgisk fjernelse av tann
+    oris:
+    - Visdomstannoperasjon
