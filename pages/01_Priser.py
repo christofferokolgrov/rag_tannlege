@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import altair as alt
 import pandas as pd
 import streamlit as st
 
@@ -136,11 +137,86 @@ def _render_per_behandling(df: pd.DataFrame) -> None:
         f"{len(detail)} rader for `{selected_id}` på tvers av "
         f"{detail['klinikk_id'].nunique()} klinikker."
     )
+    _render_per_behandling_chart(detail)
     st.dataframe(
         detail,
         width="stretch",
         hide_index=True,
     )
+
+
+def _render_per_behandling_chart(detail: pd.DataFrame) -> None:
+    """Horizontal range bars per (kjede, behandling_navn_raw). Bars span
+    pris_min → pris_max for fast/spread, or pris_min → pris_min × 1.5
+    (with a "fra" badge) for fra-format rows where pris_max is null.
+    """
+    if detail.empty or detail["pris_min"].dropna().empty:
+        st.info("Ingen tallpriser å vise i diagrammet for denne behandlingen.")
+        return
+
+    # Aggregate to one bar per (kjede, raw_name): min(pris_min), max(pris_max),
+    # n_clinics. Sentral propagation otherwise renders 91 identical bars per
+    # Colosseum row, which is visual noise.
+    agg = (
+        detail.dropna(subset=["pris_min"])
+        .groupby(["kjede", "behandling_navn_raw"], dropna=False)
+        .agg(
+            pris_min=("pris_min", "min"),
+            pris_max=("pris_max", "max"),
+            n_clinics=("klinikk_id", "nunique"),
+            prisformat=("prisformat", "first"),
+        )
+        .reset_index()
+    )
+    fra_extension = (agg["pris_min"].astype("Int64") * 3 // 2).astype("Int64")
+    agg["pris_max_filled"] = agg["pris_max"].fillna(fra_extension)
+    agg["label"] = agg["kjede"] + " · " + agg["behandling_navn_raw"]
+    agg["range_text"] = agg.apply(_format_bar_text, axis=1)
+
+    # Sort labels by kjede then pris_min so chains group visually.
+    sort_order = (
+        agg.sort_values(["kjede", "pris_min"])["label"].tolist()
+    )
+
+    bars = (
+        alt.Chart(agg)
+        .mark_bar(opacity=0.85)
+        .encode(
+            x=alt.X("pris_min:Q", title="NOK"),
+            x2="pris_max_filled:Q",
+            y=alt.Y("label:N", sort=sort_order, title=None),
+            color=alt.Color("kjede:N", legend=alt.Legend(title="Kjede")),
+            tooltip=[
+                alt.Tooltip("kjede:N", title="Kjede"),
+                alt.Tooltip("behandling_navn_raw:N", title="Navn på prisliste"),
+                alt.Tooltip("pris_min:Q", title="Pris min"),
+                alt.Tooltip("pris_max:Q", title="Pris max"),
+                alt.Tooltip("prisformat:N", title="Prisformat"),
+                alt.Tooltip("n_clinics:Q", title="Antall klinikker"),
+            ],
+        )
+    )
+
+    text = (
+        alt.Chart(agg)
+        .mark_text(align="left", baseline="middle", dx=4, fontSize=11)
+        .encode(
+            x="pris_max_filled:Q",
+            y=alt.Y("label:N", sort=sort_order),
+            text="range_text:N",
+        )
+    )
+
+    chart = (bars + text).properties(height=alt.Step(22))
+    st.altair_chart(chart, width="stretch")
+
+
+def _format_bar_text(row: pd.Series) -> str:
+    if row["prisformat"] == "fra":
+        return f"fra {int(row['pris_min'])}"
+    if pd.isna(row["pris_max"]) or row["pris_max"] == row["pris_min"]:
+        return f"{int(row['pris_min'])}"
+    return f"{int(row['pris_min'])}–{int(row['pris_max'])}"
 
 
 df = _maybe_load()

@@ -70,6 +70,31 @@ def test_selecting_crown_shows_rows_for_all_five_chains():
     assert set(detail["kjede"].unique()) == {"odontia", "colosseum", "oc", "oris", "oralcare"}
 
 
+def _has_altair_chart(at: AppTest) -> bool:
+    """AppTest doesn't have a typed accessor for Altair charts; they render as
+    `UnknownElement` (Vega-Lite spec embedded in JSON). Detect by walking
+    at.main and counting UnknownElement instances."""
+    return any(type(el).__name__ == "UnknownElement" for el in at.main)
+
+
+def test_per_behandling_renders_an_altair_chart_for_default_canonical(app):
+    # First canonical alphabetically (anesthesia_per_dose) has rows from 4
+    # chains; chart should appear on initial render.
+    assert _has_altair_chart(app), (
+        "expected an Altair chart in the per-behandling tab; "
+        f"got element types: {[type(e).__name__ for e in app.main]}"
+    )
+
+
+def test_chart_persists_after_changing_canonical():
+    at = AppTest.from_file(str(PAGE_PATH), default_timeout=TIMEOUT_SECONDS)
+    at.run()
+    crown_label = next(o for o in at.selectbox[0].options if o.startswith("crown"))
+    at.selectbox[0].set_value(crown_label).run()
+    assert not at.exception
+    assert _has_altair_chart(at), "chart missing after switching to crown"
+
+
 def test_missing_canonical_long_renders_graceful_error(tmp_path):
     """When prices_canonical_long.csv is absent, the page should render
     an instructional st.error rather than crashing."""
