@@ -42,3 +42,15 @@ def test_validate_manifest_rejects_entry_missing_required_field():
     incomplete = {k: v for k, v in _VALID_ENTRY.items() if k != "klinikk_url"}
     with pytest.raises(ManifestError, match="missing"):
         validate_manifest([incomplete])
+
+
+def test_validate_manifest_accepts_sentral_pseudo_klinikk_without_klinikk_url():
+    # colosseum__central / oris__central pseudo-clinics carry no info page
+    sentral_entry = {
+        "klinikk_id": "colosseum__central",
+        "kjede": "colosseum",
+        "klinikk_navn": "Colosseum (sentral prisliste)",
+        "prisliste_url": "https://colosseumtannlege.no/priser-tannlegebehandling/",
+        "prisliste_struktur": "sentral",
+    }
+    validate_manifest([sentral_entry])

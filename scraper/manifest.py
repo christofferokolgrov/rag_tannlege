@@ -13,6 +13,13 @@ REQUIRED_ENTRY_FIELDS = (
     "prisliste_url",
 )
 
+PRISLISTE_STRUKTUR_VALUES = frozenset({"per_klinikk", "sentral", "peker_på_sentral"})
+
+# Sentral pseudo-klinikker carry no info page; klinikk_url is omitted.
+SENTRAL_REQUIRED_FIELDS = tuple(
+    f for f in REQUIRED_ENTRY_FIELDS if f != "klinikk_url"
+)
+
 
 class ManifestError(ValueError):
     pass
@@ -38,7 +45,14 @@ def validate_manifest(entries):
         raise ManifestError(f"duplicate klinikk_id in manifest: {duplicates}")
 
     for entry in entries:
-        missing = [f for f in REQUIRED_ENTRY_FIELDS if not entry.get(f)]
+        struktur = entry.get("prisliste_struktur", "per_klinikk")
+        if struktur not in PRISLISTE_STRUKTUR_VALUES:
+            raise ManifestError(
+                f"entry {entry.get('klinikk_id', '?')} has invalid prisliste_struktur "
+                f"{struktur!r}; expected one of {sorted(PRISLISTE_STRUKTUR_VALUES)}"
+            )
+        required = SENTRAL_REQUIRED_FIELDS if struktur == "sentral" else REQUIRED_ENTRY_FIELDS
+        missing = [f for f in required if not entry.get(f)]
         if missing:
             raise ManifestError(
                 f"entry {entry.get('klinikk_id', '?')} is missing required fields: {missing}"

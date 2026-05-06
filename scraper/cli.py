@@ -15,10 +15,10 @@ from scraper.fetch import RobotsBlockedError, fetch_with_cache
 from scraper.log import ScrapeLog
 from scraper.manifest import ManifestError, load_clinic_manifest, validate_manifest
 from scraper.output import write_clinics, write_prices_raw
-from scraper.parsers import odontia
+from scraper.parsers import colosseum, odontia
 from scraper.slug import parse_klinikk_id
 
-PARSERS = {"odontia": odontia}
+PARSERS = {"odontia": odontia, "colosseum": colosseum}
 
 
 def _cache_path(klinikk_id: str, kind: str) -> Path:
@@ -45,9 +45,49 @@ def _fetch(url: str, cache_path: Path, refetch: bool, log: ScrapeLog, klinikk_id
     return html
 
 
+def _clinic_row(entry: dict, info: dict, struktur: str) -> dict:
+    return {
+        "klinikk_id": entry["klinikk_id"],
+        "kjede": entry["kjede"],
+        "klinikk_navn": entry["klinikk_navn"],
+        "adresse": info.get("adresse"),
+        "postnummer": info.get("postnummer"),
+        "by": info.get("by"),
+        "klinikk_url": entry.get("klinikk_url"),
+        "prisliste_url": entry["prisliste_url"],
+        "helsesmart_url": entry.get("helsesmart_url"),
+        "prisliste_struktur": struktur,
+        "notes": entry.get("notes"),
+    }
+
+
 def _scrape_entry(entry: dict, refetch: bool, log: ScrapeLog, hentet_dato: str) -> tuple[dict, list]:
     klinikk_id = entry["klinikk_id"]
     kjede = entry["kjede"]
+    struktur = entry.get("prisliste_struktur", "per_klinikk")
+    parser = PARSERS[kjede]
+
+    if struktur == "sentral":
+        prisliste_html = _fetch(
+            entry["prisliste_url"],
+            _cache_path(klinikk_id, "prisliste"),
+            refetch,
+            log,
+            klinikk_id,
+        )
+        rows = (
+            parser.parse_prisliste(prisliste_html, klinikk_id=klinikk_id, hentet_dato=hentet_dato)
+            if prisliste_html
+            else []
+        )
+        return _clinic_row(entry, {}, "sentral"), rows
+
+    if struktur == "peker_på_sentral":
+        klinikk_html = _fetch(
+            entry["klinikk_url"], _cache_path(klinikk_id, "klinikk"), refetch, log, klinikk_id
+        )
+        info = parser.parse_clinic(klinikk_html) if klinikk_html else {}
+        return _clinic_row(entry, info, "peker_på_sentral"), []
 
     klinikk_html = _fetch(
         entry["klinikk_url"], _cache_path(klinikk_id, "klinikk"), refetch, log, klinikk_id
@@ -55,29 +95,13 @@ def _scrape_entry(entry: dict, refetch: bool, log: ScrapeLog, hentet_dato: str) 
     prisliste_html = _fetch(
         entry["prisliste_url"], _cache_path(klinikk_id, "prisliste"), refetch, log, klinikk_id
     )
-
-    parser = PARSERS[kjede]
     info = parser.parse_clinic(klinikk_html) if klinikk_html else {}
     rows = (
         parser.parse_prisliste(prisliste_html, klinikk_id=klinikk_id, hentet_dato=hentet_dato)
         if prisliste_html
         else []
     )
-
-    clinic_row = {
-        "klinikk_id": klinikk_id,
-        "kjede": kjede,
-        "klinikk_navn": entry["klinikk_navn"],
-        "adresse": info.get("adresse"),
-        "postnummer": info.get("postnummer"),
-        "by": info.get("by"),
-        "klinikk_url": entry["klinikk_url"],
-        "prisliste_url": entry["prisliste_url"],
-        "helsesmart_url": entry.get("helsesmart_url"),
-        "prisliste_struktur": "per_klinikk",
-        "notes": entry.get("notes"),
-    }
-    return clinic_row, rows
+    return _clinic_row(entry, info, "per_klinikk"), rows
 
 
 def _cmd_run(args: argparse.Namespace) -> int:

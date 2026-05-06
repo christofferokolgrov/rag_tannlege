@@ -4,3 +4,45 @@ clinics:
     klinikk_navn: Odontia Oslo Sentrum
     klinikk_url: https://odontia.no/tannlege/oslo-sentrum
     prisliste_url: https://odontia.no/prisliste/tannlege-oslo-sentrum/
+    prisliste_struktur: per_klinikk
+
+  - klinikk_id: colosseum__central
+    kjede: colosseum
+    klinikk_navn: Colosseum (sentral prisliste)
+    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+    prisliste_struktur: sentral
+
+  - klinikk_id: colosseum__majorstuen
+    kjede: colosseum
+    klinikk_navn: Colosseum Majorstuen tannlege
+    klinikk_url: https://colosseumtannlege.no/klinikker/oslo/majorstuen/majorstuen-tannlege/
+    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+    prisliste_struktur: peker_på_sentral
+
+  - klinikk_id: colosseum__stortingsgata
+    kjede: colosseum
+    klinikk_navn: Colosseum Stortingsgata
+    klinikk_url: https://colosseumtannlege.no/klinikker/oslo/nationaltheatret/stortingsgata/
+    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+    prisliste_struktur: peker_på_sentral
+
+  - klinikk_id: colosseum__bergen_wallendahl
+    kjede: colosseum
+    klinikk_navn: Colosseum Wallendahl (Bergen)
+    klinikk_url: https://colosseumtannlege.no/klinikker/vestland/bergen/wallendahl/
+    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+    prisliste_struktur: peker_på_sentral
+
+  - klinikk_id: colosseum__trondheim_innherredsveien
+    kjede: colosseum
+    klinikk_navn: Colosseum Innherredsveien (Trondheim)
+    klinikk_url: https://colosseumtannlege.no/klinikker/trondelag/trondheim/innherredsveien/
+    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+    prisliste_struktur: peker_på_sentral
+
+  - klinikk_id: colosseum__stavanger_sentrum
+    kjede: colosseum
+    klinikk_navn: Colosseum Stavanger Sentrum
+    klinikk_url: https://colosseumtannlege.no/klinikker/rogaland/stavanger/sentrum/
+    prisliste_url: https://colosseumtannlege.no/priser-tannlegebehandling/
+    prisliste_struktur: peker_på_sentral
