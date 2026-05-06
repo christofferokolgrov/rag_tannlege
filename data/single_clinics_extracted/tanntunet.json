@@ -1,0 +1,224 @@
+{
+  "klinikk_id": "single__tanntunet",
+  "extracted_count": 36,
+  "dropped_count": 0,
+  "dropped_reasons": [],
+  "rows": [
+    {
+      "behandling_navn_raw": "Konsultasjon allmenntannlege",
+      "pris_min": 730,
+      "pris_max": 730,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse inkludert to røntgenbilder og enkel rens",
+      "pris_min": 1310,
+      "pris_max": 1310,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Undersøkelse inkludert to røntgenbilder og enkel rens med airflow",
+      "pris_min": 1420,
+      "pris_max": 1420,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Omfattende undersøkelse, utredning, henvisning og behandlingsplanlegging",
+      "pris_min": 2970,
+      "pris_max": 2970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Anestesi (bedøvelse) pr 1,8ml/område",
+      "pris_min": 270,
+      "pris_max": 270,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Røntgenbilde (pr. stk)",
+      "pris_min": 180,
+      "pris_max": 180,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Panoramarøntgen (OPG bilde)",
+      "pris_min": 970,
+      "pris_max": 970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Ceph / Cephalogram røntgen",
+      "pris_min": 970,
+      "pris_max": 970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "CBCT – 3D røntgenbilde (inkludert tolkning av kjeve- og ansiktsradiolog)",
+      "pris_min": 3200,
+      "pris_max": 3200,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling (kompositt) 1 flate",
+      "pris_min": 1400,
+      "pris_max": 1400,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling (kompositt) 2 flater",
+      "pris_min": 2060,
+      "pris_max": 2060,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling (kompositt) 3 flater",
+      "pris_min": 2540,
+      "pris_max": 2540,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tannfarget fylling (kompositt) 4 flater",
+      "pris_min": 2970,
+      "pris_max": 2970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Porselen-onlay / Gull-onlay eksklusiv tannteknikk",
+      "pris_min": 6530,
+      "pris_max": 6530,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Skallfasetter (porselensfasade) eksklusiv tannteknikk",
+      "pris_min": 6530,
+      "pris_max": 6530,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Krone eksklusiv tannteknikk",
+      "pris_min": 6540,
+      "pris_max": 6540,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Mellomledd eksklusiv tannteknikk",
+      "pris_min": 6540,
+      "pris_max": 6540,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Konus oppbygd med Composipost",
+      "pris_min": 2970,
+      "pris_max": 2970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Støpt konus eksklusiv tannteknikk",
+      "pris_min": 2365,
+      "pris_max": 2365,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Implantat inklusiv tannteknikk",
+      "pris_min": 37790,
+      "pris_max": null,
+      "prisformat": "fra"
+    },
+    {
+      "behandling_navn_raw": "Helprotese (en kjeve) eksklusiv tannteknikk",
+      "pris_min": 12650,
+      "pris_max": 12650,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Partiellprotese (delprotese) eksklusiv tannteknikk",
+      "pris_min": 12210,
+      "pris_max": 12210,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rebasering av protese eksklusiv tannteknikk",
+      "pris_min": 3000,
+      "pris_max": 3000,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bittskinne / midlertidig Valplast erstatning eksklusiv tannteknikk",
+      "pris_min": 3000,
+      "pris_max": 3000,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Trekking av tann",
+      "pris_min": 2180,
+      "pris_max": 2180,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk fjerning av tann / rotrest (delvis refusjon fra Helfo)",
+      "pris_min": 3760,
+      "pris_max": 3760,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Rotfylling allmenntannlege",
+      "pris_min": 2970,
+      "pris_max": 2970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Tillegg maskinell rotfyllingsinstrumentering pr. seanse",
+      "pris_min": 485,
+      "pris_max": 485,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Fjerning av tannsten",
+      "pris_min": 2970,
+      "pris_max": 2970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Periobehandling allmenntannlege (refusjon fra HELFO på deler av behandlingen)",
+      "pris_min": 2970,
+      "pris_max": 2970,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bleking (en kjeve) inklusiv blekemiddel og skinne",
+      "pris_min": 3100,
+      "pris_max": 3100,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Bleking (to kjever) inklusiv blekemiddel og skinner",
+      "pris_min": 4700,
+      "pris_max": 4700,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Foto, pr. bilde",
+      "pris_min": 150,
+      "pris_max": 150,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Laboratorieprøve",
+      "pris_min": 1485,
+      "pris_max": 1485,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Hygienetiltak / engangsutstyr pr. konsultasjon",
+      "pris_min": 330,
+      "pris_max": 330,
+      "prisformat": "fast"
+    },
+    {
+      "behandling_navn_raw": "Kirurgisk oppdekning",
+      "pris_min": 1135,
+      "pris_max": 1135,
+      "prisformat": "fast"
+    }
+  ]
+}

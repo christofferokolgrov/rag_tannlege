@@ -69,3 +69,26 @@ def parse_helsesmart_clinic(
             )
         )
     return rows
+
+
+# Standard parser interface — symmetrical with parsers/odontia.py etc., so
+# scraper/cli.py can register PARSERS["single"] = helsesmart and dispatch
+# uniformly. Used for kjede=single (independent Oslo-area clinics) where
+# HelseSmart is the primary data source.
+
+def parse_prisliste(
+    html: str, *, klinikk_id: str = "", hentet_dato: str = ""
+) -> list[PriceRow]:
+    """Standard-interface wrapper around parse_helsesmart_clinic that
+    returns ALL priced rows (no filter_treatments). Used by kjede=single."""
+    return parse_helsesmart_clinic(
+        html, klinikk_id=klinikk_id, hentet_dato=hentet_dato, filter_treatments=None
+    )
+
+
+def parse_clinic(html: str) -> dict:
+    """HelseSmart pages don't expose the same address structure the chains'
+    own clinic pages have. clinics.csv ends up with empty adresse / postnummer
+    / by for kjede=single rows, which is the honest scrape — design §1
+    raw-scrape policy."""
+    return {}
