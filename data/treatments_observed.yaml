@@ -1,4 +1,6 @@
 colosseum:
+- name: Bedøvelse
+  forekomst_klinikker: 1
 - name: EgenandelCBCT
   forekomst_klinikker: 1
 - name: Fasett

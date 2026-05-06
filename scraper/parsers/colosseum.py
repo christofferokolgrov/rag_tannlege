@@ -8,6 +8,11 @@ from scraper.prisformat import PrisformatError, parse_price
 PRIS_KILDE = "sentral"
 
 _LEADING_SEP_RE = re.compile(r"^[-–—]\s*")
+# Some Colosseum rows put a clarifier in parens between the treatment name
+# and the price, e.g. "Bedøvelse (enkel injeksjon) - fra kr. 205". The
+# parens content is metadata, not part of the price; strip it before
+# parse_price.
+_LEADING_PARENS_RE = re.compile(r"^\s*\([^)]*\)\s*")
 _ADDRESS_RE = re.compile(
     r"([^,\n]+?),\s*(\d{4})[\s\xa0]+([A-Za-zÆØÅæøå]+)"
 )
@@ -32,7 +37,9 @@ def parse_prisliste(
         parts = full_text.split("|")
         if len(parts) < 2:
             continue
-        price_text = _LEADING_SEP_RE.sub("", parts[1].strip())
+        price_text = parts[1].strip()
+        price_text = _LEADING_PARENS_RE.sub("", price_text)
+        price_text = _LEADING_SEP_RE.sub("", price_text)
         try:
             parsed = parse_price(price_text)
         except PrisformatError:

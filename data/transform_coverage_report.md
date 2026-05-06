@@ -1,6 +1,6 @@
 # Transform coverage report
 
-- Total canonical_long rows: 3910
+- Total canonical_long rows: 4001
 - Canonical IDs in YAML: 22
 - Real clinics in manifest: 232
 
@@ -28,7 +28,7 @@
 | veneer | ✓ (23) | ✓ (91) | — | ✓ (94) | ✓ (1) |
 | panoramic_xray | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | — |
 | cbct_xray | ✓ (1) | ✓ (91) | — | ✓ (94) | — |
-| anesthesia_per_dose | ✓ (32) | — | ✓ (13) | ✓ (94) | ✓ (1) |
+| anesthesia_per_dose | ✓ (32) | ✓ (91) | ✓ (13) | ✓ (94) | ✓ (1) |
 | wisdom_tooth_surgery | ✓ (27) | ✓ (91) | ✓ (11) | ✓ (94) | ✓ (1) |
 
 ## Per-canonical chain coverage
@@ -53,7 +53,7 @@
 - `veneer`: 4/5 chains covered
 - `panoramic_xray`: 4/5 chains covered
 - `cbct_xray`: 3/5 chains covered
-- `anesthesia_per_dose`: 4/5 chains covered
+- `anesthesia_per_dose`: 5/5 chains covered
 - `wisdom_tooth_surgery`: 5/5 chains covered
 
 ## Empty cells (synonym-round TODO)
@@ -79,7 +79,6 @@
 - `panoramic_xray` × `oralcare`
 - `cbct_xray` × `oc`
 - `cbct_xray` × `oralcare`
-- `anesthesia_per_dose` × `colosseum`
 
 ## Per-clinic row counts
 
@@ -87,7 +86,7 @@ Sentral propagation sanity: every real clinic in a sentral chain
 (Colosseum, Oris) should have an identical row count.
 
 - **odontia**: 32 clinic(s), variable row counts [14, 15, 16, 17, 18, 19, 20, 22, 23] ⚠
-- **colosseum**: 91 clinic(s), all with 15 rows ✓
+- **colosseum**: 91 clinic(s), all with 16 rows ✓
 - **oc**: 14 clinic(s), variable row counts [9, 10, 11, 15] ⚠
 - **oris**: 94 clinic(s), all with 19 rows ✓
 - **oralcare**: 1 clinic(s), all with 19 rows ✓
