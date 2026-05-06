@@ -4,3 +4,91 @@ clinics:
     klinikk_navn: Odontia Oslo Sentrum
     klinikk_url: https://odontia.no/tannlege/oslo-sentrum
     prisliste_url: https://odontia.no/prisliste/tannlege-oslo-sentrum/
+
+  # OC Tannklinikker — per-klinikk priser, prisene ligger inline på samme side
+  # som klinikk-info (section.pricing). Begge URL-felt peker på samme side;
+  # cli.py skriver ulike cache-filer (<slug>_klinikk.html, <slug>_prisliste.html)
+  # men nettverkskall gjøres bare én gang når cache fylles via discovery.
+  - klinikk_id: oc__tannlegesenteret_taasen
+    kjede: oc
+    klinikk_navn: OC Tannlegesenteret – Oslo (Tåsen)
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegesenteret/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegesenteret/
+
+  - klinikk_id: oc__bergen_nord
+    kjede: oc
+    klinikk_navn: OC Bergen Nord Tannhelsesenter
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-bergen-nord-tannhelsesenter/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-bergen-nord-tannhelsesenter/
+
+  - klinikk_id: oc__festningen
+    kjede: oc
+    klinikk_navn: OC Festningen Tannklinikk
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-festningen-tannklinikk/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-festningen-tannklinikk/
+
+  - klinikk_id: oc__torget_drammen
+    kjede: oc
+    klinikk_navn: OC Torget Tannlegesenter
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-torget-tannlegesenter/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-torget-tannlegesenter/
+
+  - klinikk_id: oc__malmbryggen_arendal
+    kjede: oc
+    klinikk_navn: OC Malmbryggen Tannklinikk
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-malmbryggen-tannklinikk/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-malmbryggen-tannklinikk/
+
+  - klinikk_id: oc__klette_og_race_moss
+    kjede: oc
+    klinikk_navn: OC Tannlegene Klette og Race
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-klette-og-race/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-klette-og-race/
+
+  - klinikk_id: oc__gimle_kristiansand
+    kjede: oc
+    klinikk_navn: OC Gimle Tannhelsesenter
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-gimle-tannhelsesenter/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-gimle-tannhelsesenter/
+
+  - klinikk_id: oc__dronningens_kristiansand
+    kjede: oc
+    klinikk_navn: OC Dronningens Tannlegesenter
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-dronningens-tannlegesenter/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-dronningens-tannlegesenter/
+
+  - klinikk_id: oc__markens_kristiansand
+    kjede: oc
+    klinikk_navn: OC Markens Tannlegesenter
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-markens-tannlegesenter/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-markens-tannlegesenter/
+
+  - klinikk_id: oc__gyldenloevesgate_kristiansand
+    kjede: oc
+    klinikk_navn: OC Tannlegene i Gyldenløvesgate
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-i-gyldenlovesgate/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-tannlegene-i-gyldenlovesgate/
+
+  - klinikk_id: oc__kolbotn
+    kjede: oc
+    klinikk_navn: OC Kolbotn Tannhelse
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-kolbotn-tannhelse/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-kolbotn-tannhelse/
+
+  - klinikk_id: oc__bergen_storsenter
+    kjede: oc
+    klinikk_navn: OC Bergen Storsenter Tannlegepraksis
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-bergen-storsenter-tannlegepraksis/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-bergen-storsenter-tannlegepraksis/
+
+  - klinikk_id: oc__skien
+    kjede: oc
+    klinikk_navn: OC Skien Tannhelse
+    klinikk_url: https://www.octannklinikker.no/klinikker/oc-skien-tannhelse/
+    prisliste_url: https://www.octannklinikker.no/klinikker/oc-skien-tannhelse/
+
+  - klinikk_id: oc__iristannlegene
+    kjede: oc
+    klinikk_navn: OC Iristannlegene
+    klinikk_url: https://www.octannklinikker.no/klinikker/iristannlegene/
+    prisliste_url: https://www.octannklinikker.no/klinikker/iristannlegene/
