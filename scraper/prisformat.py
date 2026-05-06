@@ -53,7 +53,8 @@ def _extract_first_int(text: str) -> int:
 
 
 def parse_price(raw: str) -> ParsedPrice:
-    if not _DIGIT_RE.search(raw or ""):
+    raw = (raw or "").replace("\xa0", " ")
+    if not _DIGIT_RE.search(raw):
         return ParsedPrice(None, None, Prisformat.ETTER_KONSULTASJON)
 
     per_match = _PER_UNIT_RE.search(raw)

@@ -75,3 +75,9 @@ def test_parse_price_per_stk():
 def test_parse_price_garbage_with_digits_raises():
     with pytest.raises(PrisformatError):
         parse_price("abc 1 2 3 def")
+
+
+def test_parse_price_handles_non_breaking_space_in_html():
+    # Selectolax preserves NBSP from "1&nbsp;595" / "950 - 1&nbsp;545"
+    assert parse_price("NOK 1\xa0595") == ParsedPrice(1595, 1595, Prisformat.FAST)
+    assert parse_price("NOK 950 - 1\xa0545") == ParsedPrice(950, 1545, Prisformat.SPREAD)

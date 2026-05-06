@@ -5,6 +5,14 @@ import yaml
 
 from scraper.slug import KLINIKK_ID_PATTERN
 
+REQUIRED_ENTRY_FIELDS = (
+    "klinikk_id",
+    "kjede",
+    "klinikk_navn",
+    "klinikk_url",
+    "prisliste_url",
+)
+
 
 class ManifestError(ValueError):
     pass
@@ -28,3 +36,10 @@ def validate_manifest(entries):
     duplicates = sorted({i for i, n in Counter(ids).items() if n > 1})
     if duplicates:
         raise ManifestError(f"duplicate klinikk_id in manifest: {duplicates}")
+
+    for entry in entries:
+        missing = [f for f in REQUIRED_ENTRY_FIELDS if not entry.get(f)]
+        if missing:
+            raise ManifestError(
+                f"entry {entry.get('klinikk_id', '?')} is missing required fields: {missing}"
+            )

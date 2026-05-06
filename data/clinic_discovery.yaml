@@ -1,1 +1,6 @@
-clinics: []
+clinics:
+  - klinikk_id: odontia__oslo_sentrum
+    kjede: odontia
+    klinikk_navn: Odontia Oslo Sentrum
+    klinikk_url: https://odontia.no/tannlege/oslo-sentrum
+    prisliste_url: https://odontia.no/prisliste/tannlege-oslo-sentrum/
