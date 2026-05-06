@@ -170,7 +170,9 @@ def _render_per_behandling_chart(detail: pd.DataFrame) -> None:
     )
     fra_extension = (agg["pris_min"].astype("Int64") * 3 // 2).astype("Int64")
     agg["pris_max_filled"] = agg["pris_max"].fillna(fra_extension)
-    agg["label"] = agg["kjede"] + " · " + agg["behandling_navn_raw"]
+    agg["label"] = (
+        agg["kjede"] + " · " + agg["behandling_navn_raw"].apply(_wrap_label)
+    )
     agg["range_text"] = agg.apply(_format_bar_text, axis=1)
 
     # Sort labels by kjede then pris_min so chains group visually.
@@ -178,37 +180,79 @@ def _render_per_behandling_chart(detail: pd.DataFrame) -> None:
         agg.sort_values(["kjede", "pris_min"])["label"].tolist()
     )
 
-    bars = (
+    color = alt.Color("kjede:N", legend=alt.Legend(title="Kjede"))
+    # labelLimit=400 + multi-line labels (\n inside the string) keeps long
+    # treatment names readable instead of truncating to "Tannkrone met…".
+    common_y = alt.Y(
+        "label:N",
+        sort=sort_order,
+        title=None,
+        axis=alt.Axis(labelLimit=400, labelFontSize=11, labelLineHeight=12),
+    )
+    tooltip = [
+        alt.Tooltip("kjede:N", title="Kjede"),
+        alt.Tooltip("behandling_navn_raw:N", title="Navn på prisliste"),
+        alt.Tooltip("pris_min:Q", title="Pris min"),
+        alt.Tooltip("pris_max:Q", title="Pris max"),
+        alt.Tooltip("prisformat:N", title="Prisformat"),
+        alt.Tooltip("n_clinics:Q", title="Antall klinikker"),
+    ]
+
+    # Dumbbell chart — works equally well for fast (single value), spread
+    # (range), and fra (open right end) rows. A pure mark_bar gave zero-width
+    # invisible bars for fast rows where pris_min == pris_max.
+    rule = (
         alt.Chart(agg)
-        .mark_bar(opacity=0.85)
+        .mark_rule(strokeWidth=3, opacity=0.8)
         .encode(
             x=alt.X("pris_min:Q", title="NOK"),
             x2="pris_max_filled:Q",
-            y=alt.Y("label:N", sort=sort_order, title=None),
-            color=alt.Color("kjede:N", legend=alt.Legend(title="Kjede")),
-            tooltip=[
-                alt.Tooltip("kjede:N", title="Kjede"),
-                alt.Tooltip("behandling_navn_raw:N", title="Navn på prisliste"),
-                alt.Tooltip("pris_min:Q", title="Pris min"),
-                alt.Tooltip("pris_max:Q", title="Pris max"),
-                alt.Tooltip("prisformat:N", title="Prisformat"),
-                alt.Tooltip("n_clinics:Q", title="Antall klinikker"),
-            ],
+            y=common_y,
+            color=color,
+            tooltip=tooltip,
         )
+    )
+
+    min_dot = (
+        alt.Chart(agg)
+        .mark_circle(size=120)
+        .encode(x="pris_min:Q", y=common_y, color=color, tooltip=tooltip)
+    )
+
+    # Second dot only when pris_max is a real value distinct from pris_min
+    # (i.e. true spread) — fra-format rows show a single dot + extending rule
+    # + the "fra X" text label rather than a misleading second dot.
+    spread_only = agg[
+        agg["pris_max"].notna() & (agg["pris_max"] != agg["pris_min"])
+    ]
+    max_dot = (
+        alt.Chart(spread_only)
+        .mark_circle(size=120)
+        .encode(x="pris_max:Q", y=common_y, color=color, tooltip=tooltip)
     )
 
     text = (
         alt.Chart(agg)
-        .mark_text(align="left", baseline="middle", dx=4, fontSize=11)
+        .mark_text(align="left", baseline="middle", dx=8, fontSize=11)
         .encode(
             x="pris_max_filled:Q",
-            y=alt.Y("label:N", sort=sort_order),
+            y=common_y,
             text="range_text:N",
         )
     )
 
-    chart = (bars + text).properties(height=alt.Step(22))
+    chart = (rule + min_dot + max_dot + text).properties(height=alt.Step(24))
     st.altair_chart(chart, width="stretch")
+
+
+def _wrap_label(text: str, width: int = 35) -> str:
+    """Insert newlines so long behandling names wrap rather than truncate.
+    Vega-Lite axis labels respect '\\n' as a line break (and Streamlit's
+    Altair embed renders them as multi-line)."""
+    if len(text) <= width:
+        return text
+    import textwrap
+    return "\n".join(textwrap.wrap(text, width=width, break_long_words=False))
 
 
 def _format_bar_text(row: pd.Series) -> str:
