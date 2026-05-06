@@ -9,7 +9,7 @@ See issue #1 (PRD) for scope; this is the tracer-bullet end-to-end pipeline (iss
 uv sync
 cp .env.example .env  # fill in DEEPSEEK_API_KEY and OPENAI_API_KEY
 uv run python ingest.py
-uv run streamlit run chat.py
+uv run streamlit run Chat.py
 ```
 
 PDFs go in `docs/corpus/`. The chat UI opens at `http://localhost:8501`.

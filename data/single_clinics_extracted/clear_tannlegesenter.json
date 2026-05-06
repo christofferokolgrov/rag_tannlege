@@ -257,7 +257,7 @@
       "prisformat": "fast"
     },
     {
-      "behandling_navn_raw": "Tidsdebitering:",
+      "behandling_navn_raw": "Tidsdebitering",
       "pris_min": 350,
       "pris_max": null,
       "prisformat": "fra"

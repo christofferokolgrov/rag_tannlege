@@ -1,4 +1,4 @@
-"""Headless smoke for pages/01_Priser.py via streamlit.testing.
+"""Headless smoke for pages/01_Priser_-_Peers.py via streamlit.testing.
 
 Exercises the page through the same code path Streamlit uses at runtime
 (no browser needed). Verifies tabs render, the canonical dropdown is
@@ -15,7 +15,7 @@ import pytest
 from streamlit.testing.v1 import AppTest
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-PAGE_PATH = REPO_ROOT / "pages" / "01_Priser.py"
+PAGE_PATH = REPO_ROOT / "pages" / "01_Priser_-_Peers.py"
 CANONICAL_LONG_PATH = REPO_ROOT / "data" / "prices_canonical_long.csv"
 
 # CSV load + Oversikt aggregation across 22 canonicals × 5 kjeder takes a
@@ -252,7 +252,10 @@ def test_lag_filter_alle_exposes_all_canonicals():
     at.run()
     at.radio[0].set_value("Alle (inkl. lag 3)").run()
     options = at.selectbox[0].options
-    assert len(options) == 22
+    # Lag 1+2 = 13, plus all lag-3 canonicals. Floor reflects the partition
+    # in treatments_canonical.yaml; the exact total grows as new canonicals
+    # are added (e.g. single-clinic-only ones like bridge/whitening).
+    assert len(options) >= 22
 
 
 def test_lag_filter_lag_one_plus_two_excludes_lag_three():

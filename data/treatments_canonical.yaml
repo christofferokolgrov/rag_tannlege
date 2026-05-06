@@ -72,6 +72,74 @@ meta:
   - Tannimplantat
   - Undersøkelse inkl. tannbleking – kampanjepris (før kr 5500)
   - Tannbleking – kampanjepris (før kr 5500)
+  - Hygienetillegg per behandling
+  - Hygienetillegg ved endo
+  - Hygienetillegg ved kirurgi
+  - Hygienetillegg (Klargjøring, oppdekking, engangsutstyr og smittevern) tilkommer ved hvert besøk.
+  - Hygienetillegg ved kirurgisk behandling
+  - Hygienetillegg, pr. behandlingsseanse
+  - Hygienetillegg ved endodontisk behandling
+  - Hygienetillegg i forbindelse med kirurgi / ekstraksjon
+  - Hygienetiltak / engangsutstyr pr. konsultasjon
+  - Tannsmykke (inkl. smykken)
+  - Botox mot tanngnissing/bruxisme
+  - Invisalign
+  - Invisalign behandling
+  - Usynlig tannregulering (Invisalign)
+  - Tannregulering
+  - Konsultasjon usynlig regulering
+  - Usynlig tannregulering konsultasjon
+  - Usynlig tannregulering konsultasjon og scanning for simulasjon
+  - Kostnadsfri Invisalign konsultasjon med iTero scan
+  - Invisalign (usynlig tannregulering) inkl. tannbleking og Vivera-retainer
+  - Light case
+  - Medium case
+  - Omfattende case
+  - Avansert case
+  - Retensjons-retainer overkjeve og underkjeve
+  - Retainerskinne 1 kjeve (eks. tannteknikk)
+  - Retainerskinne 2 kjever (eks. tannteknikk)
+  - Lage ny streng 1 kjeve (eks. tannteknikk)
+  - Lage ny streng 2 kjever (eks. tannteknikk)
+  - Feste løsnet streng
+  - Fjerne streng
+  - Konsultasjon estetisk tannbehandling
+  - Konsultasjon for skallfasetter
+  - Konsultasjon laserbehandling
+  - Implantatkonsultasjon hos spesialist i oral kirurgi
+  - Implantatkonsultasjon hos tannlege med Helsedirektoratets godkjenning i implantatprotetikk
+  - Tannimplantat-konsultasjon
+  - Kjeveleddslidelser-konsultasjon
+  - Tannlegeskrekk – konsultasjon
+  - 'Gratis konsultasjon: Tannlegeskrekk'
+  - Tannlegeskrekk - samtale med tannlegen
+  - Akutt tannlegetime
+  - Knukket tann/mistet fylling
+  - Tidsdebitering, 30 minutter
+  - 'Tidsdebitering:'
+  - Laboratorieprøve
+  - Tannprotese over- og underkjeve (komplett)
+  - Tannprotese i over- og underkjeven
+  - Tannprotese (gebiss)
+  - Valplastprotese og midlertidig protese
+  - Rebasering av protese eksklusiv tannteknikk
+  - Broledd, pilar/ festetann
+  - Mellomledd eksklusiv tannteknikk
+  - Dekkprotese på to implantater
+  - Implantat - for implantatskrue og toppkonstruksjon
+  - Anti-apnèskinne
+  - Blekeskinner - underkjeve og overkjeve
+  - Konus oppbygd med Composipost
+  - Støpt konus eksklusiv tannteknikk
+  - Rottspissamputasjon av enkel tann
+  - Rottspissamputasjon av større tann
+  - Skifte calaseptinnlegg pr. besøk
+  - Tillegg maskinell rotfyllingsinstrumentering pr. seanse
+  - Oppbygging av hel tann
+  - Behandlingsplan
+  - Tidsdebitering
+  - Kirurgisk oppdekning
+  - Skallfasetter/ laminat, innlegg
 canonical:
 - id: annual_checkup
   navn: Årlig kontroll
@@ -104,6 +172,19 @@ canonical:
     - Enkel undersøkelse
     - Tannlegekontroll
     - Tannimplantatundersøkelse
+    - Akuttundersøkelse
+    - Akutt konsultasjon/undersøkelse
+    - Konsultasjon allmenntannlege
+    - Undersøkelse hos spesialist
+    - Undersøkelse av ny pasient med bilder, rens og forebyggende informasjon
+    - Recall-undersøkelse av pasient med bilder, rens og forebyggende informasjon
+    - Full undersøkelse og grundig rens
+    - Omfattende undersøkelse, utredning, henvisning og behandlingsplanlegging
+    - Undersøkelse inkludert to røntgenbilder og enkel rens
+    - Undersøkelse inkludert to røntgenbilder og enkel rens med airflow
+    - Undersøkelse med fire røntgenbilder og tannrenss
+    - Første undersøkelse inkl. nødvendig 2D-røntgen
+    - Akutt undersøkelse inkludert konsultasjon og et røntgenbilde
 - id: tooth_cleaning
   navn: Tannrens
   lag: 3
@@ -121,6 +202,22 @@ canonical:
     - Tannrens og pussing
     - Profesjonell tannrens
     - Tannrens hos tannpleier
+    - AirFlow Rens
+    - AirFlow som egenbehandling
+    - AirFlow i forbindelse med undersøkelse
+    - Airflow (uten undersøkelse)
+    - Airflow (tillegg til undersøkelse)
+    - Airflow Frisk (20 min)
+    - Profesjonell tannrens med scaler og Air-flow som forebyggende behandling, 30 min.
+    - Tannrens (30 min)
+    - Tannrens (60 min)
+    - Vanlig tannrens
+    - Grundig tannrens
+    - Grundig rens av tenner
+    - Dyp tannrens/perio-behandling
+    - Dyp tannrens, grundig rens ved tannkjøttsykdom
+    - Grundig rens av tenner (pyrea/tannkjøttsykdom)
+    - Fjerning av tannsten
 - id: composite_filling_one_surface
   navn: Tannfarget fylling, én tannflate
   lag: 1
@@ -144,6 +241,7 @@ canonical:
     - Fylling (1 flate)
     - Tannfarget fylling, 1 flate
     - Komposittfylling 1 flate (kompositt)
+    - Tannfarget fylling (kompositt) 1 flate
 - id: composite_filling_two_surfaces
   navn: Tannfarget fylling, to tannflater
   lag: 1
@@ -167,6 +265,8 @@ canonical:
     - Fylling (2 flater)
     - Tannfarget fylling, 2 flater
     - Komposittfylling 2 flater (kompositt)
+    - Tannfarget fylling (kompositt) 2 flater
+    - Tannfarget fylling, 2 flaterr
 - id: composite_filling_three_surfaces
   navn: Tannfarget fylling, tre tannflater
   lag: 1
@@ -189,6 +289,8 @@ canonical:
     - Plastfylling, 3 flater
     - Fylling (3 flater)
     - Tannfarget fylling, 3 flater
+    - Tannfarget fylling (kompositt) 3 flater
+    - Tannfarget fylling, 3 flaterr
 - id: composite_filling_four_plus_surfaces
   navn: Tannfarget fylling, fire eller flere tannflater
   lag: 3
@@ -199,6 +301,10 @@ canonical:
     oc:
     - Fylling 4 flater eller mer
     oris: []
+    single:
+    - Tannfarget fylling (kompositt) 4 flater
+    - Tannfarget fylling, 4 flater eller merr
+    - Tannfarget fylling, 4 flater eller mer
 - id: crown
   navn: Krone
   lag: 2
@@ -223,6 +329,19 @@ canonical:
     - Tannkrone full-keramisk
     - Tannkrone porselen
     - Helkrone porselen
+    - Krone, metall/ keramikk
+    - Kroneoppbygging i kompositt
+    - Fullkrone Cerec - krone som lages på klinikken og kan sementeres samme dag
+    - Fullkrone fra tannteknikker - krone sendes til teknikker for fremstilling
+    - Tannkrone metallfri (zirkonia, monoblock)
+    - Tannkrone metallfri (e.max)
+    - Zirconia tannkrone inkludert tannteknikk
+    - Metallkeram krone inkludert tannteknikker
+    - Helkeramisk krone på en jeksel
+    - Fullkrone i metall og porselen uten stift
+    - Porselenskroner
+    - Krone (alle typer) + tanntekn.
+    - Krone eksklusiv tannteknikk
 - id: root_canal_anterior
   navn: Rotfylling, fortann
   lag: 2
@@ -239,6 +358,16 @@ canonical:
     - Rotfylling (1 rotkanal)
     - Rotfylling 1 rotkanal
     - Rotfylling fortann (1 rotkanal)
+    - Rotfylling, fortann/hjørnetann
+    - Rotfylling fortann
+    - Rotfylling av vital fortann
+    - Rotfylling av nekrotisk fortann
+    - Rotfylling, 1 kanal
+    - Rotfylling 1 kanal
+    - Rotfylling en kanal
+    - Rotfylling av tann med 1 rotkanal
+    - Rotfylling (fortann/hjørnetann)
+    - Rotfylling, fortann
 - id: implant_with_crown
   navn: Implantat inkl. krone
   lag: 3
@@ -250,6 +379,16 @@ canonical:
     oc: []
     oris:
     - Implantat behandling - én tann inkl. krone
+    single:
+    - Implantatkrone
+    - Implantatkrone inkl. distanse
+    - Implantat inkludert implantatkrone
+    - Implantat m/distanse og krone
+    - Tannimplantat inklusive tannteknikk
+    - Implantat inklusiv tannteknikk
+    - Ett implantat inkludert tannkrone (standard)
+    - Helkeramisk krone på et implantat i overkjeven
+    - Implantat
 - id: tooth_extraction_simple
   navn: Trekking, ukomplisert
   lag: 2
@@ -269,6 +408,13 @@ canonical:
     - Ukomplisert ekstraksjon
     - Tanntrekking ukomplisert
     - Tanntrekking, ukomplisert
+    - Tanntrekking enkel
+    - Tanntrekking (ekstraksjon), enkel
+    - Tanntrekking (enkel)
+    - Enkel tanntrekking
+    - Trekking av tann
+    - Trekke tann - ukomplisert
+    - Trekking av tann, ukomplisert
 - id: tooth_extraction_complex
   navn: Trekking, komplisert (kirurgisk uten visdomstann)
   lag: 3
@@ -284,6 +430,12 @@ canonical:
     - Tanntrekking, komplisert
     - Komplisert ekstraksjon
     - Komplisert ekstraksjon av tann eller rot
+    - Kirurgisk tanntrekking
+    - Kirurgisk tanntrekking hos oralkirurg
+    - Kirurgisk fjerning av tann eller rot
+    - Kirurgisk fjerning av tann / rotrest (delvis refusjon fra Helfo)
+    - Egenandel ved kirurgisk fjerning av tann + evt. etterkontroll
+    - Trekking av tann, komplisert
 - id: root_canal_premolar
   navn: Rotfylling, premolar (liten jeksel)
   lag: 2
@@ -300,6 +452,13 @@ canonical:
     - Rotfylling (2 kanaler)
     - Rotfylling 2 rotkanaler
     - Rotfylling, 2 rotkanaler
+    - Rotfylling, premolar
+    - Rotfylling premolar
+    - Rotfylling, 2 kanaler
+    - Rotfylling 2 kanaler
+    - Rotfylling to kanaler
+    - Rotfylling (liten jeksel)
+    - Rotfylling, hjørnetann (premolar)
 - id: root_canal_molar
   navn: Rotfylling, molar (stor jeksel)
   lag: 2
@@ -318,6 +477,12 @@ canonical:
     - Rotfylling jeksel
     - Rotfylling, jeksel
     - Rotfylling stor jeksel
+    - Rotfylling, molar
+    - Rotfylling, 3 kanaler eller mer
+    - Rotfylling 3-4 kanaler
+    - Rotfylling av nekrotisk jeksel
+    - Rotfylling (jeksel)
+    - Rotfylling, jeksel (molar)
 - id: xray_intraoral
   navn: Intraoralt røntgenbilde
   lag: 2
@@ -330,6 +495,12 @@ canonical:
     - Røntgenbilde
     oris:
     - Røntgenbilde
+    single:
+    - Røntgenbilde (pr. stk)
+    - Røntgen per bilde
+    - Røntgenundersøkelse per bilde
+    - Røntgenbilde (apikal/BW)
+    - Foto, pr. bilde
 - id: bite_splint
   navn: Bittskinne
   lag: 3
@@ -341,6 +512,16 @@ canonical:
     - Bittskinne inkl. tannteknikk
     oris:
     - Bittskinne
+    single:
+    - Bittskinne egenandel (Helfo refusjon trukket fra)
+    - Bittskinne / midlertidig Valplast erstatning eksklusiv tannteknikk
+    - Bittskinne etter HELFO refusjon (egenandel)
+    - Mykplast bittskinne
+    - Hardplast bittskinne
+    - Hard bittskinne/TMD beh. (egenandel) + tanntekn.
+    - Egenandel hard bittskinne/TMD beh. eks tanntekn.
+    - Tannbeskytter
+    - Sportskinne
 - id: denture_full
   navn: Helprotese
   lag: 3
@@ -355,6 +536,12 @@ canonical:
     single:
     - Helprotese (gebiss)
     - Gebiss
+    - Helprotese, en kjeve (gebiss)
+    - Helprotese en kjeve
+    - Helsett (en helprotese i hver kjeve)
+    - Helprotese (en kjeve) eksklusiv tannteknikk
+    - Helprotese, en kjeve + tanntekn.
+    - Helprotese
 - id: denture_partial
   navn: Delprotese / partiell protese
   lag: 3
@@ -365,6 +552,12 @@ canonical:
     oc:
     - Partiell protese (delprotese) inkl. tannteknikk
     oris: []
+    single:
+    - Delprotese
+    - Delprotese, en kjeve
+    - Delprotese en kjeve
+    - Partiellprotese (delprotese) eksklusiv tannteknikk
+    - Delprotese, en kjeve + tanntekn.
 - id: veneer
   navn: Skallfasett / fasett
   lag: 3
@@ -376,6 +569,10 @@ canonical:
     oc: []
     oris:
     - Fasett (porselensfasade)
+    single:
+    - Skallfasetter (porselensfasade) eksklusiv tannteknikk
+    - Skallfasett per tann
+    - Skallfasett metallfri (e.max)
 - id: panoramic_xray
   navn: Panoramarøntgen (OPG)
   lag: 2
@@ -388,6 +585,15 @@ canonical:
     - OPG
     oris:
     - OPG (panoramarøntgen)
+    single:
+    - Panoramarøntgen/ OPG
+    - Panorama-røntgen (OPG)
+    - Panoramarøntgen (opg)
+    - Panoramarøntgen (OPG bilde)
+    - Panoramarøntgen
+    - OPG Panoramarøntgen
+    - OPG (panorama røntgen)
+    - Rtg. OPG
 - id: cbct_xray
   navn: CBCT 3D-røntgen
   lag: 3
@@ -399,6 +605,9 @@ canonical:
     oc: []
     oris:
     - CBCT
+    single:
+    - CBCT – 3D røntgenbilde (inkludert tolkning av kjeve- og ansiktsradiolog)
+    - Ceph / Cephalogram røntgen
 - id: anesthesia_per_dose
   navn: Bedøvelse, per dose
   lag: 2
@@ -411,6 +620,12 @@ canonical:
     - Bedøvelse
     oris:
     - Bedøvelse (enkel injeksjon)
+    single:
+    - Anestesi
+    - Anestesi (bedøvelse) pr 1,8ml/område
+    - Anestesi per karpyle (sprøyte)
+    - Bedøvelse, pr. injeksjon
+    - 'Bedøvelse: Infiltrasjons- eller ledningsanestesi'
 - id: wisdom_tooth_surgery
   navn: Visdomstann-operasjon / kirurgisk fjerning
   lag: 2
@@ -424,3 +639,71 @@ canonical:
     - Kirurgisk fjernelse av tann
     oris:
     - Visdomstannoperasjon
+    single:
+    - Fjerning av visdomstann eller dyptliggende rot
+    - Fjerning av visdomstann - spesialist/oralkirurg
+    - Kirurgisk fjerning av retinert tann eller dyptliggende rot
+    - Kirurgisk tanntrekking av visdomstann eller dypliggennde rot
+    - 'Fjerning av visdomstann: enkel trekking'
+    - 'Fjerning av visdomstann: kirurgisk fjerning'
+    - Vurdering/smertelindring av visdomstann (eks opg)
+- id: bridge
+  navn: Tannbro
+  lag: 3
+  kjede_terminologi:
+    odontia: []
+    colosseum: []
+    oc: []
+    oris: []
+    single:
+    - Tannbro
+    - Tannbro inkludert tannteknikk
+    - Hengeledd i bro + tanntekn.
+- id: whitening
+  navn: Tannbleking
+  lag: 3
+  kjede_terminologi:
+    odontia: []
+    colosseum: []
+    oc: []
+    oris: []
+    single:
+    - Tannbleking
+    - Bleking (en kjeve) inklusiv blekemiddel og skinne
+    - Bleking (to kjever) inklusiv blekemiddel og skinner
+    - Hjemmebleking med skinne per kjeve
+    - Tannbleking – Hjemmebleking (1 kjeve)
+    - Tannbleking – Hjemmebleking (2 kjever)
+    - En kjeve (skinnebleking)
+    - Begge kjever (skinnebleking)
+    - Tannbleking, begge kjever (kampanje)
+    - Tannbleking med tilpasset blekeskinne og 2 tuber (kampanje ut mai)
+    - Tannbleking med full undersøkelse
+    - Tannbleking inkl. undersøkelse 90min
+    - Airflow og tannrens – kampanjepris (før kr 1325)
+- id: periodontitis_treatment
+  navn: Periodontittbehandling
+  lag: 3
+  kjede_terminologi:
+    odontia: []
+    colosseum: []
+    oc: []
+    oris: []
+    single:
+    - Periodontitt behandling per seanse. Etter refusjon
+    - Kirurgisk inngrep ved behandling av marginal periodontitt
+    - Periodontal behandling (behandling av tannkjøttsykdom), per 30 min. Egenandel (etter HELFO-refusjon).
+    - Periobehandling allmenntannlege (refusjon fra HELFO på deler av behandlingen)
+    - Perioundersøkelse med lommeregistrering
+- id: inlay_onlay
+  navn: Innlegg / onlay
+  lag: 3
+  kjede_terminologi:
+    odontia: []
+    colosseum: []
+    oc: []
+    oris: []
+    single:
+    - Innlegg
+    - Porselen-onlay / Gull-onlay eksklusiv tannteknikk
+    - Porselensinnlegg 4 flater
