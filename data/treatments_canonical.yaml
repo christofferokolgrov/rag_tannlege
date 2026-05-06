@@ -56,6 +56,22 @@ meta:
   - Ved behandling
   - Ved kirurgi
   - Ved konsultasjon / kontroll
+  - Tannsmykke
+  - Etterkontroll
+  - Behandling av  marginal periodontitt
+  - Behandling av marginal periodontitt
+  - Marginal periodontitt
+  - Oppdekningshonorar ved rotbehandling og kirurgi
+  - Oppdekningshonorar
+  - Tannbro
+  - Innlegg
+  - Narkose
+  - Invisalign-konsultasjon
+  - Invisalign (usynlige tannreguleringsskinner)
+  - 3D-skanning
+  - Tannimplantat
+  - Undersøkelse inkl. tannbleking – kampanjepris (før kr 5500)
+  - Tannbleking – kampanjepris (før kr 5500)
 canonical:
 - id: annual_checkup
   navn: Årlig kontroll
@@ -85,6 +101,9 @@ canonical:
     - Tannlegekonsultasjon
     - Konsultasjon
     - Tannundersøkelse hos tannpleier
+    - Enkel undersøkelse
+    - Tannlegekontroll
+    - Tannimplantatundersøkelse
 - id: tooth_cleaning
   navn: Tannrens
   lag: 3
@@ -122,6 +141,9 @@ canonical:
     - Komposittfylling, 1 flate
     - Komposittfylling 1 flate
     - Plastfylling, 1 flate
+    - Fylling (1 flate)
+    - Tannfarget fylling, 1 flate
+    - Komposittfylling 1 flate (kompositt)
 - id: composite_filling_two_surfaces
   navn: Tannfarget fylling, to tannflater
   lag: 1
@@ -142,6 +164,9 @@ canonical:
     - Komposittfylling, 2 flater
     - Komposittfylling 2 flater
     - Plastfylling, 2 flater
+    - Fylling (2 flater)
+    - Tannfarget fylling, 2 flater
+    - Komposittfylling 2 flater (kompositt)
 - id: composite_filling_three_surfaces
   navn: Tannfarget fylling, tre tannflater
   lag: 1
@@ -162,6 +187,8 @@ canonical:
     - Komposittfylling, 3 flater
     - Komposittfylling 3 flater
     - Plastfylling, 3 flater
+    - Fylling (3 flater)
+    - Tannfarget fylling, 3 flater
 - id: composite_filling_four_plus_surfaces
   navn: Tannfarget fylling, fire eller flere tannflater
   lag: 3
@@ -192,6 +219,10 @@ canonical:
     - Krone
     - Porselens krone
     - Krone (porselen)
+    - Tannkrone metall-keramisk
+    - Tannkrone full-keramisk
+    - Tannkrone porselen
+    - Helkrone porselen
 - id: root_canal_anterior
   navn: Rotfylling, fortann
   lag: 2
@@ -204,6 +235,10 @@ canonical:
     - Rotbehandling (rotfylling) fortann og hjørnetann
     oris:
     - Rotfylling, én rotkanal (fortann)
+    single:
+    - Rotfylling (1 rotkanal)
+    - Rotfylling 1 rotkanal
+    - Rotfylling fortann (1 rotkanal)
 - id: implant_with_crown
   navn: Implantat inkl. krone
   lag: 3
@@ -228,6 +263,12 @@ canonical:
     - Uttrekning
     oris:
     - Ukomplisert trekking av tann
+    single:
+    - Tanntrekking (ukomplisert)
+    - Ukomplisert ekstraksjon av tann eller rot
+    - Ukomplisert ekstraksjon
+    - Tanntrekking ukomplisert
+    - Tanntrekking, ukomplisert
 - id: tooth_extraction_complex
   navn: Trekking, komplisert (kirurgisk uten visdomstann)
   lag: 3
@@ -237,6 +278,12 @@ canonical:
     colosseum: []
     oc: []
     oris: []
+    single:
+    - Tanntrekking (komplisert)
+    - Tanntrekking komplisert
+    - Tanntrekking, komplisert
+    - Komplisert ekstraksjon
+    - Komplisert ekstraksjon av tann eller rot
 - id: root_canal_premolar
   navn: Rotfylling, premolar (liten jeksel)
   lag: 2
@@ -249,6 +296,10 @@ canonical:
     - Rotbehandling (rotfylling) premolar
     oris:
     - Rotfylling, to rotkanaler (hjørne/sidetann)
+    single:
+    - Rotfylling (2 kanaler)
+    - Rotfylling 2 rotkanaler
+    - Rotfylling, 2 rotkanaler
 - id: root_canal_molar
   navn: Rotfylling, molar (stor jeksel)
   lag: 2
@@ -262,6 +313,11 @@ canonical:
     oris:
     - Rotfylling, tre rotkanaler (jeksel)
     - Rotfylling, fire rotkanaler
+    single:
+    - Rotfylling (stor jeksel)
+    - Rotfylling jeksel
+    - Rotfylling, jeksel
+    - Rotfylling stor jeksel
 - id: xray_intraoral
   navn: Intraoralt røntgenbilde
   lag: 2
@@ -296,6 +352,9 @@ canonical:
     - Helprotese (en kjeve) inkl. tannteknikk
     oris:
     - Helprotese, per kjeve
+    single:
+    - Helprotese (gebiss)
+    - Gebiss
 - id: denture_partial
   navn: Delprotese / partiell protese
   lag: 3

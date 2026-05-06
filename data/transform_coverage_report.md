@@ -1,6 +1,6 @@
 # Transform coverage report
 
-- Total canonical_long rows: 4047
+- Total canonical_long rows: 4072
 - Canonical IDs in YAML: 22
 - Real clinics in manifest: 245
 
@@ -8,22 +8,22 @@
 
 | canonical_id | odontia | colosseum | oc | oris | single |
 |---|---|---|---|---|---|
-| annual_checkup | ✓ (40) | ✓ (91) | ✓ (18) | ✓ (94) | ✓ (16) |
+| annual_checkup | ✓ (40) | ✓ (91) | ✓ (18) | ✓ (94) | ✓ (18) |
 | tooth_cleaning | ✓ (32) | ✓ (91) | — | — | — |
-| composite_filling_one_surface | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (7) |
-| composite_filling_two_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (7) |
-| composite_filling_three_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (7) |
+| composite_filling_one_surface | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (10) |
+| composite_filling_two_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (9) |
+| composite_filling_three_surfaces | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (9) |
 | composite_filling_four_plus_surfaces | ✓ (24) | — | ✓ (1) | — | — |
-| crown | ✓ (34) | ✓ (91) | ✓ (15) | ✓ (94) | ✓ (2) |
-| root_canal_anterior | ✓ (33) | ✓ (91) | ✓ (1) | ✓ (94) | ✓ (1) |
+| crown | ✓ (34) | ✓ (91) | ✓ (15) | ✓ (94) | ✓ (4) |
+| root_canal_anterior | ✓ (33) | ✓ (91) | ✓ (1) | ✓ (94) | ✓ (2) |
 | implant_with_crown | ✓ (16) | ✓ (1) | — | ✓ (94) | — |
-| tooth_extraction_simple | ✓ (34) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (1) |
-| tooth_extraction_complex | ✓ (6) | — | — | — | ✓ (2) |
-| root_canal_premolar | ✓ (33) | ✓ (91) | ✓ (1) | ✓ (94) | ✓ (1) |
-| root_canal_molar | ✓ (33) | ✓ (91) | ✓ (1) | ✓ (188) | ✓ (2) |
+| tooth_extraction_simple | ✓ (34) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (6) |
+| tooth_extraction_complex | ✓ (6) | — | — | — | ✓ (6) |
+| root_canal_premolar | ✓ (33) | ✓ (91) | ✓ (1) | ✓ (94) | ✓ (2) |
+| root_canal_molar | ✓ (33) | ✓ (91) | ✓ (1) | ✓ (188) | ✓ (4) |
 | xray_intraoral | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | ✓ (5) |
 | bite_splint | ✓ (32) | — | ✓ (1) | ✓ (94) | ✓ (3) |
-| denture_full | ✓ (31) | — | ✓ (1) | ✓ (94) | ✓ (2) |
+| denture_full | ✓ (31) | — | ✓ (1) | ✓ (94) | ✓ (3) |
 | denture_partial | ✓ (1) | — | ✓ (1) | — | — |
 | veneer | ✓ (23) | ✓ (91) | — | ✓ (94) | ✓ (3) |
 | panoramic_xray | ✓ (32) | ✓ (91) | ✓ (14) | ✓ (94) | — |
@@ -88,4 +88,4 @@ Sentral propagation sanity: every real clinic in a sentral chain
 - **colosseum**: 91 clinic(s), variable row counts [16, 17] ⚠
 - **oc**: 14 clinic(s), variable row counts [9, 10, 11, 15] ⚠
 - **oris**: 94 clinic(s), all with 19 rows ✓
-- **single**: 11 clinic(s), variable row counts [2, 3, 4, 6, 7, 8, 15] ⚠
+- **single**: 12 clinic(s), variable row counts [1, 2, 4, 5, 7, 8, 10, 17, 19] ⚠
