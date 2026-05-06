@@ -131,10 +131,13 @@ class Store:
             # vec0 MATCH applies kNN before our SQL-level filters, so asking
             # for only `k` candidates would leave most filtered out. Overfetch
             # the full vector pool so the IN filter sees every candidate
-            # ranked by distance.
-            pool = self._conn.execute(
+            # ranked by distance — but vec0's k parameter is capped at 4096,
+            # so cap there. Beyond ~4k candidates the relevance signal is
+            # noise anyway for our top-30 retrieval.
+            total = self._conn.execute(
                 "SELECT COUNT(*) FROM vec_chunks"
             ).fetchone()[0]
+            pool = min(total, 4096)
             sql = f"""
                 SELECT {select_cols}
                 FROM vec_chunks v
