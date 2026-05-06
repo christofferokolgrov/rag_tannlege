@@ -1,0 +1,19 @@
+# Selective HelseSmart targets per design §7.
+#
+# Each entry triggers a HelseSmart fetch for a specific clinic. Rows emitted
+# here carry pris_kilde=helsesmart and supplement (do not replace) any rows
+# the chain's own scraper produced.
+#
+# `treatments` filters which HelseSmart rows are emitted: only treatment
+# names containing one of the listed substrings (case-insensitive) become
+# PriceRows. Empty/omitted means "all treatments on the page".
+#
+# Auto-fallback for Colosseum + OC implant prices (per #22 spec) is on the
+# follow-up list — for now, those clinics opt in explicitly here.
+
+targets:
+  - klinikk_id: colosseum__majorstuen
+    helsesmart_url: https://www.helsesmart.no/klinikk/colosseum-tannlege-majorstuen-12541/priser/
+    treatments:
+      - implantat
+    reason: "Colosseum's central prisliste has no implant price; HelseSmart fills the gap (design §7 implant exception)."
